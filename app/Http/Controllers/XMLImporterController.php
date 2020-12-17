@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\XMLImporter;
+use App\Models\XMLImporterModel;
 
 class XMLImporterController extends Controller
 {
 
     public function __construct()
     {
-     
-       $this -> xml_model = new XMLImporter();
+
+       $this -> xml_model = new XMLImporterModel();
 
     }
 
@@ -29,10 +29,25 @@ class XMLImporterController extends Controller
     /**
      * Run from the import process
      */
-    public function import() {
+    public function import(Request $request) {
 
-        echo ('<pre>');
-        print_r($_FILES);
+        if( $request -> hasFile('files') && $request -> file('files') ) 
+        {
+
+            foreach ( $request -> file('files') as $file ) {
+
+                $name = $file -> getClientOriginalName();
+                $file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
+
+            }
+
+            return 'Importação finalizada!!!';
+
+        }
+
+        else {
+            return 'Arquvios inválidos';
+        }
 
     }
 
