@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\XMLImporterController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,5 +13,6 @@ use App\Http\Controllers\XMLImporterController;
 |
 */
 
-Route::any('/', [XMLImporterController::class, 'index']);
-Route::post('/', [XMLImporterController::class, 'import']);
+Route::get('/', function () {
+    return view('welcome');
+});
