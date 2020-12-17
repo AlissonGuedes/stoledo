@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Models\XMLImporterModel;
 
+use App\Http\Controllers\NFeController;
+
 class XMLImporterController extends Controller
 {
 
     public function __construct()
     {
 
+        $this -> nfe = new NFeController;
        $this -> xml_model = new XMLImporterModel();
 
     }
@@ -38,6 +41,9 @@ class XMLImporterController extends Controller
 
                 $name = $file -> getClientOriginalName();
                 $file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
+               
+               
+                $this -> readFile($name);
 
             }
 
@@ -48,6 +54,17 @@ class XMLImporterController extends Controller
         else {
             return 'Arquvios inválidos';
         }
+
+    }
+
+    /**
+     * Start reading the file line by line
+     */
+    public function readFile($file) {
+
+        $xml = simplexml_load_file('../storage/app/public/files/xml/' . $file);
+
+        $this -> nfe -> getId($xml);
 
     }
 
