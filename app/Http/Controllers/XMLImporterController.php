@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\XMLImporterModel;
-
 use App\Http\Controllers\NFeController;
 
 class XMLImporterController extends Controller
@@ -14,8 +12,8 @@ class XMLImporterController extends Controller
     public function __construct()
     {
 
-        $this -> nfe = new NFeController;
-       $this -> xml_model = new XMLImporterModel();
+		$this -> nfe = new NFeController;
+		$this -> xml_model = new XMLImporterModel();
 
     }
 
@@ -64,7 +62,7 @@ class XMLImporterController extends Controller
 
         $xml = simplexml_load_file('../storage/app/public/files/xml/' . $file);
 
-        $this -> nfe -> getId($xml);
+        echo $this -> nfe -> getId($xml);
 
     }
 

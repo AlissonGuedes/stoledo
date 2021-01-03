@@ -14,7 +14,7 @@ class NFeController extends Controller {
 
     public function getId($nfe) {
 
-        return $nfe -> NFe -> infNFe -> attributes() -> Id;
+		return $nfe -> NFe -> infNFe -> attributes() -> Id;
 
     }
 
