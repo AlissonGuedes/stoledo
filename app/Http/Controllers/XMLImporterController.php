@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\XMLImporterModel;
 use App\Http\Controllers\NFeController;
 
+use App\Models\Entities\NFe;
+use App\Models\FornecedorModel;
+
 class XMLImporterController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct() {
 
-		$this -> nfe = new NFeController;
 		$this -> xml_model = new XMLImporterModel();
+		$this -> nfe = new NFe();
+        $this -> fornecedor_model = new FornecedorModel();
 
     }
 
@@ -62,7 +65,22 @@ class XMLImporterController extends Controller
 
         $xml = simplexml_load_file('../storage/app/public/files/xml/' . $file);
 
-        echo $this -> nfe -> getId($xml);
+		/**
+		 * (...) Primeiro, iremos ler os dados da NFe e salvá-los no Banco
+		 */
+		// $this -> nfe -> getData($xml);
+		// $this -> nfe -> setVersao($xml -> NFe -> infNFe -> attributes() -> versao);
+
+        // Cadastrar fornecedor/emitente da nota fiscal
+        $this -> fornecedor_model -> insertFornecedor($xml -> NFe -> infNFe -> emit);
+
+        // Cadastrar o destinatário da nota fiscal. Basicamente, são as mesmas informações.
+        $this -> fornecedor_model -> insertDestinatario($xml -> NFe -> infNFe -> dest);
+
+		// $this -> nfe -> fill($xml -> NFe -> infNFe -> ide);
+
+		echo '<br>==========================================<br>';
+
 
     }
 
