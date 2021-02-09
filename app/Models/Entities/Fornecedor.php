@@ -54,7 +54,7 @@ namespace App\Models\Entities {
 
 		/** Obtém o Endereço do Emitente */
 		public function setEnderEmit($endereco) {
-			$this -> enderEmit = $this -> endereco_model -> insertLogradouro($endereco);
+			$this -> enderEmit = $endereco;
 		}
 
 		public function getEnderEmit($field = null) {

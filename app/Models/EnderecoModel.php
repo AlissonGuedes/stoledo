@@ -37,15 +37,25 @@ namespace App\Models {
 
 		}
 
-		public function insertUF($pais) {
+		public function insertUF($uf) {
 
-			$id = null;
+			$id_pais = null;
+			$pais = $this -> select('cPais') -> from('tb_pais');
 
-			$hasUF = $this -> select('id', 'uf', 'cPais') -> from('tb_uf') -> where('uf', $pais -> UF) -> where('cPais', $pais -> cPais) -> first();
+			if ( isset($uf -> cPais) ) $pais -> where('cPais', $uf -> cPais);
+			if ( isset($uf -> xPais) ) $pais -> where('xPais', $uf -> xPais);
+
+			$id_pais = $pais -> first();
+
+			$hasUF = $this -> select('id', 'uf', 'cPais')
+						   -> from('tb_uf')
+						   -> where('uf', $uf -> UF)
+						   -> where('cPais', $id_pais -> cPais)
+						   -> first();
 
 			if ( ! isset($hasUF) ) {
 				$this -> table = 'tb_uf';
-				return $this -> insert(['uf' => $pais -> UF, 'cPais' => $pais -> cPais]);
+				return $this -> insert(['uf' => $uf -> UF, 'cPais' => $id_pais -> cPais]);
 			}
 
 			return $hasUF -> id;

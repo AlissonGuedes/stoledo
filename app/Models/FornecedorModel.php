@@ -2,11 +2,10 @@
 
 namespace App\Models {
 
-    use App\Http\Middleware\Authenticate;
-    use Illuminate\Contracts\Auth\MustVerifyEmail;
 	use Illuminate\Database\Eloquent\Factories\HasFactory;
 	use Illuminate\Foundation\Auth\User as Authenticatable;
 	use Illuminate\Notifications\Notifiable;
+	use Illuminate\Support\Facades\DB;
 
 	use App\Models\Entities\Fornecedor;
 
@@ -21,6 +20,8 @@ namespace App\Models {
 		protected $casts = [];
 
 		protected $table = 'tb_fornecedor';
+
+		protected $order = [];
 
 		public function __construct() {
 			$this -> fornecedor = new Fornecedor();
@@ -41,8 +42,11 @@ namespace App\Models {
 					'cnpj' => $fornecedor -> getCNPJ(),
 					'nome' => $fornecedor -> getXNome(),
 					'xFant' => $fornecedor -> getXFant(),
-					'id_bairro' => $fornecedor -> getEnderEmit('id_bairro'),
+					'xBairro' => $fornecedor -> getEnderEmit('bairro'),
 					'xLgr' => $fornecedor -> getEnderEmit('xLgr'),
+					'cMun' => $fornecedor -> getEnderEmit('cMun'),
+					'cep' => $fornecedor -> getEnderEmit('CEP'),
+					'cPais' => $fornecedor -> getEnderEmit('cPais'),
 					'nro' => $fornecedor -> getEnderEmit('nro'),
 					'fone' => $fornecedor -> getEnderEmit('fone'),
 					'email' => $fornecedor -> getEmail(),
@@ -58,104 +62,117 @@ namespace App\Models {
 
 		}
 
-		public function insertDestinatario($emit) {
+		public function insertDestinatario($dest) {
 
-			$fornecedor = $this -> fornecedor -> fill($emit);
+			$destinatario = $this -> fornecedor -> fill($dest);
 
-			$hasFornecedor = $this -> select('id', 'cnpj', 'nome', 'xLgr', 'fone', 'ie', 'crt')
+			$hasDestinatario = $this -> select('id', 'cnpj', 'nome', 'xLgr', 'fone', 'ie', 'crt')
 								   -> from('tb_fornecedor')
-								   -> where('cnpj', $emit -> CNPJ)
+								   -> where('cnpj', $dest -> CNPJ)
 								   -> first();
 
-			if ( ! isset($hasFornecedor) ) {
+			if ( ! isset($hasDestinatario) ) {
 
 				$data = array(
-					'cnpj' => $fornecedor -> getCNPJ(),
-					'nome' => $fornecedor -> getXNome(),
-					'xFant' => $fornecedor -> getXFant(),
-					'id_bairro' => $fornecedor -> getEnderDest('id_bairro'),
-					'xLgr' => $fornecedor -> getEnderDest('xLgr'),
-					'nro' => $fornecedor -> getEnderDest('nro'),
-					'fone' => $fornecedor -> getEnderDest('fone'),
-					'email' => $fornecedor -> getEmail(),
-					'ie' => $fornecedor -> getIE(),
-					'indIEDest' => $fornecedor -> getindIEDest(),
-					'crt' => $fornecedor -> getCRT()
+					'cnpj' => $destinatario -> getCNPJ(),
+					'nome' => $destinatario -> getXNome(),
+					'xFant' => $destinatario -> getXFant(),
+					'xBairro' => $destinatario -> getEnderEmit('bairro'),
+					'xLgr' => $destinatario -> getEnderEmit('xLgr'),
+					'cMun' => $destinatario -> getEnderEmit('cMun'),
+					'cep' => $destinatario -> getEnderEmit('CEP'),
+					'cPais' => $destinatario -> getEnderEmit('cPais'),
+					'nro' => $destinatario -> getEnderDest('nro'),
+					'fone' => $destinatario -> getEnderDest('fone'),
+					'email' => $destinatario -> getEmail(),
+					'ie' => $destinatario -> getIE(),
+					'indIEDest' => $destinatario -> getindIEDest(),
+					'crt' => $destinatario -> getCRT()
 				);
 
 				$this -> insert($data);
 
 			}
 
-			// return $hasPais -> id;
+		}
+
+		public function getAll($num_rows = false) {
+
+			$this -> table = 'tb_fornecedor AS F';
+
+			$get = $this -> select(
+							'F.id',
+							DB::raw('(select sum(tb_nfe.vNF)  from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS totais'),
+							DB::raw('(select count(tb_nfe.id) from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS qtd_nf'),
+							DB::raw('(IF(F.cnpj!="",F.cnpj,F.cpf) ) AS cnpj'),
+							'F.nome'
+						 );
+
+			if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
+
+				$search = $_GET['search']['value'];
+
+				$get -> orWhere('F.cnpj', 'like', '%' . $search . '%')
+					 -> orWhere('F.cpf', 'like', '%' .  $search . '%')
+					 -> orWhere('F.ie', 'like', '%' .  $search . '%')
+					 -> orWhere('F.nome', 'like', $search . '%');
+        	}
+
+			$this -> order = [
+				null,
+				'F.nome',
+				'F.cnpj',
+				DB::raw('(select count(tb_nfe.id) from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90)'),
+				DB::raw('(select sum(tb_nfe.vNF)  from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90)'),
+				null
+			];
+
+			if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+				$get  -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+			} else {
+				$get  -> orderBy($this -> order[1], 'ASC');
+			}
+
+			if ( isset($_GET['length']))
+				$get  -> limit($_GET['length']);
+
+			if ( isset($_GET['start']) ) {
+				$get  -> offset($_GET['start']);
+			}
+
+			$get -> orderBy('nome', 'asc');
+
+			return $get;
 
 		}
 
-		// public function insertUF($pais) {
+		public function getSupplierById($id) {
 
-		// 	$id = null;
+			$this -> table = 'tb_fornecedor AS F';
+			return $this -> select(
+							DB::raw('(select sum(tb_nfe.vNF)  from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS totais'),
+							DB::raw('(select count(tb_nfe.id) from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS qtd_nf'),
+							DB::raw('(IF(F.cnpj!="",F.cnpj,F.cpf) ) AS cnpj'),
+							'F.nome'
+						 )
+						 -> where('F.cnpj', '=', $id)
+						 -> orWhere('F.cpf', '=', $id)
+						 -> first();
 
-		// 	$hasUF = $this -> select('id', 'uf', 'cPais') -> from('tb_uf') -> where('uf', $pais -> UF) -> where('cPais', $pais -> cPais) -> first();
+		}
 
-		// 	if ( ! isset($hasUF) ) {
-		// 		$this -> table = 'tb_uf';
-		// 		return $this -> insert(['uf' => $pais -> UF, 'cPais' => $pais -> cPais]);
-		// 	}
+		public function getNFe($cnpj) {
 
-		// 	return $hasUF -> id;
+			$this -> table = 'tb_nfe AS F';
 
-		// }
 
-		// public function insertMunicipio($pais) {
+		}
 
-		// 	$id = null;
+		public function getTotalNFe() {
 
-		// 	$hasEndereco = $this -> select('cMun', 'xMun') -> from('tb_municipio') -> where('cMun', $pais -> cMun) -> where('cMun', $pais -> cMun) -> first();
+			return $this -> getAll() -> count();
 
-		// 	if ( ! isset($hasEndereco) ) {
-		// 		$this -> table = 'tb_municipio';
-		// 		return $this -> insert(['cMun' => $pais -> cMun, 'xMun' => $pais -> xMun, 'uf' => $pais -> UF]);
-		// 	}
-
-		// 	return $hasEndereco -> id;
-
-		// }
-
-		// public function insertBairro($pais) {
-
-		// 	$id = null;
-
-		// 	$hasBairro = $this -> select('id', 'xBairro', 'cMun') -> from('tb_bairro') -> where('cMun', $pais -> cMun) -> where('xBairro', $pais -> xBairro) -> first();
-
-		// 	if ( ! isset($hasBairro) ) {
-		// 		$this -> table = 'tb_bairro';
-		// 		return $id = $this -> insert(['cMun' => $pais -> cMun, 'xBairro' => $pais -> xBairro]);
-		// 	}
-
-		// 	return $hasBairro -> id;
-
-		// }
-
-		// public function insertLogradouro($pais) {
-
-		// 	$id = null;
-		// 	$this -> insertPais($pais);
-		// 	$this -> insertUF($pais);
-		// 	$this -> insertMunicipio($pais);
-		// 	$id_bairro = $this -> insertBairro($pais);
-
-		// 	$hasLgr = $this -> select('id', 'xLgr', 'cep', 'id_bairro') -> from('tb_logradouro') -> where('xLgr', $pais -> xLgr) -> where('id_bairro', $id_bairro) -> first();
-
-		// 	if ( ! isset($hasLgr) ) {
-		// 		$this -> table = 'tb_logradouro';
-		// 		$id = $this -> insert(['xLgr' => $pais -> xLgr, 'cep' => $pais -> CEP, 'id_bairro' => $id_bairro]);
-		// 	} else {
-		// 		$id = $hasLgr -> id;
-		// 	}
-
-		// 	return ['xLgr' => $id, 'nro' => $pais -> nro, 'fone' => $pais -> fone];
-
-		// }
+		}
 
 	}
 

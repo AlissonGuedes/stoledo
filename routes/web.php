@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\XMLImporterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImportsController;
+use App\Http\Controllers\NFeController;
+use App\Http\Controllers\SpedController;
+use App\Http\Controllers\FornecedoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +19,35 @@ use App\Http\Controllers\XMLImporterController;
 |
 */
 
-Route::any('/', [XMLImporterController::class, 'index']);
-Route::post('/', [XMLImporterController::class, 'import']);
+// =====================================
+// * Rotas padrão do sistema
+// =====================================
+Route::any('/', [HomeController::class, 'index']);
+Route::any('/home', [HomeController::class, 'index']) -> name('home');
+
+// =====================================
+// * Importações de arquivos
+// =====================================
+
+// Importar Arquivo
+Route::any('/imports', [ImportsController::class, 'index']) -> name('imports');
+Route::post('/imports', [ImportsController::class, 'import']);
+
+// =====================================
+// * Relatórios
+// =====================================
+
+// NFe
+Route::get('/reports/nfe', [NfeController::class, 'index']) -> name('reports.nfe');
+Route::get('/reports/nfe/{chNFe?}', [NfeController::class, 'details_nfe']) -> name('reports.nfe.view');
+
+// Fornecedores
+Route::get('/reports/fornecedores', [FornecedoresController::class, 'index'])->name('reports.fornecedores');
+Route::get('/reports/fornecedores/{cnpj}', [FornecedoresController::class, 'show'])->name('reports.fornecedores.cnpj');
+Route::get('/reports/fornecedores/{cnpj}/{nfe}', [FornecedoresController::class, 'show_nfe'])->name('reports.fornecedores.nfe');
+Route::get('/reports/fornecedores/xls/{cnpj}/{nfe}', [FornecedoresController::class, 'baixar_xls']) -> name('reports.fornecedores.baixar_xls');
+
+// NFe
+Route::get('/reports/sped', [SpedController::class, 'index']) -> name('reports.sped');
+Route::get('/reports/sped/{cnpj}/{data_inicio}-{data_fim}', [SpedController::class, 'show']) -> name('reports.sped.id');
+Route::get('/reports/sped/{cnpj}/{data_inicio}-{data_fim}/{emitente}', [SpedController::class, 'detalhamento']) -> name('reports.sped.detalhamento');

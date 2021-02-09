@@ -2,11 +2,11 @@
 
 @section('title', 'Home Page')
 
-@section('sidebar')
+{{-- @section('sidebar') --}}
 	
-	@parent
+	{{-- @parent --}}
 
-@endsection
+{{-- @endsection --}}
 
 @section('content')
 	Página Inicial

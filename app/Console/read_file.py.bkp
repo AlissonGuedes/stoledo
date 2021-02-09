@@ -1,0 +1,586 @@
+'''
+'	@autor: Alisson Guedes
+'	@Date: Qui 04 Fev 2021 09:54:10 -03
+'
+'	SCRIPT PARA EXECUTAR LEITURA DOS ARQUIVOS `sped_fiscal` NO FORMATO TXT
+'
+'	Como o arquivo de sped_fiscal é muito grande em números de linhas, e no PHP
+'	existe um tempo de execução limitado, o programa aborta sem obter a leitura completa do arquivo.
+' 
+'	Portanto, utilizaremos este script para realizar a leitura linha a linha e a sua tratativa
+'	de inserção no banco de dados.
+'
+'	Embora, existam configurações no PHP que possam solucionar o problema de limite de execução,
+'	a linguagem Python foi escolhida por fazer isso em um tempo muito menor sem a preocupação de sobrecarga do servidor.
+'''
+
+import os
+from mysql.connector import connect, Error
+
+try:
+    conn = connect(host='localhost', user='stoledo',
+                   password='stoledo', database='stoledo', raw=False)
+    print('Connection established')
+except Error:
+    print(Error)
+else:
+    cursor = conn.cursor()
+
+'''
+'	Estaremos executando este arquivo sempre no diretório `public` ou `public_html`,
+'	portanto, todos os arquivos serão listados como no por exemplo a seguir:
+' 
+'		`/var/www/html/website.com.br/public/../storage/app/public/files/txt/`
+'
+'	Assim, obteremos o caminho completo, indepentemente do SO, para o diretório de arquivos de textos. Por exemplo:
+'
+'		`/var/www/html/website.com.br/storage/app/public/files/txt/`.
+'''
+
+DIR = os.path.join(os.getcwd() + os.sep + '..' + os.sep + 'storage' + os.sep +
+                   'app' + os.sep + 'public' + os.sep + 'files' + os.sep + 'txt' + os.sep)
+
+'''
+' Lista todos os arquivos do diretório DIR.
+'''
+FILES = os.listdir(DIR)
+
+url = "http://localhost/stoledo/public/imports/sped/"
+
+'''
+' Função para retornar o último ID inserido no banco de dados
+'''
+
+
+def getLastId():
+
+    query = 'select last_insert_id();'
+    cursor.execute(query)
+    v = cursor.fetchall()
+
+    return '%s' % (v[0])
+
+# Verifica se existe um cnpj cadastrado.
+# def issetCNPJ(f) :
+
+# 	query = 'SELECT cnpj FROM tb_fornecedor WHERE cnpj = "{}";'.format(f[6])
+# 	cursor.execute(query)
+# 	rows = cursor.fetchall()
+
+# 	if cursor.rowcount > 0:
+# 		return True
+# 	else:
+# 		return False
+
+
+# conn().execute(query, value)
+
+'''
+' Função para cdastrar o contador 
+'
+' @name: insertContador
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+'''
+
+
+def insertContador(linha):
+
+    contador = linha.split('|')
+    contador.pop()
+
+    if contador[0] == '':
+        contador.pop(0)
+
+    # verificar se existe o contador cadastrado pelo cpf ou pelo cnpj
+    query = 'SELECT id FROM tb_contabilista WHERE cpf = "{}" OR cnpj = "{}";'.format(
+        contador[2], contador[4])
+
+    # print(query)
+    cursor.execute(query)
+    id_contador = cursor.fetchall()
+
+    if cursor.rowcount == 0:
+
+        query = 'INSERT INTO tb_contabilista (nome, cpf, crc, cnpj, cep, logradouro, numero, complemento, bairro, fone, fax, email, cod_mun) \
+					VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
+        values = (contador[1], contador[2], contador[3], contador[4], contador[5], contador[6],
+                  contador[7], contador[8], contador[9], contador[10], contador[11], contador[12], contador[13])
+
+        # print(query %(values))
+        cursor.execute(query, values)
+        conn.commit()
+
+        query = 'select last_insert_id();'
+        cursor.execute(query)
+        v = cursor.fetchall()
+
+        id_contador = getLastId()
+
+    else:
+
+        id_contador = ('%s' % (id_contador[0]))
+
+    return id_contador
+
+######################################################################
+
+
+'''
+' Função para cadastrar o Sped Fiscal
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: retorna o ID do registro na tabela tb_spedfiscal
+'''
+
+
+def insertSped(linha, contador):
+
+    sped = linha.split('|')
+    sped.pop()
+
+    if sped[0] == '':
+        sped.pop(0)
+
+    query = 'SELECT id FROM tb_spedfiscal WHERE dt_ini = "{}" AND dt_fin = "{}" AND cnpj_fornecedor = "{}";'.format(
+        sped[3], sped[4], sped[6])
+    # print(query)
+
+    cursor.execute(query)
+    id_sped = cursor.fetchall()
+
+    if cursor.rowcount == 0:
+
+        query = 'INSERT INTO tb_spedfiscal \
+					(cnpj_fornecedor, id_contabilista, cod_ver, cod_fin, dt_ini, dt_fin, ind_perfil) \
+				VALUES \
+					(%s, %s, %s, %s, %s, %s, %s);'
+        values = (sped[6], contador, sped[1],
+                  sped[2], sped[3], sped[4], sped[13])
+
+        # print(query %(values))
+
+        cursor.execute(query, values)
+        conn.commit()
+
+        return getLastId()
+
+    else:
+
+        return '%s' % (id_sped[0])
+
+######################################################################
+
+
+'''
+' Função para verificar se o fornecedor já está cadastrado na tabela `tb_fornecedor`
+'
+' @name: getFornecedor
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: id do Fornecedor
+'''
+
+
+def getFornecedor(fornecedor):
+
+    cnpj = ''
+    cpf = ''
+    ie = ''
+
+    condicao = ''
+
+    if fornecedor[4] != '':
+        cnpj = 'cnpj = "{}"'.format(fornecedor[4])
+        condicao = cnpj
+
+    if fornecedor[5] != '':
+        cpf = 'cpf = "{}"'.format(fornecedor[5])
+        condicao = cpf
+
+    if fornecedor[6] != '':
+        ie = 'ie = "{}"'.format(fornecedor[6])
+        condicao = ie
+
+    if cnpj != '' and cnpj != '' and ie != '':
+        condicao = cnpj + ' AND ' + cpf
+    if cnpj != '' and ie != '':
+        condicao = cnpj + ' AND ' + ie
+    elif cnpj != '' and cpf != '':
+        condicao = cnpj + ' AND ' + cpf + ' AND ' + ie
+
+    query = 'SELECT id FROM tb_fornecedor WHERE {};'
+
+    # print(query.format(condicao))
+
+    cursor.execute(query.format(condicao))
+    rows = cursor.fetchone()
+
+    if cursor.rowcount == 0:
+        return False
+    else:
+        return '%s' % (rows[0])
+
+
+'''
+' Função para cadastrar o fornecedor encontrado que não existir na tabela `tb_fornecedor`
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @return: id do Fornecedor
+'''
+
+
+def cadastraFornecedor(fornecedor):
+
+    id = getFornecedor(fornecedor)
+
+    if not id:
+
+        query = 'INSERT INTO tb_fornecedor \
+					(nome, cPais, cnpj, cpf, ie, cMun, suframa, xLgr, nro, complemento, xBairro) \
+					VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
+
+        values = (fornecedor[2], fornecedor[3], fornecedor[4], fornecedor[5], fornecedor[6],
+                  fornecedor[7], fornecedor[8], fornecedor[9], fornecedor[10], fornecedor[11], fornecedor[12])
+
+        print('Cadastrando fornecedor ' + fornecedor[2])
+        cursor.execute(query, values)
+        conn.commit()
+
+        return getLastId()
+
+    else:
+
+        return id
+
+
+'''
+' Função para cadastrar o bloco 0150 na tabela `tb_spedfiscal_participante` de acordo com a NT NFD ICMS PIS
+' O bloco 150 se refere ao bloco de cadastro de participantes no Sped Fiscal.
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: sem retorno
+'''
+
+
+def insertBloco150(linha, id_sped):
+
+    id_fornecedor = cadastraFornecedor(linha)
+
+    query = 'SELECT id_sped, id_fornecedor, cod_part FROM tb_spedfiscal_participante WHERE id_sped = "{}" AND cod_part = "{}" AND id_fornecedor = "{}"'.format(
+        id_sped, linha[1], id_fornecedor)
+
+    cursor.execute(query)
+    rows = cursor.fetchone()
+
+    if cursor.rowcount == 0:
+        query = 'INSERT INTO tb_spedfiscal_participante (id_sped, id_fornecedor, cod_part) VALUES (%s, %s, %s);'
+        values = (id_sped, id_fornecedor, linha[1])
+
+        cursor.execute(query, values)
+        conn.commit()
+
+
+'''
+' Função para cadastrar o bloco 0190 na tabela `tb_unidade_medida` de acordo com a NT NFD ICMS PIS
+' O bloco 190 se refere ao bloco de cadastro das unidades de medidas no Sped Fiscal.
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: sem retorno
+'''
+
+
+def insertBloco190(linha):
+
+    query = 'SELECT id FROM tb_unidade_medida WHERE unidade = "{}";'.format(
+        linha[1])
+
+    cursor.execute(query)
+    rows = cursor.fetchone()
+
+    if cursor.rowcount == 0:
+        query = 'INSERT INTO tb_unidade_medida (unidade, descricao) VALUES (%s, %s);'
+        values = (linha[1], linha[2])
+
+        cursor.execute(query, values)
+        conn.commit()
+
+# def insertBlocl175(linha) :
+
+
+'''
+' Função para cadastrar o bloco 0200 na tabela `tb_spedfiscal_participante` de acordo com a NT NFD ICMS PIS
+' O bloco 200 se refere ao bloco de cadastro de identificação de itens no Sped Fiscal.
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: sem retorno
+'''
+
+
+def insertNovoBloco(dados, linha_atual, linha):
+
+    return ''
+
+
+def verificar220(linha, linha_corrente):
+
+    proxima_linha = 0
+
+    if linha[linha_corrente].split('|')[1] == '0200':
+        return (linha[linha_corrente].split('|')[2], linha[linha_corrente])
+
+    if linha[linha_corrente].split('|')[1] == '0220':
+        return verificar220(linha, linha_corrente + 1)
+
+
+def insertBloco200(dados, linha_atual, linha):
+
+    # ele_vai_partir_da_linha_atual_ate_a_proxima_linha_200
+    if dados[0] == '0200':
+
+        id_produto = dados[1]
+        query = 'SELECT id FROM tb_produto WHERE cod_item = "{}";'.format(
+            dados[1])
+
+        cursor.execute(query)
+        rows = cursor.fetchone()
+
+        # linha_corrente = linha[linha_atual + 1]
+        linha_corrente = linha_atual + 1
+
+        # while True:
+
+        i: int = 0
+
+        for i in range(linha_atual, linha_corrente):
+
+            prod = (linha_corrente, dados[2])
+            # print(prod)
+            print(verificar220(linha, linha_corrente))
+
+        else:
+            linha_corrente = 0
+
+		# print(linha_corrente)
+
+		# if cursor.rowcount == 0:
+
+		# print(dados)
+
+		# 	if dados[0] == '0200':
+
+		# 		query = 'INSERT INTO tb_produto (cod_item, descricao, cod_barra, cod_ant_item, unidade_inv, tipo_item, cod_ncm, ex_ipi, cod_gen, cod_lst, aliquota_icms, cest) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+		# 		values = (dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9], dados[10], dados[11].replace(',', '.'), (dados[12], 0)[dados != ''] )
+
+		# 		cursor.execute(query, values)
+		# 		# conn.commit()
+
+		# 		id_produto = getLastId()
+
+		# else :
+
+		# 	id_produto = '%s' %(rows[0])
+
+		# while True :
+
+		# 	if i[0] == '0220':
+
+		# 		print(i[0])
+		# 		# campos[0].append(i)
+
+		# 	else:
+
+		# 		break
+
+		# while dados[0] == '0200'
+
+		# print(linha_atual)
+		# while True:
+
+		# 	if linha[linha_atual].split('|')[0] != '0220' :
+		# 		print('Inserindo para o ID ', id_produto)
+		# 		print(linha_atual)
+		# 		print(linha[linha_atual])
+		# 		break
+		# 	else:
+		# 		linha_atual += 1
+
+		# 	linha_atual += 1
+		# 	print(linha[linha_atual])
+
+		# if dados[0] == '0220':
+
+		# 	print(id_produto)
+
+		# registro_atual = linha_atual
+
+		# for i in range(linha_atual, 0, -1):
+		# 	# print(linha[linha_atual - i])
+		# 	if linha[linha_atual - i].split('|')[1] == '0200':
+		# 		id_produto = linha[linha_atual + i].split('|')[2]
+		# 		break
+		# 	else:
+		# 		id_produto = ''
+
+		# # print(id_produto)
+
+		# print(linha[linha_atual])
+		# 	if linha_anterior.split('|')[0] == '0220':
+		# 		linha_anterior -= 1
+		# 		print(linha_anterior)
+		# 		break
+		# 		# ultimo_produto_inserido = coluna_anterior
+
+		# 	print(ultimo_produto_inserido)
+
+		# print(ultimo_produto_inserido)
+
+		# query = 'SELECT id FROM tb_produto_conversao WHERE id_produto = (SELECT id FROM tb_produto WHERE cod_item = "{}") AND id_unidade_medida = "{}";'.format(ultimo_produto_inserido, dados[1])
+		# # print(query)
+
+		# cursor.execute(query)
+		# row = cursor.fetchone()
+
+		# if cursor.rowcount == 0 :
+		# 	query = 'INSERT INTO tb_produto_conversao (id_produto, id_unidade_medida, fator_conversao) VALUES (%s, %s, %s);'
+		# 	values = (ultimo_produto_inserido, dados[1], dados[2].replace(',', '.'))
+
+		# 	cursor.execute(query, values)
+			# conn.commit()
+
+
+def insertBlocoC100(campo) :
+
+	query = 'SELECT id FROM tb_spedfiscal_nfe WHERE num_doc = "{}" AND chv_nfe = "{}";'
+
+	cursor.execute(query.format(campo[7], campo[8]))
+	row = cursor.fetchone()
+
+	if cursor.rowcount == 0 :
+
+		ind_oper = campo[1]
+		ind_emit = campo[2]
+		cod_part = campo[3]
+		cod_mod = campo[4]
+		cod_sit = campo[5]
+		ser = campo[6]
+		num_doc = campo[7]
+		chv_nfe = campo[8]
+		dt_doc = campo[9] if campo[9] != '' else 0
+		dt_e_s = campo[10] if campo[10] != '' else 0
+		vl_doc = campo[11].replace(',', '.') if campo[11] != '' else 0
+		ind_pgto = campo[12].replace(',', '.') if campo[12] != '' else 0
+		vl_desc = campo[13].replace(',', '.') if campo[13] != '' else 0
+		vl_abat_nt = campo[14].replace(',', '.') if campo[14] != '' else 0
+		ind_frt = campo[16]
+		vl_frt = campo[17].replace(',', '.') if campo[17] != '' else 0
+		vl_seg = campo[18].replace(',', '.') if campo[18] != '' else 0
+		vl_out_dia = campo[19].replace(',', '.') if campo[19] != '' else 0
+		vl_bc_icms = campo[20].replace(',', '.') if campo[20] != '' else 0
+		vl_icms = campo[21].replace(',', '.') if campo[21] != '' else 0
+		vl_bc_icms_st = campo[22].replace(',', '.') if campo[22] != '' else 0
+		vl_icms_cst = campo[23].replace(',', '.') if campo[23] != '' else 0
+		vl_ipi = campo[24].replace(',', '.') if campo[24] != '' else 0
+		vl_pis = campo[25].replace(',', '.') if campo[25] != '' else 0
+		vl_cofins = campo[26].replace(',', '.') if campo[26] != '' else 0
+		vl_pis_st = campo[27].replace(',', '.') if campo[27] != '' else 0
+		vl_cofins_st = campo[28].replace(',', '.') if campo[28] != '' else 0
+
+		query = 'INSERT INTO tb_spedfiscal_nfe (ind_oper, ind_emit, cod_part, cod_mod, cod_sit, ser, num_doc, chv_nfe, dt_doc, dt_e_s, vl_doc, ind_pgto, vl_desc, vl_abat_nt, ind_frt, vl_frt, vl_seg, vl_out_dia, vl_bc_icms, vl_icms, vl_bc_icms_st, vl_icms_cst, vl_ipi, vl_pis, vl_cofins, vl_pis_st, vl_cofins_st) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
+
+		values = (ind_oper, ind_emit, cod_part, cod_mod, cod_sit, ser, num_doc, chv_nfe,  dt_doc, dt_e_s, vl_doc, ind_pgto, vl_desc, vl_abat_nt, ind_frt, vl_frt, vl_seg, vl_out_dia, vl_bc_icms, vl_icms, vl_bc_icms_st, vl_icms_cst, vl_ipi, vl_pis, vl_cofins, vl_pis_st, vl_cofins_st)
+
+		cursor.execute(query, values)
+		conn.commit()
+
+		if cursor.rowcount > 0 :
+			print('Nota fiscal DOC: "' + campo[7] + '" "' + campo[8] + '" cadastrada com sucesso.')
+
+	else :
+		print('Nota fiscal  DOC: "' + campo[7] + '" "' + campo[8] + '" já cadastrada.')
+
+
+######################################################################
+
+for file in FILES:
+
+    files = open(DIR + file, encoding='iso-8859-1')
+    ln = files.readlines()
+
+    ''' Abertura do arquivo digital '''
+    abertura_arquivo = ln[0] 	# Linha 0000 - Abertura do arquivo segundo NT EFD ICMS PIS
+    abertura_bloco = ln[1]  # Linha 0001 - Abertura do bloco
+    # Linha 0005 - Informações complementares da entidade
+    classifica_estab = ln[2]
+    dados_contador = ln[3]  # Linha 0100 - Informação do contador
+
+    ''' Inserção dos dados do contador '''
+    contador = insertContador(dados_contador)
+
+    ''' Inserção de dados para cadastro do arquivo digital '''
+    id_sped_fiscal = insertSped(abertura_arquivo, contador)
+
+    campos = []
+
+    for linha_atual, valor in enumerate(ln):
+
+        campo = valor.split('|')
+
+        # Remover o primeiro índice e último índices do array que são vazios
+        '''
+		'	Cada linha do arquivo inicia com um PIPE "|". Assim, nós obtemos uma saída de cada linha da seguinte forma:
+		'
+		'		`['', '0000', '013', '0', '01092019', '30092019', 'Master Supermercados Ltda', '00915011000100', '',
+		'			'PB', '161102506', '2512507', '', '', 'B', '1', '\n']`
+		'
+		'	Sabe-se que o arquivo Sped marca o ínicio e o fim de cada linha com o PIPE, a função split considera o
+		'	primeiro e último PIPEs como '	sendo um índice desse array, no entanto, isso pode causar informações incorretas e,
+		'	portanto, precisamos remover o primeiro ('' - campo vazio) e último ('\n' - salto de linha) índices de cada linha.
+		'	Assim, teremos as informações completas de cada linha corretamente
+		'''
+
+        campo.pop()
+
+        if campo[0] == '':
+            campo.pop(0)
+
+        if campo[0] == '0150':
+            cadastraFornecedor(campo)
+            insertBloco150(campo, id_sped_fiscal)
+
+        if campo[0] == '0190':
+            insertBloco190(campo)
+
+        # if campo[0] == '0200' or campo[0] == '0220':
+        # 	insertBloco200(campo, linha_atual, ln)
+
+        if campo[0] == 'C100':
+            insertBlocoC100(campo)
+
+
+# 			# print(ln[0])
+# 			# contabilista = ''
+
+# 			# if campo[0] == '0100':
+
+
+# # cursor.execute(query, (campo[5], campo[1], campo[2], campo[3], campo[4]))
+# # rows = cursor.fetchall()
+
+files.close()
+cursor.close()
+
+# # print("Read", cursor.rowcount,"row(s) of data.")
+
+# # for row in rows:
+# 	# print(row)
+# 	# print('Data row = (%s, %s, %s, %s)' %(row['id'], row[1],row[2], ''))

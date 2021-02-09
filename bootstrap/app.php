@@ -52,4 +52,50 @@ $app->singleton(
 |
 */
 
+
+function cnpj($str) {
+
+	$tipo = null;
+	$cnpj = preg_replace('/[^0-9]/', '', $str);
+
+	if ( strlen($str) === 11 )
+		$tipo = 'cpf';
+
+	if ( strlen($str) === 14 )
+		$tipo = 'cnpj';
+
+	switch($tipo) {
+		default:
+			return $str;
+		break;
+
+		case 'cpf' :
+			return substr($cnpj, 0, 3) . '.' . substr($cnpj, 3, 3) . '.' . substr($cnpj, 6, 3) . '-' . substr($cnpj, -2);
+		break;
+
+		case 'cnpj' :
+			return substr($cnpj, 0, 2) . '.' . substr($cnpj, 2, 3) . '.' . substr($cnpj, 5, 3) . '/' . substr($cnpj, 8, 4) . '-' . substr($cnpj,-2);
+		break;
+
+	}
+
+}
+
+function convert_to_date($date, $format = 'd/m/Y') {
+
+	if ( strlen($date) === 7 ) {
+		$dia = '0' . substr($date, 0, 1);
+		$mes = substr($date, 1, 2);
+	} else {
+		$dia = substr($date, 0, 2);
+		$mes = substr($date, 2, 2);
+	}
+
+	$ano = substr($date, -4);
+	$date = $ano . '-' . $mes . '-' . $dia;
+
+	return date($format, strtotime($date));
+
+}
+
 return $app;

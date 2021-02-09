@@ -58,10 +58,12 @@ namespace App\Models\Entities {
 
 			}
 
-			foreach($this -> attributes as $key => $val) {
+// print_r($this->attributes);
 
-				// $this -> attributes[$key] = $val;
-			}
+			// foreach($this -> attributes as $key => $val) {
+
+			// 	// $this -> attributes[$key] = $val;
+			// }
 
 			return $this ;
 
