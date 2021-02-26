@@ -98,4 +98,22 @@ function convert_to_date($date, $format = 'd/m/Y') {
 
 }
 
+function chave($chave)
+{
+    $conv = '';
+
+    for ($i = 0; $i < strlen($chave); $i++) {
+        if ($i % 4 === 0) {
+            $conv .= substr($chave, $i, 4) . ' ';
+        }
+    }
+
+    return trim($conv);
+}
+
+function cep($cep)
+{
+    return substr($cep, 0, 5) . '-' . substr($cep, -3);
+}
+
 return $app;

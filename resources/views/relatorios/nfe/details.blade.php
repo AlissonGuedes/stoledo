@@ -34,6 +34,12 @@ endif;
                     <i class="material-icons black-text">download</i>
                 </button>
 
+                <button data-href="{{ route('reports.sped.nao_escrituradas.pdf', $row->chNFe) }}" target="_self"
+                    class="btn btn-floating waves-effect red lighten-2 black-text mr-1" data-tooltip="Baixar PDF">
+                    <i class="material-icons left black-text">download</i>
+                    PDF
+                </button>
+
                 Informações da Nota Fiscal - {{ $row->nNF }}-{{ $row->serie }}
 
             </h5>

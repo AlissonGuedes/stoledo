@@ -144,8 +144,10 @@ var checkAll = () => {
 
         var checked;
         var dataTables_wrapper = $(this);
+        var checkbox = dataTables_wrapper.find('tbody').find(':input:checkbox');
+        var disabled = checkbox.is(':disabled');
 
-        if (dataTables_wrapper.find('tbody').find(':input:checkbox').length === 0) {
+        if (checkbox.length === 0 || disabled) {
             dataTables_wrapper.find('thead').find(':input:checkbox').attr('disabled', true);
             return false;
         } else {
@@ -376,7 +378,7 @@ function DataTable(refresh) {
 
                 if (!index.hasClass('disabled') && (typeof index.data('clickable') === 'undefined' || index.data('clickable') === true)) {
 
-                    var id = $(data[0]).find(':checkbox').val();
+                    var id = $(data[0]).find(':checkbox,:hidden').val();
                     var url = $(this).parents('.dataTables_wrapper').find('table').attr('data-link') + (typeof id !== 'undefined' ? '/' + id : '');
 
                     Http.goTo(url);

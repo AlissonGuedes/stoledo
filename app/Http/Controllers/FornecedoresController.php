@@ -36,8 +36,15 @@ class FornecedoresController extends Controller
 
     public function show($cnpj) {
 
+		if(request() -> ajax()){
+			$dados['rows'] = $this -> nfe_model -> getNFeBySupplier($cnpj);
+			$dados['numRows'] = 0;
+			$dados['totalRecords'] = 0;
+			return view('relatorios.fornecedores.datatables.show', $dados);
+		}
+
+
         $dados['row'] = $this -> fornecedor_model -> getSupplierById($cnpj);
-        $dados['rows'] = $this -> nfe_model -> getNFeBySupplier($cnpj);
         return view('relatorios.fornecedores.show', $dados);
 
     }
@@ -51,7 +58,7 @@ class FornecedoresController extends Controller
 
 	public function baixar_xls() {
 
-		return Excel::download(new \App\Http\Controllers\ExportsController, 'nfe.xlsx');
+		return Excel::download(new \App\Http\Controllers\Exports\NFe, 'nfe.xlsx');
 
 	}
 

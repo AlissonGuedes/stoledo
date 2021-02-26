@@ -67,15 +67,13 @@ class NFeModel extends Authenticatable
 			$get  -> orderBy($this -> order[6], 'ASC');
 		}
 
-		if ( isset($_GET['length']))
+		if ( isset($_GET['length'])) {
 			$get  -> limit($_GET['length']);
+		}
 
 		if ( isset($_GET['start']) ) {
 			$get  -> offset($_GET['start']);
 		}
-
-		// if ( $num_rows )
-		//    return $this -> get() -> count();
 
 		return $get;
 
@@ -239,20 +237,18 @@ class NFeModel extends Authenticatable
 		return $this -> select(
 							'N.id',
 							'N.cDest',
+							'N.cEmi',
 							'N.nNF',
 							'N.serie',
 							'N.vBC',
-							DB::raw('(SELECT descricao FROM tb_tipo_pagamento WHERE codigo = N.tPag) AS tPag'),
 							'N.vPag',
 							'N.chNFe',
-							'F.nome',
-							'F.cnpj',
+							DB::raw('(SELECT descricao FROM tb_tipo_pagamento WHERE codigo = N.tPag) AS tPag'),
+							DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = N.cDest) AS nome'),
 							DB::raw('(SELECT COUNT(id) FROM tb_nfe_duplicata WHERE id_nfe = N.id) AS totalDup')
 						)
 					 -> from('tb_nfe AS N')
-					 -> join('tb_fornecedor AS F', 'F.cnpj', '=', 'N.cDest')
-					 -> where('N.cEmi', $supplier)
-					 -> get();
+					 -> where('N.cEmi', $supplier);
 
 	}
 

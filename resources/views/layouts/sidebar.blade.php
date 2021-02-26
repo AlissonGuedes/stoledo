@@ -41,11 +41,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('reports.sped') }}">
+                        <a href="{{ route('reports.sped') }}" class="waves-effect waves-cyan">
                             <i class="material-icons"></i>
-                            NF-e não escrituradas
+                            Sped Fiscal
                         </a>
                     </li>
+                    {{-- <li>
+                        <a href="{{ url('reports/sped/nao_escrituradas') }}">
+                            <i class="material-icons"></i>
+                            Notas não escrituradas
+                        </a>
+                    </li> --}}
                     {{-- <li><a href="#">Duplicatas</a></li> --}}
                 </ul>
             </div>

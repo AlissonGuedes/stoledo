@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''
 '	@autor: Alisson Guedes
@@ -21,8 +21,8 @@ from mysql.connector import connect, Error
 from datetime import datetime, timedelta
 
 try:
-	conn = connect(host='localhost', user='stoledo',
-				password='stoledo', database='stoledo', raw=False)
+	conn = connect(host='localhost', user='alissong_stoledo',
+				password='5r6kLdALaGlU', database='alissong_stoledo', raw=False)
 	print('Connection established')
 except Error:
 	print(Error)
@@ -78,10 +78,9 @@ def insertContador(linha):
 		contador.pop(0)
 
 	# verificar se existe o contador cadastrado pelo cpf ou pelo cnpj
-	query = 'SELECT id FROM tb_contabilista WHERE cpf = "{}" OR cnpj = "{}";'.format(
-		contador[2], contador[4])
+	query = 'SELECT id FROM tb_contabilista WHERE cpf = "{}" OR cnpj = "{}";'.format(contador[2], contador[4])
 
-	# print(query)
+	print(query)
 	cursor.execute(query)
 	id_contador = cursor.fetchall()
 
@@ -107,51 +106,6 @@ def insertContador(linha):
 		id_contador = ('%s' % (id_contador[0]))
 
 	return id_contador
-
-######################################################################
-
-'''
-' Função para cadastrar o Sped Fiscal
-'
-' @name: insertSped
-' @param: linha - o número da linha onde está a informação no arquivo digital
-' @author: Alisson Guedes
-' @return: retorna o ID do registro na tabela tb_spedfiscal
-'''
-def insertSped(linha, contador):
-
-	sped = linha.split('|')
-	sped.pop()
-
-	if sped[0] == '':
-		sped.pop(0)
-
-	query = 'SELECT id FROM tb_spedfiscal WHERE dt_ini = "{}" AND dt_fin = "{}" AND cnpj_fornecedor = "{}";'.format(
-		sped[3], sped[4], sped[6])
-	# print(query)
-
-	cursor.execute(query)
-	id_sped = cursor.fetchall()
-
-	if cursor.rowcount == 0:
-
-		query = 'INSERT INTO tb_spedfiscal \
-					(cnpj_fornecedor, id_contabilista, cod_ver, cod_fin, dt_ini, dt_fin, ind_perfil) \
-				VALUES \
-					(%s, %s, %s, %s, %s, %s, %s);'
-		values = (sped[6], contador, sped[1],
-				sped[2], sped[3], sped[4], sped[13])
-
-		# print(query %(values))
-
-		cursor.execute(query, values)
-		conn.commit()
-
-		return getLastId()
-
-	else:
-
-		return '%s' % (id_sped[0])
 
 ######################################################################
 
@@ -184,11 +138,11 @@ def getFornecedor(fornecedor):
 		condicao = ie
 
 	if cnpj != '' and cnpj != '' and ie != '':
-		condicao = cnpj + ' AND ' + cpf
+		condicao = cnpj + ' OR ' + cpf
 	if cnpj != '' and ie != '':
-		condicao = cnpj + ' AND ' + ie
+		condicao = cnpj + ' OR ' + ie
 	elif cnpj != '' and cpf != '':
-		condicao = cnpj + ' AND ' + cpf + ' AND ' + ie
+		condicao = cnpj + ' OR ' + cpf + ' OR ' + ie
 
 	query = 'SELECT id FROM tb_fornecedor WHERE {};'
 
@@ -218,6 +172,7 @@ def cadastraFornecedor(dados):
 	id_fornecedor = getFornecedor(dados)
 
 	if not id_fornecedor:
+		print(dados)
 
 		print('Cadastrando Fornecedor "{}" - "{}"...'.format(dados[4], dados[2]))
 
@@ -238,6 +193,74 @@ def cadastraFornecedor(dados):
 	else:
 
 		return id_fornecedor
+
+######################################################################
+
+'''
+' Função para cadastrar o Sped Fiscal
+'
+' @name: insertSped
+' @param: linha - o número da linha onde está a informação no arquivo digital
+' @author: Alisson Guedes
+' @return: retorna o ID do registro na tabela tb_spedfiscal
+'''
+def insertSped(linha, contador):
+
+	sped = linha.split('|')
+	sped.pop()
+
+	if sped[0] == '':
+		sped.pop(0)
+
+	'''
+	Inserir o fornecedor do sped fiscal
+	'''
+	query = 'SELECT cnpj FROM tb_fornecedor WHERE cnpj = "{}";'.format(sped[6])
+	print(query)
+	cursor.execute(query)
+	fornecedor = cursor.fetchone()
+
+	if cursor.rowcount == 0 :
+
+		query = 'INSERT INTO tb_fornecedor \
+					(nome, cnpj, cpf, uf, ie, cMun, im, suframa) \
+					VALUES (%s, %s, %s, %s, %s, %s, %s, %s);'
+
+		values = (sped[5], sped[6], sped[7], sped[8], sped[9], sped[10], sped[11], sped[12])
+
+		print(query %(values))
+		cursor.execute(query, values)
+		conn.commit()
+
+	else :
+		fornecedor = '%s' % (fornecedor[0])
+
+	query = 'SELECT id FROM tb_spedfiscal WHERE dt_ini = "{}" AND dt_fin = "{}" AND cnpj_fornecedor = "{}";'.format(
+		sped[3], sped[4], fornecedor)
+	# print(query)
+
+	cursor.execute(query)
+	id_sped = cursor.fetchall()
+
+	if cursor.rowcount == 0:
+
+		query = 'INSERT INTO tb_spedfiscal \
+					(cnpj_fornecedor, id_contabilista, cod_ver, cod_fin, dt_ini, dt_fin, ind_perfil) \
+				VALUES \
+					(%s, %s, %s, %s, %s, %s, %s);'
+		values = (sped[6], contador, sped[1],
+				sped[2], sped[3], sped[4], sped[13])
+
+		# print(query %(values))
+
+		cursor.execute(query, values)
+		conn.commit()
+
+		return getLastId()
+
+	else:
+
+		return '%s' % (id_sped[0])
 
 ######################################################################
 
@@ -333,7 +356,7 @@ def insertBloco200(dados):
 		print('Cadastrando produto "{}" - "{}".'.format(dados[1], dados[2]))
 
 		query = 'INSERT INTO tb_produto (cod_item, descricao, cod_barra, cod_ant_item, unidade_inv, tipo_item, cod_ncm, ex_ipi, cod_gen, cod_lst, aliquota_icms, cest) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-		values = (dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9], dados[10], dados[11].replace(',', '.'), (dados[12], 0)[dados != ''] )
+		values = (dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], (dados[9], 0)[dados != ''], dados[10], dados[11].replace(',', '.'), (dados[12], 0)[dados != ''] )
 
 		# print(query %(values))
 		cursor.execute(query, values)
@@ -505,7 +528,7 @@ def insertBlocoC170(campo, id_sped) :
 
 		print('Cadastrando item "{}".'.format(cod_item))
 
-		query = 'INSERT INTO tb_spedfiscal_item (id_sped,num_item,cod_item,qtd,unid,vl_item,vl_desc,ind_mov,cst_icms,cfop,cod_nat,vl_bc_icms,aliq_icms,vl_icms,vl_bc_icms_st,aliq_st,vl_icms_st,ind_apur,cst_ipi,cod_enq,vl_bc_ipi,aliq_ipi,vl_ipi,cst_pis,vl_bc_pis,aliq_pis_percent,quant_bc_pis,aliq_pis_real,vl_pis,cst_cofins,vl_bc_cofins,aliq_cofins_percent,quant_bc_cofins,aliq_cofins_real,vl_cofins,cod_cta,vl_abat_nt) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
+		query = 'INSERT INTO tb_spedfiscal_item (id_sped,num_item,cod_item,qtd,unid,vl_item,vl_desc,ind_mov,cst_icms,cfop,cod_nat,vl_bc_icms,aliq_icms,vl_icms,vl_bc_icms_st,aliq_st,vl_icms_st,ind_apur,cst_ipi,cod_enq,vl_bc_ipi,aliq_ipi,vl_ipi,cst_pis,vl_bc_pis,aliq_pis_percent,quant_bc_pis,aliq_pis_real,vl_pis,cst_cofins,vl_bc_cofins,aliq_cofins_percent,quant_bc_cofins,aliq_cofins_real,vl_cofins,cod_cta,vl_abat_nt) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
 
 		values = (id_sped,num_item,cod_item,qtd,unid,vl_item,vl_desc,ind_mov,cst_icms,cfop,cod_nat,vl_bc_icms,aliq_icms,vl_icms,vl_bc_icms_st,aliq_st,vl_icms_st,ind_apur,cst_ipi,cod_enq,vl_bc_ipi,aliq_ipi,vl_ipi,cst_pis,vl_bc_pis,aliq_pis_percent,quant_bc_pis,aliq_pis_real,vl_pis,cst_cofins,vl_bc_cofins,aliq_cofins_percent,quant_bc_cofins,aliq_cofins_real,vl_cofins,cod_cta,vl_abat_nt)
 

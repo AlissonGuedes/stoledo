@@ -15,7 +15,7 @@ if ( isset($rows) ) {
 				<span></span>
 			</label>',
 			$row->nome,
-			cnpj($row->cnpj_fornecedor),
+			cnpj($row->cnpj),
 			$dt_ini,
 			$dt_fin,
 			$row->ind_perfil

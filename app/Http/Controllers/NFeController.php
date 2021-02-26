@@ -38,6 +38,7 @@ class NFeController extends Controller {
 		if ( request() -> ajax()){
 			return json_encode([]);
 		}
+
 		$dados['row'] = $this -> nfe_model -> getNFeById($id);
 		return view('relatorios.nfe.details', $dados);
 

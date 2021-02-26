@@ -52,18 +52,18 @@ var Request = {
 
     menu: () => {
 
-        var URL = typeof window.location.href.split(BASE_URL)[1] !== 'undefined' ? window.location.href.split(BASE_URL)[1] : 'dashboard';
+        // var URL = typeof window.location.href.split(BASE_URL)[1] !== 'undefined' ? window.location.href.split(BASE_URL)[1] : 'dashboard';
 
-        // console.log(window.location.href);
-        // console.log(URL);
-        // console.log(BASE_URL + URL.split('/')[0]);
+        var controller = typeof window.location.href.split(BASE_URL)[1].split('/').splice(1)[0] !== 'undefined' ? window.location.href.split(BASE_URL)[1].split('/').splice(1)[0] : null;
+
+        var action = typeof window.location.href.split(BASE_URL)[1].split('/').splice(1)[1] !== 'undefined' ? window.location.href.split(BASE_URL)[1].split('/').splice(1)[1] : null;
+
+        var url = BASE_URL + (controller !== null ? '/' + controller : '') + (action !== null ? '/' + action : '');
 
         $('#slide-out').removeClass('active').find('.active').removeClass('active');
 
         if ($('aside').hasClass('nav-expanded'))
-            $('#slide-out li').find('a[href="' + window.location.href + '"').addClass('active')
-            // $('#slide-out li').find('a[href="' + BASE_URL + URL.split('/')[0] + '"').addClass('active')
-            .parents().addClass('active').show();
+            $('#slide-out li').find('a[href="' + url + '"').addClass('active').parents().addClass('active').show();
 
     }
 

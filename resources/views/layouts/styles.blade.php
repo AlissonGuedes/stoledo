@@ -1,6 +1,6 @@
 <!-- fonts -->
 <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/material-icons/material-icons.css') }}">
-<link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/muli/muli.css') }}">
+{{-- <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/muli/muli.css') }}"> --}}
 <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/roboto/roboto.css') }}">
 <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/icons/icons.css') }}">
 
@@ -23,7 +23,36 @@
 <link rel="stylesheet" media="screen" href="{{ asset('assets/styles/admin/themes/default.css') }}">
 
 
+{{-- <div class="loader">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
 <style>
+    .loader {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        place-content: center
+    }
+
     body {
         overflow-y: hidden;
         overflow-x: hidden;

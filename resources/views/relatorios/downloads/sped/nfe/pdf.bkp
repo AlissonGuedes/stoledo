@@ -1,0 +1,169 @@
+{{-- INFORMAÇÕES DO DANFE --}}
+    <table>
+
+        <tbody>
+
+            {{-- IDENTIFICAÇÃO DO EMITENTE --}}
+            <tr>
+                <td rowspan="3" class="center-align width-25">
+                    <div class="center-align italic absolute top-0 left-0 right-0">
+                        <small class="center-align font-8">
+                            IDENTIFICAÇÃO DO EMITENTE
+                        </small>
+                    </div>
+                    <div class="uppercase">
+                        <b>{{ $row->nome_razao_social_emit }}</b> <br>
+                        {{ $row->endereco_emit }} <br>
+                        {{ $row->bairro_distrito_emit }} - {{ cep($row->cep_emit) }} <br>
+                        {{ $row->municipio_emit }} - {{ $row->uf_emit }} Fone/Fax: {{ $row->fone_fax_emit }}
+                    </div>
+                </td>
+                {{-- FIM IDENTIFICAÇÃO DO CLIENTE --}}
+
+                {{-- DANFE --}}
+                <td rowspan="3" class="center-align width-15">
+                    <div class="">
+                        <b class="font-17">DANFE</b>
+                        <br>
+                        <div class="font-7">
+                            Documento Auxiliar da Nota Fiscal Eletrônica
+                        </div>
+                        <div class="left-align font-10 left mt-1 ml-2">
+                            <br>
+                            0 - ENTRADA <br>
+                            1 - SAÍDA
+                        </div>
+                        <div class="right center-align mr-2"
+                            style="border: 1px solid #000; border-radius: 3px; padding: 8px;">
+                            <b>{{ $row->serie }}</b>
+                        </div>
+                        <div class="clearfix">
+                            <br>
+                            <b>
+                                Nº {{ $row->numero }}
+                            </b>
+                            <br>
+                            <b>
+                                Série {{ $row->serie }}
+                            </b>
+                        </div>
+                    </div>
+                </td>
+                {{-- FIM DANFE --}}
+
+                {{-- CHAVE DE ACESSO --}}
+                <td class="center-align pt-1 pb-5 width-25">
+                    @php
+                        new BarcodeGenrator($row->chave_de_acesso, 1, storage_path($row->chave_de_acesso . '.gif'));
+                    @endphp
+                    <img src="{{ storage_path($row->chave_de_acesso . '.gif') }}" alt="" width="300" height="44">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="top-0">
+                        <small class="font-8">CHAVE DE ACESSO</small>
+                    </div>
+                    <br>
+                    <div class="col s6 mt-2 center-align">
+                        <b>{{ chave($row->chave_de_acesso) }}</b>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col s6 font-10 center-align">
+                        Consulta de autenticidade no portal nacional da NF-e www.nfe.fazenda.gov.br/portal ou no site da
+                        Sefaz Autorizadora
+                    </div>
+                </td>
+            </tr>
+            {{-- FIM CHAVE DE ACESSO --}}
+
+            <tr>
+
+                {{-- NATUREZA DA OPERAÇÃO --}}
+                <td>
+                    <div class="top-0">
+                        <small class="font-8">NATUREZA DA OPERAÇÃO</small>
+                    </div>
+                    <br>
+                    <div class="center-align" style="">
+                        <b>{{ strtoupper($row->natop) }}</b>
+                    </div>
+                </td>
+                {{-- FIM NATUREZA DA OPERAÇÃO --}}
+
+                {{-- PROTOCOLO DE AUTORIZAÇÃO DE USO --}}
+                <td>
+                    <div class="top-0">
+                        <small class="font-8">PROTOCOLO DE AUTORIZAÇÃO DE USO</small>
+                    </div>
+                    <br>
+                    <div class="center-align" style="">
+                        {{-- <b>{{ strtoupper($row->natop) }}</b> --}}
+                    </div>
+                </td>
+                {{-- FIM PROTOCOLO DE AUTORIZAÇÃO DE USO --}}
+
+            </tr>
+
+            <tr>
+                {{-- INSCRIÇÃO ESTADUAL --}}
+                <td>
+                    <div class="top-0 font-8">
+                        INSCRIÇÃO ESTADUAL
+                    </div>
+                    <br>
+                    <div class="center-align" style="">
+                        <b>{{ $row->inscricao_estadual_emit }}</b>
+                    </div>
+                </td>
+                {{-- FIM INSCRIÇÃO ESTADUAL --}}
+
+                {{-- INSCRIÇÃO ESTADUAL DO SUBST. TRIBUT. --}}
+                <td>
+                    <div class="top-0 font-8">
+                        INSCRIÇÃO ESTADUAL DO SUBST. TRIBUT.
+                    </div>
+                    <br>
+                    <div class="center-align" style="">
+                        {{-- <b>{{ $row->inscricao_estadual_emit }}</b> --}}
+                    </div>
+                </td>
+                {{-- FIM INSCRIÇÃO ESTADUAL DO SUBST. TRIBUT. --}}
+
+                {{-- INSCRIÇÃO ESTADUAL DO SUBST. TRIBUT. --}}
+                <td>
+                    <div class="top-0 font-8">
+                        CNPJ
+                    </div>
+                    <br>
+                    <div class="center-align" style="">
+                        <b>{{ $row->cpf_cnpj_emit }}</b>
+                    </div>
+                </td>
+                {{-- FIM INSCRIÇÃO ESTADUAL DO SUBST. TRIBUT. --}}
+
+            </tr>
+
+        </tbody>
+
+    </table>
+    {{-- FIM DAS INFORMAÇÕES DO DANFE --}}
+
+    {{-- INFORMAÇÕES DO DESTINATÁRIO / REMETENTE --}}
+    <table>
+
+        <caption>DESTINATÁRIO / REMETENTE</caption>
+
+        <tbody>
+
+            <tr>
+                <td></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    {{-- FIM DAS INFORMAÇÕES DO DESTINATÁRIO / REMETENTE --}}

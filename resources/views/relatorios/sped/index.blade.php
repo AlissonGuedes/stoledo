@@ -2,7 +2,7 @@
 
 @section('container')
 
-    <div class="row">
+	<div class="row">
         <div class="col s6">
             <div class="input-field">
                 <i class="material-icons prefix">search</i>
@@ -12,12 +12,13 @@
         </div>
     </div>
 
-    <table class="datatable responsiveDatatable" data-link="{{ route('reports.sped') }}" data-placeholder="Pesquisar na NFe">
+    <table class="datatable responsiveDatatable" data-link="{{ url('reports/sped/nao_escrituradas') }}"
+        data-placeholder="Pesquisar na NFe">
         <thead>
             <tr>
                 <th class="disabled sortable white-text" width="1%" data-orderable="false">
                     <label>
-                        <input type="checkbox" class="amber" id="check-all">
+                        <input type="checkbox" class="amber" id="check-all" disabled>
                         <span> </span>
                     </label>
                 </th>
