@@ -20,6 +20,5 @@ if ( isset($rows) ) {
 }
 echo json_encode([
 	'data' => $records,
-	'recordsFiltered' => $numRows,
-	'totalRecords' => $totalRecords
+	'recordsFiltered' => $recordsFiltered
 ]);

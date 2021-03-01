@@ -3,11 +3,11 @@
 $records = [];
 
 if ( isset($rows) ) {
-    
+
     $nfe_model = new \App\Models\SpedModel();
 
 	foreach ( $rows -> get() as $row ){
-	    
+
 		$records[] = array(
 			'<label>
 				<input type="checkbox" name="id[]" class="light-blue" value="' . $row -> chv_nfe . '" data-status="' . $row -> status . '">
@@ -29,5 +29,6 @@ if ( isset($rows) ) {
 
 echo json_encode([
 	'data' => $records,
-	'recordsFiltered' => $recordsFiltered
+	'recordsFiltered' => $recordsFiltered,
+	'recordsTotal' => $recordsTotal
 ]);

@@ -25,8 +25,7 @@ class FornecedoresController extends Controller
 
         if ($request -> ajax()) {
             $dados['rows'] = $this -> fornecedor_model -> getAll();
-            $dados['totalRecords'] = $this -> fornecedor_model -> all();
-            $dados['numRows'] = $this -> fornecedor_model -> getTotalNFe();
+            $dados['recordsFiltered'] = $this -> fornecedor_model -> paginate() -> total();
             return view('relatorios.fornecedores.datatables.index', $dados);
         }
 

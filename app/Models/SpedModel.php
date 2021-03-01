@@ -53,7 +53,6 @@ class SpedModel extends Authenticatable
 
 	public function getSped($cnpj = null, $data_inicio = null, $data_fim = null) {
 
-		// echo $data_inicio;
 		$get = $this -> from('tb_spedfiscal', 'S')
 					 -> select(
 							'S.id', 'cnpj_fornecedor', 'id_contabilista', 'cod_ver', 'cod_fin', 'dt_ini', 'dt_fin', 'ind_perfil',
@@ -104,10 +103,47 @@ class SpedModel extends Authenticatable
 
 	}
 
+	public function getEmitente($cnpj, $data_inicio, $data_fim) {
+
+		$get = $this -> distinct()
+			-> select(
+					'cpf_cnpj_emit AS cEmi',
+					'nome_razao_social_emit AS xNome',
+					DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit) AS totalAquisicoes')
+				)
+			-> from('tb_lista_nfe AS N');
+
+		$get -> where('N.cpf_cnpj_dest', cnpj($cnpj))
+			-> whereBetween('N.data_de_emissao', [convert_to_date($data_inicio, 'Y-m-d'), convert_to_date($data_fim, 'Y-m-d')]);
+
+		$this -> order = [
+			null,
+			'cpf_cnpj_emit',
+			'nome_razao_social_emit',
+			DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit)'),
+			null
+		];
+
+		if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+			$get  -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+		} else {
+			$get  -> orderBy($this -> order[2], 'ASC');
+		}
+
+		if ( isset($_GET['length']))
+			$get  -> limit($_GET['length']);
+
+		if ( isset($_GET['start']) ) {
+			$get  -> offset($_GET['start']);
+		}
+
+		return $get;
+	}
+
 	/**
 	 * Obtém o cruzamento do Sped Fiscal com a relação de arquivo de Notas Fiscais
 	 */
-	public function getNFeNaoEscrituradas($cnpj = null, $data_inicio = null, $data_fim = null) {
+	public function getNFeNaoEscrituradas($cnpj = null, $data_inicio = null, $data_fim = null, $emitente = null) {
 
         $dados = [];
 
@@ -123,9 +159,9 @@ class SpedModel extends Authenticatable
 						'valor_do_icms'
 					 )
 					 -> from('tb_lista_nfe AS N');
-			
-		if ( ! is_null($cnpj) && ! is_null($data_inicio) && ! is_null($data_fim) )		 
-    		$get -> where('N.cpf_cnpj_dest', cnpj($cnpj))
+
+		if ( ! is_null($cnpj) && ! is_null($data_inicio) && ! is_null($data_fim) )
+    		$get -> where('N.cpf_cnpj_emit', cnpj($emitente))
                  -> whereBetween('N.data_de_emissao', [convert_to_date($data_inicio, 'Y-m-d'), convert_to_date($data_fim, 'Y-m-d')]);
 
 		/**
@@ -141,16 +177,22 @@ class SpedModel extends Authenticatable
          * Se já estiver cadastrado, então, condicione para que seja restringida a sua seleção.
          */
         if ( $get -> get() -> count() > 0 ) {
-            foreach ($get -> get() as $row ) {
-                $isset = $this -> select('chv_nfe')
+
+			foreach ($get -> get() as $row ) {
+
+				$isset = $this -> select('chv_nfe')
+								-> distinct()
                                -> from('tb_spedfiscal_nfe')
                                -> where('chv_nfe', '=', $row -> chv_nfe)
-                               -> first();
-                if ( isset($isset) ) 
-                    $get -> where('chave_de_acesso', '<>', $row -> chv_nfe);
-            }
-        }
-					 
+                               -> get();
+
+				// if ( isset($isset) )
+				//     $get -> where('chave_de_acesso', '<>', $row -> chv_nfe);
+
+			}
+
+		}
+
 		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
             $get -> where(function($get){
     			$search = $_GET['search']['value'];
@@ -159,7 +201,7 @@ class SpedModel extends Authenticatable
     				 -> orWhere('N.nome_razao_social_emit', 'like', $search . '%');
             });
 		}
-		
+
 		$this -> order = [
 			null,
 			'N.chave_de_acesso',
@@ -181,19 +223,19 @@ class SpedModel extends Authenticatable
 		$get -> orderBy('hora_de_emissao', 'ASC');
 
         if ( ! is_null($cnpj) && ! is_null($data_inicio) && ! is_null($data_fim) ) {
-            
+
     		if ( isset($_GET['length']))
     			$get  -> limit($_GET['length']);
-    
+
     		if ( isset($_GET['start']) )
     			$get  -> offset($_GET['start']);
-        
+
         }
-        
+
 		return $get;
 
 	}
-	
+
 	public function getXMLvsTXT($cnpj = null, $data_inicio = null, $data_fim = null, $count = false) {
 
 		$get = $this -> select('S.cnpj_fornecedor', 'S.dt_ini', 'S.dt_fin', 'N.id AS idNFe', 'N.cEmi', 'N.nNF', DB::raw('(select nome from tb_fornecedor where N.cEmi = tb_fornecedor.cnpj) AS emitente'), 'N.serie', 'N.vOrig', 'N.vBC', 'N.vICMS')

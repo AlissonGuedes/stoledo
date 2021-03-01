@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <table class="datatable responsiveDatatable" data-link="{{ url('reports/sped/nao_escrituradas') }}"
+    <table class="datatable responsiveDatatable" data-link="{{ url('reports/sped') }}"
         data-placeholder="Pesquisar na NFe">
         <thead>
             <tr>

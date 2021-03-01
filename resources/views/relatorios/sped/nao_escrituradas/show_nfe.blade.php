@@ -17,7 +17,7 @@ endif;
             <!-- Header search bar starts -->
             <div class="page_title">
 
-                <button data-href="{{ route('reports.sped.nao_escrituradas', [$cnpj, $data_inicio, $data_fim]) }}"
+                <button data-href="{{ route('reports.sped', [$cnpj, $data_inicio, $data_fim]) }}"
                     class="btn btn-floating waves-effect transparent white-text btn-flat mr-1" data-tooltip="Voltar">
                     <i class="material-icons black-text">arrow_back</i>
                 </button>

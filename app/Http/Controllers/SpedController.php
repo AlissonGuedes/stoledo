@@ -31,18 +31,32 @@ class SpedController extends Controller {
 		return view('relatorios.sped.index', $dados);
 	}
 
-	// public function show($cnpj, $data_inicio, $data_fim) {
+	public function show($cnpj, $data_inicio, $data_fim) {
 
-	// 	if (request() -> ajax()) {
-	// 		$dados['rows'] = $this -> sped_model -> getXMLvsTXT($cnpj, $data_inicio, $data_fim) -> get();
-	// 		$dados['numRows'] = $this -> sped_model -> getTotalRows($cnpj);
-	// 		return view('relatorios.sped.datatables.show', $dados);
-	// 	}
+		if (request() -> ajax()) {
+			$dados['rows'] = $this -> sped_model -> getXMLvsTXT($cnpj, $data_inicio, $data_fim) -> get();
+			$dados['numRows'] = $this -> sped_model -> getTotalRows($cnpj);
+			return view('relatorios.sped.datatables.show', $dados);
+		}
 
-	// 	$dados['row'] = $this -> sped_model -> getSped($cnpj, $data_inicio, $data_fim) -> first();
-	// 	return view('relatorios.sped.show', $dados);
+		$dados['row'] = $this -> sped_model -> getSped($cnpj, $data_inicio, $data_fim) -> first();
+		return view('relatorios.sped.show', $dados);
 
-	// }
+	}
+
+	public function fornecedores($cnpj, $data_inicio, $data_fim) {
+
+		if (request() -> ajax()) {
+			$dados['rows'] = $this -> sped_model -> getEmitente($cnpj, $data_inicio, $data_fim) -> get();
+			$dados['numRows'] = $this -> sped_model -> getTotalRows($cnpj);
+
+			return view('relatorios.sped.datatables.fornecedores', $dados);
+		}
+
+		$dados['row'] = $this -> sped_model -> getSped($cnpj, $data_inicio, $data_fim) -> first();
+		return view('relatorios.sped.fornecedores', $dados);
+
+	}
 
 	// public function detalhamento($cnpj, $data_inicio, $data_fim, $emitente) {
 
@@ -60,14 +74,13 @@ class SpedController extends Controller {
 	 * Relação de todas as notas não escrituradas
 	 * Busca as notas que têm no arquivo de Lista NFe TXT mas não têm no Sped Fiscal
 	 */
-	public function nao_escrituradas($cnpj, $data_inicio, $data_fim) {
+	public function nao_escrituradas($cnpj, $data_inicio, $data_fim, $emitente) {
 
 		if ( request() -> ajax()) {
 
-			$dados['rows'] = $this -> sped_model -> getNFeNaoEscrituradas($cnpj, $data_inicio, $data_fim);
-		    $totalRows = $this -> sped_model -> getNFeNaoEscrituradas($cnpj, $data_inicio, $data_fim) -> count();
-			$dados['recordsFiltered'] = $dados['rows'] -> paginate($totalRows) -> count();
-
+			$dados['rows'] = $this -> sped_model -> getNFeNaoEscrituradas($cnpj, $data_inicio, $data_fim, $emitente);
+			$dados['recordsTotal'] = $this -> sped_model -> getNFeNaoEscrituradas( ) -> paginate() -> total();
+			$dados['recordsFiltered'] = $this -> sped_model -> getNFeNaoEscrituradas($cnpj, $data_inicio, $data_fim, $emitente) -> paginate() -> total();
 			return view('relatorios.sped.datatables.nao_escrituradas.index', $dados);
 
 		}
