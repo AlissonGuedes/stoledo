@@ -1402,17 +1402,28 @@ table tr th:first-child {
     text-align: right;
 }
 
+.dataTables_wrapper .dataTables_paginate {
+    height: 50px;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    display: flex;
+    padding-top: 0 !important;
+}
+
 .dataTables_wrapper .dataTables_info {
     clear: both;
     float: left;
-    padding-top: 1.27rem;
-    padding-left: 1.27rem;
+    height: 50px;
+    align-items: center;
+    display: flex;
     position: absolute;
+    padding-top: 0 !important;
 }
 
 .dataTables_wrapper .dataTables_processing {
     position: absolute;
-    top: 0;
+    top: 58px;
     left: 0;
     width: 100%;
     height: 0;
@@ -1426,6 +1437,10 @@ table tr th:first-child {
 
 .dataTables_scroll {
     border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+td {
+    padding: 15px !important;
 }
 
 td.enabled {

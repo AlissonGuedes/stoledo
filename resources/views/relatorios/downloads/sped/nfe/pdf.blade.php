@@ -3,7 +3,7 @@
 use App\Providers\BarcodeGenrator;
 
 $idNFe = request()->route()->parameters['xml'];
-$row = $sped_model->getNFeById($nfe);
+$row = $sped_model->getNFeById($idNFe);
 
 @endphp
 
@@ -866,116 +866,119 @@ $row = $sped_model->getNFeById($nfe);
         <thead>
 
             <tr>
-                <th class="font-10" width="1%">Código</th>
-                <th class="font-10" width="">DESCRIÇÃO</th>
-                <th class="font-10" width="1%">NCM/SH</th>
-                <th class="font-10" width="1%">O/CST</th>
-                <th class="font-10" width="1%">CFOP</th>
-                <th class="font-10" width="1%">UN</th>
-                <th class="font-10" width="1%">QTD</th>
-                <th class="font-10" width="1%">VALOR <br> UNIT</th>
-                <th class="font-10" width="2%">VALOR <br> TOTAL</th>
-                <th class="font-10" width="2%">B. CÁLC <br> ICMS</th>
-                <th class="font-10" width="2%">VALOR <br> ICMS</th>
-                <th class="font-10" width="2%">VALOR <br> IPI</th>
-                <th class="font-10" width="2%">ALÍQ. <br> ICMS</th>
-                <th class="font-10" width="2%">ALÍQ. <br> IPI</th>
+                <th class="font-10" width="5%">Cód</th>
+                <th class="font-10" width="240px">DESCRIÇÃO</th>
+                <th class="font-10" width="45px">NCM/SH</th>
+                <th class="font-10" width="40px">O/CST</th>
+                <th class="font-10" width="30px">CFOP</th>
+                <th class="font-10" width="20px">UN</th>
+                <th class="font-10" width="45px">QTD</th>
+                <th class="font-10" width="45px">VALOR <br> UNIT</th>
+                <th class="font-10" width="45px">VALOR <br> TOTAL</th>
+                <th class="font-10" width="45px">B. CÁLC <br> ICMS</th>
+                <th class="font-10" width="45px">VALOR <br> ICMS</th>
+                <th class="font-10" width="45px">VALOR <br> IPI</th>
+                <th class="font-10" width="30px">ALÍQ. <br> ICMS</th>
+                <th class="font-10" width="30px">ALÍQ. <br> IPI</th>
             </tr>
 
         </thead>
 
         <tbody>
 
-            @for ($i = 0; $i < 10; $i++)
+            @php
+
+                $produtos = $sped_model
+                    ->distinct() -> select('nr_item', 'cod_prod', 'descricao_do_produto_ou_servicos', 'ncm_prod', 'cst_prod', 'cfop_prod', 'unid_prod_trib', 'unid_prod_com', 'quant_prod_trib', 'quant_prod_com', 'valor_unit_prod_trib', 'valor_unit_prod_com', 'valor_total_prod', 'valor_desconto_item', 'bc_icms_prod', 'valor_icms_prod', 'valor_ipi_prod', 'aliq_icms_prod', 'aliq_ipi_prod')
+                    ->from('tb_lista_nfe')
+                    ->where('chave_de_acesso', $row->chave_de_acesso)
+					// -> where('')
+                    ->get();
+
+            @endphp
+
+            @foreach ($produtos as $produto)
 
                 <tr>
 
                     {{-- CÓDIGO --}}
                     <td class="center-align">
-                        123412341243
+                        {{ $produto->cod_prod }}
                     </td>
                     {{-- FIM CÓDIGO --}}
 
                     {{-- DESCRIÇÃO DO PRODUTO / SERVIÇO --}}
                     <td class="left-align">
-                        DESCRIÇÃO DO PRODUTO / SERVIÇO
+                        {{ $produto->descricao_do_produto_ou_servicos }}
                     </td>
                     {{-- FIM DESCRIÇÃO DO PRODUTO / SERVIÇO --}}
 
                     {{-- NCM/SH --}}
                     <td class="center-align">
-                        17049020
+                        {{ $produto->ncm_prod }}
                     </td>
                     {{-- FIM NCM/SH --}}
 
                     {{-- O/CST --}}
                     <td class="center-align">
-                        000
+                        {{ $produto->cst_prod }}
                     </td>
                     {{-- O/CST --}}
 
                     {{-- CFOP --}}
                     <td class="center-align">
-                        6101
+                        {{ $produto->cfop_prod }}
                     </td>
                     {{-- CFOP --}}
 
                     {{-- UN --}}
                     <td class="center-align">
-                        CX
+                        {{ $produto->unid_prod_com }}
                     </td>
                     {{-- UN --}}
 
                     {{-- QTD --}}
                     <td class="right-align">
-                        3,0000
-                    </td>
+                        {{ $row->quant_prod_com }} </td>
                     {{-- QTD --}}
 
                     {{-- VALOR UNITÁRIO --}}
                     <td class="right-align">
-                        108,3600
-                    </td>
+                        {{ $produto->valor_unit_prod_com }} </td>
                     {{-- VALOR UNITÁRIO --}}
 
                     {{-- VALOR TOTAL --}}
                     <td class="right-align">
-                        108,36
-                    </td>
+                        {{ $produto->valor_total_prod }} </td>
                     {{-- VALOR TOTAL --}}
 
                     {{-- B. CÁLC ICMS --}}
                     <td class="right-align">
-                        1.108,36
-                    </td>
+                        {{ $produto->bc_icms_prod }} </td>
                     {{-- B. CÁLC ICMS --}}
 
                     {{-- VALOR ICMS --}}
                     <td class="right-align">
-                        108,36
-                    </td>
+                        {{ $produto->valor_icms_prod }} </td>
                     {{-- VALOR ICMS --}}
 
                     {{-- VALOR IPI --}}
                     <td class="right-align">
-                        108,36
-                    </td>
+                        {{ $produto->valor_ipi_prod }} </td>
                     {{-- VALOR IPI --}}
 
                     {{-- ALÍQ. ICMS --}}
                     <td class="right-align">
-                        108,36
-                    </td>
+                        {{ $produto->aliq_icms_prod }} </td>
                     {{-- ALÍQ. ICMS --}}
 
                     {{-- ALÍQ. IPI --}}
                     <td class="right-align">
-                        108,36
-                    </td>
+                        {{ $produto->aliq_ipi_prod }} </td>
                     {{-- ALÍQ. IPI --}}
 
                 </tr>
-            @endfor
+            @endforeach
 
         </tbody>
 
@@ -984,37 +987,41 @@ $row = $sped_model->getNFeById($nfe);
 
 
     {{-- DADOS ADICIONAIS --}}
-    <table>
+    <div style="position:; bottom: 50px;  overflow: ;">
 
-        <caption>DADOS ADICIONAIS</caption>
+        <table class="informacoes_adicionais" style="">
 
-        <tbody>
+            <caption>DADOS ADICIONAIS</caption>
 
-            <tr>
+            <tbody>
 
-                {{-- INFORMAÇÕES COMPLEMENTARES --}}
-                <td width="105px" class="left-align normalcase font-7" style="height: 70px; overflow: hidden ;">
-                    <div class="top-0 font-8 bold">
-                        INFORMAÇÕES COMPLEMENTARES
-                    </div>
-                    <div class="mt-1">
-                        {{ $row->informacoes_complementares }}
-                    </div>
-                </td>
-                {{-- FIM INFORMAÇÕES COMPLEMENTARES --}}
+                <tr>
 
-                {{-- RESERVADO AO FISCO --}}
-                <td width="40px" class="left-align normalcase font-7">
-                    <div class="top-0 font-8 bold">
-                        RESERVADO AO FISCO </div>
-                </td>
-                {{-- FIM RESERVADO AO FISCO --}}
+                    {{-- INFORMAÇÕES COMPLEMENTARES --}}
+                    <td width="105px" class="left-align normalcase font-7" style="height: 70px; ;">
+                        <div class="top-0 font-8 bold">
+                            INFORMAÇÕES COMPLEMENTARES
+                        </div>
+                        <div class="mt-1">
+                            {{ $row->informacoes_complementares }}
+                        </div>
+                    </td>
+                    {{-- FIM INFORMAÇÕES COMPLEMENTARES --}}
 
-            </tr>
+                    {{-- RESERVADO AO FISCO --}}
+                    <td width="40px" class="left-align normalcase font-7">
+                        <div class="top-0 font-8 bold">
+                            RESERVADO AO FISCO
+                        </div>
+                    </td>
+                    {{-- FIM RESERVADO AO FISCO --}}
 
-        </tbody>
+                </tr>
 
-    </table>
+            </tbody>
+
+        </table>
+    </div>
     {{-- FIM DAS DADOS ADICIONAIS --}}
 
     <?php date_default_timezone_set('America/Recife'); ?>

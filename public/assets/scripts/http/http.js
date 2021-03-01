@@ -60,6 +60,9 @@ var Http = {
                 'url': url,
                 'dataType': (params.datatype || 'json'),
                 'data': (params.data || null),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 'success': (response) => {
 
                     if (typeof callback === 'function')
@@ -119,7 +122,7 @@ var Http = {
                 Http.renderer(url);
             }
 
-            // Recarrega scripts e funções de JS 
+            // Recarrega scripts e funções de JS
             core();
 
         }

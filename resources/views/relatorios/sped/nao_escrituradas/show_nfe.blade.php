@@ -46,6 +46,11 @@ endif;
                     <i class="material-icons left black-text">picture_as_pdf</i>
                 </button>
 
+                {{-- <button class="btn btn-floating waves-effect red lighten-2 black-text modal-trigger mr-1"
+                    data-href="{{ route('reports.sped.nao_escrituradas.pdf', $nfe) }}" target="_blank" data-tooltip="PDF">
+                    <i class="material-icons left black-text">picture_as_pdf</i>
+                </button> --}}
+
                 Informações da Nota Fiscal - {{ $row->numero }}-{{ $row->serie }}
 
             </h5>
@@ -136,7 +141,7 @@ endif;
         <div class="modal-content">
             @php $file = '../../../../../../storage/app/public/' . $pdf; @endphp
             @if (file_exists(storage_path('app/public/' . $pdf)))
-                <embed src="{{ $file }}" frameborder="0">
+                <iframe src="{{ $file }}" frameborder="0"></iframe>
             @endif
         </div>
 
@@ -163,7 +168,7 @@ endif;
             padding: 0 !important;
         }
 
-        embed {
+        iframe {
             width: 100%;
             height: calc(100vh - 160px);
             position: ;

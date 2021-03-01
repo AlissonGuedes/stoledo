@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ImportsController;
 use App\Http\Controllers\NFeController;
 use App\Http\Controllers\SpedController;
@@ -24,6 +25,8 @@ use App\Http\Controllers\FornecedoresController;
 // =====================================
 Route::any('/', [HomeController::class, 'index']);
 Route::any('/home', [HomeController::class, 'index']) -> name('home');
+
+// Route::post('api/execute_sh', [ApiController::class, 'index']);
 
 // =====================================
 // * Importações de arquivos

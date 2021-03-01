@@ -149,4 +149,28 @@ function core() {
             $(el).toggle();
         });
     });
+
+    /* Botão para realizar o processamento dos arquivos de SPED FISCAL.
+     * Ainda em fase de desenvolvimento
+     */
+    $('#script_sh').on('click', function(e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            'method': 'post',
+            'url': $(this).data('link'),
+            'datatype': 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            'success': ($) => {
+
+                console.log($);
+
+            }
+        });
+
+    })
+
 }
