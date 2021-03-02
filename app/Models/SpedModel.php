@@ -12,70 +12,74 @@ use App\Models\Entities\NFe;
 
 class SpedModel extends Authenticatable
 {
-	use HasFactory, Notifiable;
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    protected $table = 'tb_spedfiscal';
+    protected $order = [];
+
+    public function __construct()
+    {
+        $this->nfe = new NFe();
+    }
 
 	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
+	 * Lista todos os arquivos importados do Sped Fiscal
 	 */
-	protected $fillable = [];
+    public function getSped($cnpj = null, $data_inicio = null, $data_fim = null)
+    {
+        $get = $this->from('tb_spedfiscal', 'S')
+					->select(
+						'S.id',
+						'cnpj_fornecedor',
+						'id_contabilista',
+						'cod_ver',
+						'cod_fin',
+						'dt_ini',
+						'dt_fin',
+						'ind_perfil',
+						DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor) AS nome'),
+						DB::raw('(SELECT cnpj FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor) AS cnpj')
+					);
 
-	/**
-	 * The attributes that should be hidden for arrays.
-	 *
-	 * @var array
-	 */
-	protected $hidden = [];
+        if (isset($_GET['search']['value']) && !empty($_GET['search']['value'])) {
+            $search = $_GET['search']['value'];
+            $get->orWhere('S.cnpj_fornecedor', 'like', '%' . $search);
 
-	/**
-	 * The attributes that should be cast to native types.
-	 *
-	 * @var array
-	 */
-	protected $casts = [
-		'email_verified_at' => 'datetime',
-	];
+            $date = date('dmY', strtotime(str_replace('/', '-', $search)));
+            $get->orWhere('S.dt_ini', 'like', '%' . $date . '%')
+				->orWhere('S.dt_fin', 'like', '%' . $date . '%');
+        }
 
-	protected $table = 'tb_spedfiscal';
-	protected $order = [];
+        if (!is_null($cnpj) && !is_null($data_inicio) && !is_null($data_fim)) {
+            $get->where('S.cnpj_fornecedor', $cnpj)
+                ->where('S.dt_ini', $data_inicio)
+                ->where('S.dt_fin', $data_fim);
+        }
 
-	public function __construct() {
-		$this -> nfe = new NFe();
-	}
-
-	private function debugSql() {
-
-		// dd($get -> toSql(), $get -> getBindings());
-		// echo vsprintf(str_replace(['?'], ['\'%s\''], $get->toSql()), $get->getBindings());
-
-	}
-
-	public function getSped($cnpj = null, $data_inicio = null, $data_fim = null) {
-
-		$get = $this -> from('tb_spedfiscal', 'S')
-					 -> select(
-							'S.id', 'cnpj_fornecedor', 'id_contabilista', 'cod_ver', 'cod_fin', 'dt_ini', 'dt_fin', 'ind_perfil',
-							DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor) AS nome'),
-							DB::raw('(SELECT cnpj FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor) AS cnpj')
-						);
-
-		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
-			$search = $_GET['search']['value'];
-			$get -> orWhere('S.cnpj_fornecedor', 'like', '%' . $search);
-
-			$date = date('dmY', strtotime(str_replace('/', '-', $search) ) );
-			$get -> orWhere('S.dt_ini', 'like', '%' . $date . '%')
-				-> orWhere('S.dt_fin', 'like', '%' . $date . '%');
-		}
-
-		if ( !is_null($cnpj) && !is_null($data_inicio) && !is_null($data_fim) ) {
-			$get -> where('S.cnpj_fornecedor', $cnpj)
-				 -> where('S.dt_ini', $data_inicio)
-				 -> where('S.dt_fin', $data_fim);
-		}
-
-		$this -> order = [
+        $this->order = [
 			null,
 			DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor)'),
 			DB::raw('(SELECT cnpj FROM tb_fornecedor WHERE cnpj = S.cnpj_fornecedor)'),
@@ -84,39 +88,47 @@ class SpedModel extends Authenticatable
 			'S.ind_perfil'
 		];
 
-		if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
-			$get  -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
-		} else {
-			$get  -> orderBy($this -> order[1], 'ASC');
-		}
+        if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+            $get->orderBy($this->order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+        } else {
+            $get->orderBy($this->order[1], 'ASC');
+        }
 
-		if ( isset($_GET['length']))
-			$get  -> limit($_GET['length']);
+        if (isset($_GET['length'])) {
+            $get->limit($_GET['length']);
+        }
 
-		if ( isset($_GET['start']) ) {
-			$get  -> offset($_GET['start']);
-		}
+        if (isset($_GET['start'])) {
+            $get->offset($_GET['start']);
+        }
 
-		$get -> orderBy('nome', 'asc');
+        $get->orderBy('nome', 'asc');
 
-		return $get;
+        return $get;
+    }
 
-	}
+	/**
+	 * Lista todos os Fornecedores que emitiram notas fiscais relacionados dentro do arquivo do Sped Fiscal
+	 */
+    public function getFornecedor($cnpj, $data_inicio, $data_fim)
+    {
+        $get = $this->distinct()
+            ->select(
+				'cpf_cnpj_emit AS cEmi',
+				'nome_razao_social_emit AS xNome',
+				DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit) AS totalAquisicoes')
+			)
+            ->from('tb_lista_nfe AS N');
 
-	public function getEmitente($cnpj, $data_inicio, $data_fim) {
+        $get->where('N.cpf_cnpj_dest', cnpj($cnpj))
+			->whereBetween('N.data_de_emissao',
+				[
+					convert_to_date($data_inicio, 'Y-m-d'),
+					convert_to_date($data_fim, 'Y-m-d')
+				]
+			);
 
-		$get = $this -> distinct()
-			-> select(
-					'cpf_cnpj_emit AS cEmi',
-					'nome_razao_social_emit AS xNome',
-					DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit) AS totalAquisicoes')
-				)
-			-> from('tb_lista_nfe AS N');
-
-		$get -> where('N.cpf_cnpj_dest', cnpj($cnpj))
-			-> whereBetween('N.data_de_emissao', [convert_to_date($data_inicio, 'Y-m-d'), convert_to_date($data_fim, 'Y-m-d')]);
-
-		$this -> order = [
+        $this->order = [
 			null,
 			'cpf_cnpj_emit',
 			'nome_razao_social_emit',
@@ -124,193 +136,212 @@ class SpedModel extends Authenticatable
 			null
 		];
 
-		if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
-			$get  -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
-		} else {
-			$get  -> orderBy($this -> order[2], 'ASC');
-		}
-
-		if ( isset($_GET['length']))
-			$get  -> limit($_GET['length']);
-
-		if ( isset($_GET['start']) ) {
-			$get  -> offset($_GET['start']);
-		}
-
-		return $get;
-	}
-
-	/**
-	 * Obtém o cruzamento do Sped Fiscal com a relação de arquivo de Notas Fiscais
-	 */
-	public function getNFeNaoEscrituradas($cnpj = null, $data_inicio = null, $data_fim = null, $emitente = null) {
-
-        $dados = [];
-
-		$get = $this -> distinct()
-					 -> select(
-						'chave_de_acesso AS chv_nfe',
-						DB::raw('CONCAT(numero, "-", serie) AS numero'),
-						'cpf_cnpj_emit AS cEmit',
-						'nome_razao_social_emit AS xNome',
-						DB::raw('DATE_FORMAT(data_de_emissao, "%d/%m/%Y") AS dt_emi'),
-						'hora_de_emissao',
-						'valor_total_da_nota',
-						'valor_do_icms'
-					 )
-					 -> from('tb_lista_nfe AS N');
-
-		if ( ! is_null($cnpj) && ! is_null($data_inicio) && ! is_null($data_fim) )
-    		$get -> where('N.cpf_cnpj_emit', cnpj($emitente))
-                 -> whereBetween('N.data_de_emissao', [convert_to_date($data_inicio, 'Y-m-d'), convert_to_date($data_fim, 'Y-m-d')]);
-
-		/**
-		 * EFETUAR ESTA CONSULTA, CAUSARÁ TRANSTORNOS COM LENTIDÃO DEVIDO À QUANTIDADE DE DADOS NA TABELA
-		 * PODENDO ULTRAPASSAR UM CARREGAMENTO DE MAIS DE 300 SEGUNDOS.
-		 *
-		 * 	 $get -> whereNotIn('chave_de_acesso', function($query){
-		 * 	     $query -> select('chv_nfe') -> from('tb_spedfiscal_nfe') -> whereColumn('chv_nfe', '=', 'N.chave_de_acesso');
-		 * 	 });
-         *
-         * POR ESTE MOTIVO, OPTOU-SE POR REALIZAR UMA CONSULTA EXTRA.
-         * Verifique se o número do XML já está cadastrado na tablea `tb_espedfiscal_nfe` através da chave de acesso.
-         * Se já estiver cadastrado, então, condicione para que seja restringida a sua seleção.
-         */
-        if ( $get -> get() -> count() > 0 ) {
-
-			foreach ($get -> get() as $row ) {
-
-				$isset = $this -> select('chv_nfe')
-								-> distinct()
-                               -> from('tb_spedfiscal_nfe')
-                               -> where('chv_nfe', '=', $row -> chv_nfe)
-                               -> get();
-
-				// if ( isset($isset) )
-				//     $get -> where('chave_de_acesso', '<>', $row -> chv_nfe);
-
-			}
-
-		}
-
-		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
-            $get -> where(function($get){
-    			$search = $_GET['search']['value'];
-    			$get -> orWhere('N.chave_de_acesso', 'like', $search .'%')
-    				 -> orWhere('N.numero', 'like', $search . '%')
-    				 -> orWhere('N.nome_razao_social_emit', 'like', $search . '%');
-            });
-		}
-
-		$this -> order = [
-			null,
-			'N.chave_de_acesso',
-			'N.numero',
-			'N.cpf_cnpj_emit',
-			'N.nome_razao_social_emit',
-			'N.data_de_emissao',
-			'N.hora_de_emissao',
-			'N.valor_total_da_nota',
-			'N.valor_do_icms',
-		];
-
-		if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0)
-			$get -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
-		else
-			$get -> orderBy($this -> order[4], 'ASC');
-
-		$get -> orderBy('data_de_emissao', 'ASC');
-		$get -> orderBy('hora_de_emissao', 'ASC');
-
-        if ( ! is_null($cnpj) && ! is_null($data_inicio) && ! is_null($data_fim) ) {
-
-    		if ( isset($_GET['length']))
-    			$get  -> limit($_GET['length']);
-
-    		if ( isset($_GET['start']) )
-    			$get  -> offset($_GET['start']);
-
+        if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+            $get->orderBy($this->order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+        } else {
+            $get->orderBy($this->order[2], 'ASC');
         }
 
-		return $get;
+        if (isset($_GET['length'])) {
+            $get->limit($_GET['length']);
+        }
 
-	}
+        if (isset($_GET['start'])) {
+            $get->offset($_GET['start']);
+        }
 
-	public function getXMLvsTXT($cnpj = null, $data_inicio = null, $data_fim = null, $count = false) {
+        return $get;
+    }
 
-		$get = $this -> select('S.cnpj_fornecedor', 'S.dt_ini', 'S.dt_fin', 'N.id AS idNFe', 'N.cEmi', 'N.nNF', DB::raw('(select nome from tb_fornecedor where N.cEmi = tb_fornecedor.cnpj) AS emitente'), 'N.serie', 'N.vOrig', 'N.vBC', 'N.vICMS')
-					 -> from('tb_spedfiscal_nfe AS SN')
-					 -> join('tb_nfe AS N', 'N.chNFe', '=', 'SN.chv_nfe')
-					 ->	join('tb_spedfiscal AS S', 'S.id', '=', 'SN.id_sped', 'inner');
+	/**
+	 * Lista todos os emitentes relacionados dentro do arquivo do Sped Fiscal
+	 */
+    public function getEmitente($cnpj, $data_inicio, $data_fim)
+    {
+        $get = $this->distinct()
+            ->select(
+				'cpf_cnpj_emit AS cEmi',
+				'nome_razao_social_emit AS xNome',
+				DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit) AS totalAquisicoes')
+			)
+            ->from('tb_lista_nfe AS N');
 
-		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
+        $get->where('N.cpf_cnpj_emit', cnpj($cnpj))
+			->whereBetween('N.data_de_emissao',
+				[
+					convert_to_date($data_inicio, 'Y-m-d'),
+					convert_to_date($data_fim, 'Y-m-d')
+				]
+			);
 
-			$search = $_GET['search']['value'];
-			$get -> orWhere('S.cnpj_fornecedor', 'like', '%' . $search)
-				 -> orWhere('S.dt_ini', 'like', '%' .  $search)
-				 -> orWhere('S.dt_fin', 'like', '%' .  $search);
-
-		}
-
-		if ( !is_null($cnpj) && !is_null($data_inicio) && !is_null($data_fim) ) {
-			$get -> where('S.cnpj_fornecedor', $cnpj)
-				 -> where('S.dt_ini', $data_inicio)
-				 -> where('S.dt_fin', $data_fim);
-		}
-
-		$this -> order = [
+        $this->order = [
 			null,
-			'N.chNFe',
-			'N.nNF',
-			'N.cEmi',
-			DB::raw('(select nome from tb_fornecedor where N.cEmi = tb_fornecedor.cnpj)'),
-			'N.vOrig',
-			'N.vBC',
-			'N.vICMS',
+			'cpf_cnpj_emit',
+			'nome_razao_social_emit',
+			DB::raw('(SELECT SUM(CONVERT(REPLACE(REPLACE(valor_total_da_nota, ".", ""), ",","."), DECIMAL(11,2))) FROM tb_lista_nfe WHERE cpf_cnpj_emit = N.cpf_cnpj_emit GROUP by cpf_cnpj_emit)'),
 			null
 		];
 
-		if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
-			$get -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
-		} else {
-			$get -> orderBy($this -> order[1], 'ASC');
-		}
+        if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+            $get->orderBy($this->order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+        } else {
+            $get->orderBy($this->order[2], 'ASC');
+        }
 
-		if ( ! $count) {
+        if (isset($_GET['length'])) {
+            $get->limit($_GET['length']);
+        }
 
-			if ( isset($_GET['length'])) {
-				$get -> limit($_GET['length']);
-			}
+        if (isset($_GET['start'])) {
+            $get->offset($_GET['start']);
+        }
 
-			if ( isset($_GET['start']) ) {
-				$get -> offset($_GET['start']);
-			}
+        return $get;
+    }
 
-		}
+    /**
+     * Faz o cruzamento das informações de notas fiscais com as Chaves da NFe dentro do Sped Fiscal
+     */
+    public function getNFeNaoEscrituradas($emitente = null, $data_inicio = null, $data_fim = null)
+    {
+        $this->emitente = $emitente;
 
-		return $get;
+        $get = $this->distinct()
+            ->select(
+				'chave_de_acesso AS chv_nfe',
+				DB::raw('CONCAT(numero, "-", serie) AS numero'),
+				'cpf_cnpj_emit AS cEmit',
+				'nome_razao_social_emit AS xNome',
+				DB::raw('DATE_FORMAT(data_de_emissao, "%d/%m/%Y") AS dt_emi'),
+				'hora_de_emissao',
+				'valor_total_da_nota',
+				'valor_do_icms'
+			)
+            ->from('tb_lista_nfe AS L')
+            ->whereNotIn('chave_de_acesso', function ($q) {
+                $q->select('chv_nfe')
+                    ->from('tb_spedfiscal_nfe AS N')
+                    ->whereColumn('N.chv_nfe', '=', 'L.chave_de_acesso')
+                    ->where('L.cpf_cnpj_emit', cnpj($this->emitente));
+            })
+            ->where('L.cpf_cnpj_emit', cnpj($emitente))
+            ->whereBetween('L.data_de_emissao', [convert_to_date($data_inicio, 'Y-m-d'), convert_to_date($data_fim, 'Y-m-d')]);
 
-	}
+        if (isset($_GET['search']['value']) && !empty($_GET['search']['value'])) {
+            $get->where(function ($get) {
+                $search = $_GET['search']['value'];
+                $get->orWhere('L.chave_de_acesso', 'like', $search . '%')
+                    ->orWhere('L.numero', 'like', $search . '%')
+                    ->orWhere('L.nome_razao_social_emit', 'like', $search . '%');
+            });
+        }
 
-	public function getNFeById($chNFe) {
+        $this->order = [
+			null,
+			'L.chave_de_acesso',
+			'L.numero',
+			'L.cpf_cnpj_emit',
+			'L.nome_razao_social_emit',
+			'L.data_de_emissao',
+			'L.hora_de_emissao',
+			'L.valor_total_da_nota',
+			'L.valor_do_icms'
+		];
 
-		return $this -> select('*')
-					 -> from('tb_lista_nfe', 'N')
-					 -> where('chave_de_acesso', $chNFe)
-					 -> first();
+        if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+            $get->orderBy($this->order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+        } else {
+            $get->orderBy($this->order[4], 'ASC');
+        }
 
-	}
+        $get->orderBy('data_de_emissao', 'ASC');
+        $get->orderBy('hora_de_emissao', 'ASC');
 
-	public function getTotalRows($cnpj = null, $data_inicio = null, $data_fim = null) {
+        if (isset($_GET['length'])) {
+            $get->limit($_GET['length']);
+        }
 
-		// return $this -> getXMLvsTXT($cnpj, $data_inicio, $data_fim) -> count();
+        if (isset($_GET['start'])) {
+            $get->offset($_GET['start']);
+        }
 
-	}
+        return $get;
+    }
 
-	public function getReport($id) {
+    // public function getXMLvsTXT($cnpj = null, $data_inicio = null, $data_fim = null, $count = false) {
 
-		return $this -> getSped($id);
+    // $get = $this -> select('S.cnpj_fornecedor', 'S.dt_ini', 'S.dt_fin', 'N.id AS idNFe', 'N.cEmi', 'N.nNF',DB::raw('(select nome from tb_fornecedor where N.cEmi = tb_fornecedor.cnpj) AS emitente'), 'N.serie', 'N.vOrig','N.vBC', 'N.vICMS')
+    // -> from('tb_spedfiscal_nfe AS SN')
+    // -> join('tb_nfe AS N', 'N.chNFe', '=', 'SN.chv_nfe')
+    // -> join('tb_spedfiscal AS S', 'S.id', '=', 'SN.id_sped', 'inner');
 
-	}
+    // if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
 
+    // $search = $_GET['search']['value'];
+    // $get -> orWhere('S.cnpj_fornecedor', 'like', '%' . $search)
+    // -> orWhere('S.dt_ini', 'like', '%' . $search)
+    // -> orWhere('S.dt_fin', 'like', '%' . $search);
+
+    // }
+
+    // if ( !is_null($cnpj) && !is_null($data_inicio) && !is_null($data_fim) ) {
+    // $get -> where('S.cnpj_fornecedor', $cnpj)
+    // -> where('S.dt_ini', $data_inicio)
+    // -> where('S.dt_fin', $data_fim);
+    // }
+
+    // $this -> order = [
+    // null,
+    // 'N.chNFe',
+    // 'N.nNF',
+    // 'N.cEmi',
+    // DB::raw('(select nome from tb_fornecedor where N.cEmi = tb_fornecedor.cnpj)'),
+    // 'N.vOrig',
+    // 'N.vBC',
+    // 'N.vICMS',
+    // null
+    // ];
+
+    // if (isset($_GET['order']) && $_GET['order'][0]['column'] != 0) {
+    // $get -> orderBy($this -> order[$_GET['order'][0]['column']], $_GET['order'][0]['dir']);
+    // } else {
+    // $get -> orderBy($this -> order[1], 'ASC');
+    // }
+
+    // if ( ! $count) {
+
+    // if ( isset($_GET['length'])) {
+    // $get -> limit($_GET['length']);
+    // }
+
+    // if ( isset($_GET['start']) ) {
+    // $get -> offset($_GET['start']);
+    // }
+
+    // }
+
+    // return $get;
+
+    // }
+
+	/**
+	 * Pega as informações da nota fiscal dentro do arquivo de notas.
+	 */
+    public function getNFeById($chNFe)
+    {
+        return $this->select('*')
+            ->from('tb_lista_nfe', 'N')
+            ->where('chave_de_acesso', $chNFe)
+            ->first();
+    }
+
+    public function getTotalRows($cnpj = null, $data_inicio = null, $data_fim = null)
+    {
+        // return $this -> getXMLvsTXT($cnpj, $data_inicio, $data_fim) -> count();
+    }
+
+    // public function getReport($id)
+    // {
+    //     return $this->getSped($id);
+    // }
 }

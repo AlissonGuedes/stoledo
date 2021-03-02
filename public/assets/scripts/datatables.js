@@ -311,6 +311,7 @@ function buttonActions() {
 
 function DataTable(refresh) {
 
+    var td = [];
     var table = $('table.datatable');
 
     var _self = table.DataTable({
@@ -369,8 +370,20 @@ function DataTable(refresh) {
                 });
             });
 
+            table.find('th').each(function() {
+                td.push($(this).attr('class'));
+            });
+
         },
         'fnRowCallback': function(row, data, index) {
+
+            var th = $($(this).parents('.dataTables_wrapper').find($('thead th')));
+
+            $(row).each(function() {
+                $(this).find('td').each(function(index) {
+                    $(this).addClass($(th[index]).data('class'));
+                })
+            });
 
             $(row).find('td').on('click', function(e) {
 

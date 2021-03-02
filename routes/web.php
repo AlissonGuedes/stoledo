@@ -52,11 +52,10 @@ Route::get('/reports/fornecedores/xls/{cnpj}/{nfe}', [FornecedoresController::cl
 
 // Sped Fiscal
 Route::get('/reports/sped', [SpedController::class, 'index']) -> name('reports.sped');
+Route::get('/reports/sped/{cnpj}/{data_inicio}-{data_fim}', [SpedController::class, 'fornecedores']) -> name('reports.sped.fornecedores');
+Route::get('/reports/sped/{cnpj}/{data_inicio}-{data_fim}/{emitente}', [SpedController::class, 'nao_escrituradas']) -> name('reports.sped.fornecedores');
 
-Route::get('/reports/sped/{cnpj?}/{data_inicio?}-{data_fim?}', [SpedController::class, 'fornecedores']) -> name('reports.sped.fornecedores');
-
-Route::get('/reports/sped/nao_escrituradas/{cnpj?}/{data_inicio?}-{data_fim?}/{xml?}', [SpedController::class, 'show_nfe']) -> name('reports.sped.nao_escrituradas');
-Route::get('/reports/sped/{cnpj?}/{data_inicio?}-{data_fim?}/{emitente}', [SpedController::class, 'nao_escrituradas']) -> name('reports.sped.fornecedores');
+Route::get('/reports/sped/nao_escrituradas/{cnpj}/{data_inicio}-{data_fim}/{xml}', [SpedController::class, 'show_nfe']) -> name('reports.sped.nao_escrituradas');
 Route::get('/reports/sped/nao_escrituradas/xls/{xml}', [SpedController::class, 'baixar_xls']) -> name('reports.sped.nao_escrituradas.baixar_xls');
 Route::get('/reports/sped/nao_escrituradas/pdf/{xml}', [SpedController::class, 'baixar_pdf']) -> name('reports.sped.nao_escrituradas.pdf');
 

@@ -1,37 +1,49 @@
-<?php
+@php
 
+use Illuminate\Support\Facades\DB;
 $records = [];
 
-if ( isset($rows) ) {
+if (isset($rows)) {
+    $sped = new \App\Models\SpedModel();
 
-	$sped = new \App\Models\SpedModel();
+    $cnpj_dest = request()->route()->parameters['cnpj'];
+    $data_inicio = request()->route()->parameters['data_inicio'];
+    $data_fim = request()->route()->parameters['data_fim'];
 
-	foreach ( $rows as $row ){
+    foreach ($rows as $row) {
+        $totalNaoEscrituradas = $sped
+            ->getNFeNaoEscrituradas($row->cEmi, $data_inicio, $data_fim)
+            ->get()
+            ->count();
 
-		$totalNotas = $sped -> distinct() -> select('chave_de_acesso') -> from('tb_lista_nfe') -> where('cpf_cnpj_emit', '=', $row -> cEmi) ->
-		groupBy('chave_de_acesso', 'cod_prod') -> get() -> count();
+        if ($totalNaoEscrituradas > 0):
+            $totalNotas = $sped
+                ->distinct()
+                ->select('chave_de_acesso')
+                ->from('tb_lista_nfe')
+                ->where('cpf_cnpj_emit', '=', $row->cEmi)
+                ->groupBy('chave_de_acesso', 'cod_prod')
+                ->get()
+                ->count();
 
-		$records[] = array(
-			'<label><input type="checkbox" name="id[]" value="' . str_replace(['.','/', '-'], '', $row -> cEmi) . '"><span></span></label>',
-			cnpj($row -> cEmi),
-			strtoupper($row->xNome),
-			'R$ ' . number_format($row -> totalAquisicoes, 2, ',', '.'),
-			$totalNotas
-			// '<a href="' . route('reports.sped.detalhamento', [
-			// 	'cnpj' => $row->cnpj_fornecedor,
-			// 	'data_inicio' => convert_to_date($row->dt_ini, 'dmY'),
-			// 	'data_fim' => convert_to_date($row->dt_fin, 'dmY'),
-			// 	'emitente' => $row -> cEmi
-			// ]) . '">Ver</a>'
-		);
+            $cnpj_emit = str_replace(['.', '/', '-'], '', $row->cEmi);
 
-	}
-
+            $records[] = [
+				'<label><input type="checkbox" name="id[]" value="' . $cnpj_emit . '"><span></span></label>',
+				cnpj($row->cEmi),
+				strtoupper($row->xNome),
+				'R$ ' . number_format($row->totalAquisicoes, 2, ',', '.'),
+				$totalNotas,
+				$totalNaoEscrituradas,
+				'<a href="' . url('reports/sped/' . $cnpj_dest . '/' . $data_inicio . '-' . $data_fim . '/' . $cnpj_emit) . '">Ver</a>'
+			];
+        endif;
+    }
 }
 
 echo json_encode([
-	'data' => $records,
-	'recordsFiltered' => $numRows,
+    'data' => $records,
+    'recordsFiltered' => $numRows,
 ]);
 
-?>
+@endphp

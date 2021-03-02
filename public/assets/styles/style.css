@@ -978,6 +978,17 @@ input.no-border,
     padding-right: 20px;
 }
 
+.input-field.bordered {
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    padding: 25px 15px 5px;
+}
+
+.input-field.bordered label {
+    margin: 15px;
+    font-size: 1rem;
+}
+
 input:invalid {
     background: red;
 }
@@ -2024,7 +2035,7 @@ p {
 }
 
 .page_title {
-    padding: 15px;
+    padding: 5px 0;
     display: flex;
     align-items: center;
     font-size: 1rem
