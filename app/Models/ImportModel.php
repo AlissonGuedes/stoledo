@@ -42,7 +42,7 @@ namespace App\Models {
 		*/
 		public function import_nfe($file) {
 
-			$name = $file -> getClientOriginalName();
+			$name = strtolower($file -> getClientOriginalName());;
 			$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
 
 			$this -> readXMLFile($name);
@@ -54,7 +54,7 @@ namespace App\Models {
 		/** Importação do arquivo SPED Fiscal */
 		public function import_sped($file){
 
-			$name = $file -> getClientOriginalName();
+			$name = strtolower($file -> getClientOriginalName());
 			$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
 
 			$this -> readTXTFile($name);

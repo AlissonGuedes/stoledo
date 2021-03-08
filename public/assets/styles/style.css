@@ -646,7 +646,8 @@ nav ul a {
 
 /** input-field **/
 
-.input-field label {
+.input-field label,
+nav .input-field label {
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -669,8 +670,10 @@ nav ul a {
     color: rgba(0, 0, 0, 0.3);
 }
 
-.input-field>label.active {
+.input-field>label.active,
+nav .input-field>label.active {
     transform: translateY(-50%) scale(0.8) !important;
+    color: var(--blue-accent-1)
 }
 
 .select-wrapper+label {
@@ -705,7 +708,8 @@ input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
 textarea,
-textarea.materialize-textarea {
+textarea.materialize-textarea,
+.nav-wrapper .input-field input[type=search] {
     font-family: 'Roboto' !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -734,7 +738,8 @@ input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
 textarea,
 textarea.materialize-textarea,
-.chips {
+.chips,
+.nav-wrapper .input-field input[type=search]:not(.browser-default) {
     background-color: rgba(0, 0, 0, 0);
     background-position: center calc(100% - 0px);
     background-repeat: no-repeat;
@@ -762,7 +767,8 @@ input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]),
 .select-wrapper input.select-dropdown:focus,
-.chips.focus {
+.chips.focus,
+.nav-wrapper .input-field input[type=search]:not(.browser-default):focus:not([readonly]) {
     box-shadow: none !important;
     background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
     background-size: 100% 2px, 100% 1px;
@@ -795,7 +801,8 @@ input[type=number]:not(.browser-default)[readonly="readonly"],
 input[type=search]:not(.browser-default):disabled,
 input[type=search]:not(.browser-default)[readonly="readonly"],
 textarea.materialize-textarea:disabled,
-textarea.materialize-textarea[readonly="readonly"] {
+textarea.materialize-textarea[readonly="readonly"],
+.nav-wrapper .input-field input[type=search]:not(.browser-default)[readonly="readonly"] {
     color: rgba(0, 0, 0, 0.42);
     border-bottom: none;
     background-color: rgba(0, 0, 0, 0);
@@ -816,8 +823,7 @@ input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
 input[type=tel]:not(.browser-default):focus:not([readonly])+label,
 input[type=number]:not(.browser-default):focus:not([readonly])+label,
 input[type=search]:not(.browser-default):focus:not([readonly])+label,
-textarea.materialize-textarea:focus:not([readonly])+label,
-.input-field label.active {
+textarea.materialize-textarea:focus:not([readonly])+label {
     color: inherit;
 }
 
@@ -846,7 +852,8 @@ input[type=number]:not(.browser-default)[readonly="readonly"]+label,
 input[type=search]:not(.browser-default):disabled+label,
 input[type=search]:not(.browser-default)[readonly="readonly"]+label,
 textarea.materialize-textarea:disabled+label,
-textarea.materialize-textarea[readonly="readonly"]+label {
+textarea.materialize-textarea[readonly="readonly"]+label,
+.nav-wrapper .input-field input[readonly="readonly"]+label {
     color: rgba(0, 0, 0, 0.2);
 }
 
@@ -862,7 +869,8 @@ textarea.materialize-textarea[readonly="readonly"]+label {
 .input-field.with-sufix-icon input[type=tel]:not(.browser-default),
 .input-field.with-sufix-icon input[type=number]:not(.browser-default),
 .input-field.with-sufix-icon input[type=search]:not(.browser-default),
-.input-field.with-sufix-icon textarea {
+.input-field.with-sufix-icon textarea,
+.nav-wrapper .input-field input[type=search]:not(.browser-default) {
     padding-right: 30px !important;
 }
 
@@ -876,11 +884,13 @@ input.no-border,
     border: none !important;
 }
 
-.input-field .prefix.active {
+.input-field .prefix.active,
+.nav-wrapper .input-field .prefix.active {
     color: inherit;
 }
 
-.input-field .sufix {
+.input-field .sufix,
+.nav-wrapper .input-field .sufix {
     align-items: center;
     place-content: center flex-end;
     flex-direction: column;
@@ -937,7 +947,6 @@ input.no-border,
     background: none !important;
     box-shadow: none !important;
     margin: 0;
-    /* display: flex; */
     flex: 1;
 }
 
@@ -978,15 +987,89 @@ input.no-border,
     padding-right: 20px;
 }
 
-.input-field.bordered {
-    border: 1px solid #ccc !important;
+.bordered {
     border-radius: 5px !important;
-    padding: 25px 15px 5px;
+}
+
+.input-field.bordered {
+    padding: 0;
+}
+
+.input-field.bordered .prefix {
+    left: 10px !important;
+}
+
+.input-field.bordered input {
+    margin: 0 !important;
+    left: 10px;
+    padding-left: 16px !important;
+    background-image: none;
+    border-radius: inherit;
 }
 
 .input-field.bordered label {
+    top: -14px;
+    background-color: var(--grey-accent-1);
+    color: var(--grey-darken-4);
+    width: auto;
+    padding: 0px 5px;
+    left: -5px;
+}
+
+.input-field.bordered input:disabled {
+    background-image: none !important;
+    padding-left: 15px !important;
+}
+
+.bordered label {
     margin: 15px;
     font-size: 1rem;
+}
+
+.input-field.bordered input:not([type]),
+.input-field.bordered input[type=text]:not(.browser-default),
+.input-field.bordered input[type=password]:not(.browser-default),
+.input-field.bordered input[type=email]:not(.browser-default),
+.input-field.bordered input[type=url]:not(.browser-default),
+.input-field.bordered input[type=time]:not(.browser-default),
+.input-field.bordered input[type=date]:not(.browser-default),
+.input-field.bordered input[type=datetime]:not(.browser-default),
+.input-field.bordered input[type=datetime-local]:not(.browser-default),
+.input-field.bordered input[type=tel]:not(.browser-default),
+.input-field.bordered input[type=number]:not(.browser-default),
+.input-field.bordered input[type=search]:not(.browser-default),
+.input-field.bordered textarea,
+.input-field.bordered textarea.materialize-textarea,
+.input-field.bordered .nav-wrapper .input-field input[type=search] {
+    border: 1px solid#d9d9d9 !important;
+}
+
+.input-field.bordered input:focus:not([type]),
+.input-field.bordered input[type=text]:focus:not(.browser-default),
+.input-field.bordered input[type=password]:focus:not(.browser-default),
+.input-field.bordered input[type=email]:focus:not(.browser-default),
+.input-field.bordered input[type=url]:focus:not(.browser-default),
+.input-field.bordered input[type=time]:focus:not(.browser-default),
+.input-field.bordered input[type=date]:focus:not(.browser-default),
+.input-field.bordered input[type=datetime]:focus:not(.browser-default),
+.input-field.bordered input[type=datetime-local]:focus:not(.browser-default),
+.input-field.bordered input[type=tel]:focus:not(.browser-default),
+.input-field.bordered input[type=number]:focus:not(.browser-default),
+.input-field.bordered input[type=search]:focus:not(.browser-default),
+.input-field.bordered textarea:focus,
+.input-field.bordered textarea.materialize-textarea:focus,
+.input-field.bordered .nav-wrapper .input-field input[type=search]:focus {
+    background-image: none;
+    border: 1px solid #009efb !important;
+}
+
+.nav-wrapper .input-field {
+    margin-top: 8px;
+    /* float: right */
+}
+
+.nav-wrapper .input-field input[type=search] {
+    padding-left: 0;
 }
 
 input:invalid {
@@ -995,10 +1078,8 @@ input:invalid {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0;
-    /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type="number"] {
@@ -2035,10 +2116,40 @@ p {
 }
 
 .page_title {
-    padding: 5px 0;
     display: flex;
     align-items: center;
     font-size: 1rem
+}
+
+::placeholder {
+    color: var(--grey-darken-1) !important
+}
+
+.nav-wrapper .input-field input[type=search] {
+    width: 100%;
+    padding-right: 0 !important;
+    padding-left: 45px !important;
+    background-color: #fff !important;
+    border-radius: inherit;
+}
+
+.navbar .header-search-wrapper i {
+    position: absolute;
+    left: 0;
+    color: var(--grey-darken-4) !important;
+}
+
+.navbar .header-search-wrapper input:focus~i {
+    color: #000;
+}
+
+.navbar .sideNav-lock .header-search-wrapper {
+    width: auto;
+    position: absolute;
+    height: inherit;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto 0 230px;
 }
 
 .material-tooltip {

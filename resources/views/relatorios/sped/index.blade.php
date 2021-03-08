@@ -1,39 +1,35 @@
 @extends('layouts.app')
 
-@section('container')
-    {{-- <div class="row">
-        <div class="col s6">
-            <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <label for="">Pesquisar arquivo</label>
-                <input type="search" class="dataTable_search black-text">
-            </div>
-        </div>
-    </div> --}}
+@section('header')
 
     <!-- Header search bar starts -->
     <div class="row">
 
-        <div class="col s6">
-            <div class="page_title">
-                {{-- <button data-href="{{ route('reports.sped') }}"
-                    class="btn btn-floating waves-effect transparent white-text bt_ac btn-flat mr-1" data-tooltip="Voltar">
-                    <i class="material-icons black-text">arrow_back</i>
-                </button> --}}
-                <h5>Sped Fiscal</h5>
-            </div>
-        </div>
+        <div class="col s12">
 
-        <div class="col s6">
-            <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <label for="">Pesquisar arquivo</label>
-                <input type="search" class="dataTable_search black-text">
+            <div class="page_title">
+
+                <div class="col s6">
+                    <h5>Sped Fiscal</h5>
+                </div>
+
+                <div class="col s6">
+                    <div class="input-field bordered">
+                        <i class="material-icons prefix grey-text">search</i>
+                        <input type="search" class="dataTable_search black-text" placeholder="Pesquisar Arquivo">
+                    </div>
+                </div>
+
             </div>
+
         </div>
 
     </div>
     <!-- Header search bar Ends -->
+
+@endsection
+
+@section('container')
 
     <div class="row">
 

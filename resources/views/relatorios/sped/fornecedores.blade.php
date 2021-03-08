@@ -7,7 +7,7 @@
      endif;
  @endphp
 
- @section('container')
+ @section('header')
 
      <!-- Header search bar starts -->
      <div class="row">
@@ -25,15 +25,20 @@
          </div>
 
          <div class="col s6">
-             <div class="input-field">
-                 <i class="material-icons prefix">search</i>
-                 <label for="">Pesquisar arquivo</label>
-                 <input type="search" class="dataTable_search black-text">
+             <div class="input-field bordered">
+                 <i class="material-icons prefix grey-text">search</i>
+                 <input type="search" class="dataTable_search black-text" placeholder="Pesquisar Fornecedor">
              </div>
          </div>
 
      </div>
      <!-- Header search bar Ends -->
+
+ @endsection
+
+ @section('container')
+
+
 
      <div class="row">
 

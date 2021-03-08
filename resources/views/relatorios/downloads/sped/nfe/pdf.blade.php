@@ -889,10 +889,11 @@ $row = $sped_model->getNFeById($idNFe);
             @php
 
                 $produtos = $sped_model
-                    ->distinct() -> select('nr_item', 'cod_prod', 'descricao_do_produto_ou_servicos', 'ncm_prod', 'cst_prod', 'cfop_prod', 'unid_prod_trib', 'unid_prod_com', 'quant_prod_trib', 'quant_prod_com', 'valor_unit_prod_trib', 'valor_unit_prod_com', 'valor_total_prod', 'valor_desconto_item', 'bc_icms_prod', 'valor_icms_prod', 'valor_ipi_prod', 'aliq_icms_prod', 'aliq_ipi_prod')
+                    ->distinct()
+                    ->select('nr_item', 'cod_prod', 'descricao_do_produto_ou_servicos', 'ncm_prod', 'cst_prod', 'cfop_prod', 'unid_prod_trib', 'unid_prod_com', 'quant_prod_trib', 'quant_prod_com', 'valor_unit_prod_trib', 'valor_unit_prod_com', 'valor_total_prod', 'valor_desconto_item', 'bc_icms_prod', 'valor_icms_prod', 'valor_ipi_prod', 'aliq_icms_prod', 'aliq_ipi_prod')
                     ->from('tb_lista_nfe')
                     ->where('chave_de_acesso', $row->chave_de_acesso)
-					// -> where('')
+                    // -> where('')
                     ->get();
 
             @endphp

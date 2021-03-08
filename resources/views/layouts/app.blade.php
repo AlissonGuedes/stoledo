@@ -20,9 +20,7 @@
 
     <div id="body">
 
-        @section('header')
-
-        @show
+		@include('layouts/header')
 
         @include('layouts/sidebar')
 

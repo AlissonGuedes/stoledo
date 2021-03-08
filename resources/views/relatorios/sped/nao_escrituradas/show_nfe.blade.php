@@ -7,7 +7,7 @@ if (!isset($row)):
 endif;
 @endphp
 
-@section('container')
+@section('header')
 
     <div class="row">
 
@@ -26,40 +26,50 @@ endif;
 
             </div>
 
-            <ul class="tabs">
-                <li class="tab"><a href="#nfe"></a>Título</li>
-                <li class="tab"><a href="#duplicatas"></a>Duplicatas</li>
-            </ul>
-
-		</div>
+        </div>
 
     </div>
 
-    <div id="titulo">
+@endsection
+
+@section('container')
+
+    <div id="titulo" class="mt-2">
 
         <div class="row">
 
-            <div class="col s12 mt-2">
+            <div class="col s6">
+
                 <h5>
-
-                    <button data-href="{{ route('reports.sped.nao_escrituradas.baixar_xls', $nfe) }}" target="_self"
-                        class="btn btn-floating waves-effect blue lighten-2 black-text mr-1 left" data-tooltip="Excel">
-                        <i class="material-icons left black-text">download</i>
-                    </button>
-
-                    <button class="btn btn-floating waves-effect red lighten-2 black-text modal-trigger mr-1"
-                        data-toggle="modal" data-target="modal-nfe" data-tooltip="PDF">
-                        <i class="material-icons left black-text">picture_as_pdf</i>
-                    </button>
-
-                    {{-- <button class="btn btn-floating waves-effect red lighten-2 black-text modal-trigger mr-1"
-                    data-href="{{ route('reports.sped.nao_escrituradas.pdf', $nfe) }}" target="_blank" data-tooltip="PDF">
-                    <i class="material-icons left black-text">picture_as_pdf</i>
-                </button> --}}
-
                     Informações da Nota Fiscal - {{ $row->numero }}-{{ $row->serie }}
-
                 </h5>
+
+            </div>
+
+            <div class="col s6">
+
+                <button data-href="{{ route('reports.sped.nao_escrituradas.baixar_xls', $nfe) }}" target="_self"
+                    class="btn btn-floating waves-effect blue lighten-2 black-text right ml-2" data-tooltip="Excel">
+                    <i class="material-icons left black-text">download</i>
+                </button>
+
+                <button class="btn btn-floating waves-effect red lighten-2 black-text modal-trigger mr-1 right"
+                    data-toggle="modal" data-target="modal-nfe" data-tooltip="PDF">
+                    <i class="material-icons left black-text">picture_as_pdf</i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+
+                <ul class="tabs">
+                    <li class="tab"><a href="#nfe">Título</a></li>
+                    <li class="tab"><a href="#duplicatas">Duplicatas</a></li>
+                </ul>
 
             </div>
 
@@ -87,28 +97,28 @@ endif;
                         <div class="col s12 l4">
                             <div class="input-field bordered">
                                 <label class="active"> Nome/Razão Social: </label>
-                                <div class="" name="emitente">{{ $row->nome_razao_social_emit }}</div>
+                                <input type="text" value="{{ $row->nome_razao_social_emit }}" disabled="disabled">
                             </div>
                         </div>
 
                         <div class="col s12 l3">
                             <div class="input-field bordered">
                                 <label class="active"> CPF/CNPJ: </label>
-                                <div class="" name="emitente">{{ $row->cpf_cnpj_emit }}</div>
+                                <input type="text" value="{{ $row->cpf_cnpj_emit }}" disabled="disabled">
                             </div>
                         </div>
 
                         <div class="col s12 l3">
                             <div class="input-field bordered">
                                 <label class="active"> Inscrição Estadual: </label>
-                                <div class="" name="emitente">{{ $row->inscricao_estadual_emit }}</div>
+                                <input type="text" value="{{ $row->inscricao_estadual_emit }}" disabled="disabled">
                             </div>
                         </div>
 
                         <div class="col s12 l2">
                             <div class="input-field bordered">
                                 <label class="active">Fone / Fax:</label>
-                                {{ $row->fone_fax_emit }}
+                                <input type="text" value="{{ $row->fone_fax_emit }}" disabled="disabled">
                             </div>
                         </div>
 
@@ -117,20 +127,21 @@ endif;
                     <div class="row">
 
                         <div class="col s12 l4">
+
                             <div class="input-field bordered">
                                 <label class="active">Município / UF:</label>
-                                {{ $row->municipio_emit }} - {{ $row->uf_emit }}
+                                <input type="text" value="{{ $row->municipio_emit }} - {{ $row->uf_emit }}"
+                                    disabled="disabled">
                             </div>
+
                         </div>
 
                         <div class="col s12 l8">
                             <div class="input-field bordered">
                                 <label class="active"> Endereço / Bairro / CEP: </label>
-                                <div class="" name="emitente">{{ $row->endereco_emit }},
-                                    {{ $row->bairro_distrito_emit }}
-                                    -
-                                    {{ cep($row->cep_emit) }}
-                                </div>
+                                <input type="text"
+                                    value="{{ $row->endereco_emit }}, {{ $row->bairro_distrito_emit }} - {{ cep($row->cep_emit) }}"
+                                    disabled="disabled">
                             </div>
                         </div>
 
@@ -161,24 +172,21 @@ endif;
                         <div class="col s12 l3 m3">
                             <div class="input-field bordered">
                                 <label class="active">Operação:</label>
-                            @if ($row->operacao == 1) 0 - Entrada @else 1 - Saída
-                                @endif
+                                <input type="text" value="@php echo $row->operacao == 1 ? '0 - Entrada' : '1 - Saída'; @endphp" disabled="disabled">
                             </div>
                         </div>
 
                         <div class="col s12 l3 m3">
                             <div class="input-field bordered">
                                 <label class="active">Número / Série:</label>
-                                {{ $row->numero }} - {{ $row->serie }}
+                                <input type="text" value="{{ $row->numero }} - {{ $row->serie }}" disabled="disabled">
                             </div>
                         </div>
 
                         <div class="col s12 l6 m6">
                             <div class="input-field bordered">
                                 <label class="active"> Chave de Acesso: </label>
-                                <div class="" name="emitente">
-                                    {{ chave($row->chave_de_acesso) }}
-                                </div>
+                                <input type="text" value="{{ chave($row->chave_de_acesso) }}" disabled="disabled">
                             </div>
                         </div>
 
