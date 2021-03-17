@@ -1,0 +1,47 @@
+@extends('_layouts.app')
+
+@section('page-title', cnpj($fornecedor->cnpj) . ' - ' . $fornecedor->nome)
+
+@section('header')
+
+    <button data-href="{{ route('reports.fornecedores') }}"
+        class="btn btn-floating waves-effect transparent white-text btn-flat" data-tooltip="Voltar">
+        <i class="material-icons">arrow_back</i>
+    </button>
+
+    @parent
+
+@endsection
+
+@section('placeholder', 'Pesquisar fornecedor')
+
+@section('search')
+    @parent
+@endsection
+
+@section('container')
+
+
+    <table class="datatable responsiveDatatable" data-link="{{ url('reports/fornecedores', $fornecedor->cnpj) }}"
+        data-placeholder="Pesquisar Fornecedor">
+        <thead>
+            <tr>
+                <th data-clickable="false" width="1%" data-orderable="false">
+                    <label>
+                        <input type="checkbox" class="light-blue" id="check-all">
+                        <span> </span>
+                    </label>
+                </th>
+                <th style="width: 15%">CNPJ</th>
+                <th style="width: 20%">Destinatário</th>
+                <th style="width: 10%">Número Danfe</th>
+                <th style="width: 15%">V. Total Aquisições</th>
+                <th style="width: 15%">Tipo de Pagamento</th>
+                <th style="width: 10%">Qtd. Duplicatas</th>
+                <th style="width: 15%" data-orderable="false"></th>
+            </tr>
+        </thead>
+    </table>
+
+
+@endsection
