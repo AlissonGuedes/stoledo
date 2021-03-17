@@ -171,7 +171,7 @@ class NotificationSender
      * Queue the given notification instances.
      *
      * @param  mixed  $notifiables
-     * @param  \Illuminate\Notifications\Notification  $notification
+     * @param  array[\Illuminate\Notifications\Channels\Notification]  $notification
      * @return void
      */
     protected function queueNotification($notifiables, $notification)
@@ -202,10 +202,7 @@ class NotificationSender
                     (new SendQueuedNotifications($notifiable, $notification, [$channel]))
                             ->onConnection($notification->connection)
                             ->onQueue($queue)
-                            ->delay(is_array($notification->delay) ?
-                                    ($notification->delay[$channel] ?? null)
-                                    : $notification->delay
-                            )
+                            ->delay($notification->delay)
                             ->through(
                                 array_merge(
                                     method_exists($notification, 'middleware') ? $notification->middleware() : [],

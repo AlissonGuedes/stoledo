@@ -130,7 +130,7 @@ trait GuardsAttributes
     }
 
     /**
-     * Determine if the current state is "unguarded".
+     * Determine if current state is "unguarded".
      *
      * @return bool
      */

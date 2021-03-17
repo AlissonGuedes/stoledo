@@ -514,13 +514,11 @@ trait HasAttributes
      * Merge new casts with existing casts on the model.
      *
      * @param  array  $casts
-     * @return $this
+     * @return void
      */
     public function mergeCasts($casts)
     {
         $this->casts = array_merge($this->casts, $casts);
-
-        return $this;
     }
 
     /**
@@ -779,13 +777,9 @@ trait HasAttributes
     {
         [$key, $path] = explode('->', $key, 2);
 
-        $value = $this->asJson($this->getArrayAttributeWithValue(
+        $this->attributes[$key] = $this->asJson($this->getArrayAttributeWithValue(
             $path, $key, $value
         ));
-
-        $this->attributes[$key] = $this->isEncryptedCastable($key)
-                    ? $this->castAttributeAsEncryptedString($key, $value)
-                    : $value;
 
         return $this;
     }
@@ -848,15 +842,8 @@ trait HasAttributes
      */
     protected function getArrayAttributeByKey($key)
     {
-        if (! isset($this->attributes[$key])) {
-            return [];
-        }
-
-        return $this->fromJson(
-            $this->isEncryptedCastable($key)
-                    ? $this->fromEncryptedString($this->attributes[$key])
-                    : $this->attributes[$key]
-        );
+        return isset($this->attributes[$key]) ?
+                    $this->fromJson($this->attributes[$key]) : [];
     }
 
     /**
@@ -1525,7 +1512,7 @@ trait HasAttributes
     }
 
     /**
-     * Get the attributes that have been changed since the last sync.
+     * Get the attributes that have been changed since last sync.
      *
      * @return array
      */

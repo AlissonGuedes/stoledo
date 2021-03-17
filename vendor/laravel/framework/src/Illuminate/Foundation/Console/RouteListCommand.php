@@ -67,8 +67,6 @@ class RouteListCommand extends Command
      */
     public function handle()
     {
-        $this->router->flushMiddlewareGroups();
-
         if (empty($this->router->getRoutes())) {
             return $this->error("Your application doesn't have any routes.");
         }
@@ -165,7 +163,7 @@ class RouteListCommand extends Command
     }
 
     /**
-     * Get the middleware for the route.
+     * Get before filters.
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return string

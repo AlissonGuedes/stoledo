@@ -139,7 +139,7 @@ class Connection implements ServerInfoAwareConnection
     }
 
     /**
-     * Rollback a database transaction.
+     * Roll back a database transaction.
      *
      * @return void
      */

@@ -164,7 +164,7 @@ class MorphTo extends BelongsTo
                     ? array_keys($this->dictionary[$type])
                     : array_map(function ($modelId) {
                         return (string) $modelId;
-                    }, array_filter(array_keys($this->dictionary[$type])));
+                    }, array_keys($this->dictionary[$type]));
     }
 
     /**
@@ -226,7 +226,7 @@ class MorphTo extends BelongsTo
     public function associate($model)
     {
         $this->parent->setAttribute(
-            $this->foreignKey, $model instanceof Model ? $model->{$this->ownerKey ?: $model->getKeyName()} : null
+            $this->foreignKey, $model instanceof Model ? $model->getKey() : null
         );
 
         $this->parent->setAttribute(
@@ -324,9 +324,9 @@ class MorphTo extends BelongsTo
     }
 
     /**
-     * Specify constraints on the query for a given morph type.
+     * Specify constraints on the query for a given morph types.
      *
-     * @param  array  $callbacks
+     * @param  array  $with
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function constrain(array $callbacks)

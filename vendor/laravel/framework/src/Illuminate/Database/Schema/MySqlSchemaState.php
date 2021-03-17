@@ -71,9 +71,7 @@ class MySqlSchemaState extends SchemaState
     {
         $command = 'mysql '.$this->connectionString().' --database="${:LARAVEL_LOAD_DATABASE}" < "${:LARAVEL_LOAD_PATH}"';
 
-        $process = $this->makeProcess($command)->setTimeout(null);
-
-        $process->mustRun(null, array_merge($this->baseVariables($this->connection->getConfig()), [
+        $this->makeProcess($command)->mustRun(null, array_merge($this->baseVariables($this->connection->getConfig()), [
             'LARAVEL_LOAD_PATH' => $path,
         ]));
     }

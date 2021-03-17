@@ -33,7 +33,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      *
      * @var string
      */
-    const VERSION = '8.31.0';
+    const VERSION = '8.15.0';
 
     /**
      * The base path for the Laravel installation.
@@ -111,13 +111,6 @@ class Application extends Container implements ApplicationContract, CachesConfig
      * @var string
      */
     protected $databasePath;
-
-    /**
-     * The custom language file path defined by the developer.
-     *
-     * @var string
-     */
-    protected $langPath;
 
     /**
      * The custom storage path defined by the developer.
@@ -414,30 +407,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      */
     public function langPath()
     {
-        if ($this->langPath) {
-            return $this->langPath;
-        }
-
-        if (is_dir($path = $this->resourcePath().DIRECTORY_SEPARATOR.'lang')) {
-            return $path;
-        }
-
-        return $this->basePath().DIRECTORY_SEPARATOR.'lang';
-    }
-
-    /**
-     * Set the language file directory.
-     *
-     * @param  string  $path
-     * @return $this
-     */
-    public function useLangPath($path)
-    {
-        $this->langPath = $path;
-
-        $this->instance('path.lang', $path);
-
-        return $this;
+        return $this->resourcePath().DIRECTORY_SEPARATOR.'lang';
     }
 
     /**
@@ -484,21 +454,6 @@ class Application extends Container implements ApplicationContract, CachesConfig
     public function resourcePath($path = '')
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'resources'.($path ? DIRECTORY_SEPARATOR.$path : $path);
-    }
-
-    /**
-     * Get the path to the views directory.
-     *
-     * This method returns the first configured path in the array of view paths.
-     *
-     * @param  string  $path
-     * @return string
-     */
-    public function viewPath($path = '')
-    {
-        $basePath = $this['config']->get('view.paths')[0];
-
-        return rtrim($basePath, DIRECTORY_SEPARATOR).($path ? DIRECTORY_SEPARATOR.$path : $path);
     }
 
     /**
@@ -575,7 +530,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if the application is in the local environment.
+     * Determine if application is in local environment.
      *
      * @return bool
      */
@@ -585,7 +540,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if the application is in the production environment.
+     * Determine if application is in production environment.
      *
      * @return bool
      */
@@ -1227,16 +1182,6 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Get the current application locale.
-     *
-     * @return string
-     */
-    public function currentLocale()
-    {
-        return $this->getLocale();
-    }
-
-    /**
      * Get the current application fallback locale.
      *
      * @return string
@@ -1275,7 +1220,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if the application locale is the given locale.
+     * Determine if application locale is the given locale.
      *
      * @param  string  $locale
      * @return bool
@@ -1356,11 +1301,8 @@ class Application extends Container implements ApplicationContract, CachesConfig
         $this->serviceProviders = [];
         $this->resolvingCallbacks = [];
         $this->terminatingCallbacks = [];
-        $this->beforeResolvingCallbacks = [];
         $this->afterResolvingCallbacks = [];
-        $this->globalBeforeResolvingCallbacks = [];
         $this->globalResolvingCallbacks = [];
-        $this->globalAfterResolvingCallbacks = [];
     }
 
     /**

@@ -124,9 +124,13 @@ class WorkCommand extends Command
      */
     protected function gatherWorkerOptions()
     {
+        $backoff = $this->hasOption('backoff')
+                    ? $this->option('backoff')
+                    : $this->option('delay');
+
         return new WorkerOptions(
             $this->option('name'),
-            max($this->option('backoff'), $this->option('delay')),
+            $backoff,
             $this->option('memory'),
             $this->option('timeout'),
             $this->option('sleep'),

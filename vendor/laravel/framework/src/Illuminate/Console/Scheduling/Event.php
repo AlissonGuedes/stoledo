@@ -87,7 +87,7 @@ class Event
     public $expiresAt = 1440;
 
     /**
-     * Indicates if the command should run in the background.
+     * Indicates if the command should run in background.
      *
      * @var bool
      */
@@ -587,7 +587,7 @@ class Event
     }
 
     /**
-     * State that the command should run in the background.
+     * State that the command should run in background.
      *
      * @return $this
      */

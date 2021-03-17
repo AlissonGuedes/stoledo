@@ -494,7 +494,7 @@ abstract class AbstractPaginator implements Htmlable
     public static function resolveCurrentPage($pageName = 'page', $default = 1)
     {
         if (isset(static::$currentPageResolver)) {
-            return (int) call_user_func(static::$currentPageResolver, $pageName);
+            return call_user_func(static::$currentPageResolver, $pageName);
         }
 
         return $default;
@@ -739,7 +739,7 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
-     * Render the contents of the paginator when casting to a string.
+     * Render the contents of the paginator when casting to string.
      *
      * @return string
      */

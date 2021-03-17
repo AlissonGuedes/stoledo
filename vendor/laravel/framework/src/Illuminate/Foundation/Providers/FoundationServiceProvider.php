@@ -5,7 +5,6 @@ namespace Illuminate\Foundation\Providers;
 use Illuminate\Http\Request;
 use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Testing\ParallelTestingServiceProvider;
 use Illuminate\Validation\ValidationException;
 
 class FoundationServiceProvider extends AggregateServiceProvider
@@ -17,7 +16,6 @@ class FoundationServiceProvider extends AggregateServiceProvider
      */
     protected $providers = [
         FormRequestServiceProvider::class,
-        ParallelTestingServiceProvider::class,
     ];
 
     /**

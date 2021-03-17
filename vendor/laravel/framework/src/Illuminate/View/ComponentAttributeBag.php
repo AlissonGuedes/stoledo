@@ -57,20 +57,9 @@ class ComponentAttributeBag implements ArrayAccess, Htmlable, IteratorAggregate
     }
 
     /**
-     * Determine if a given attribute exists in the attribute array.
-     *
-     * @param  string  $key
-     * @return bool
-     */
-    public function has($key)
-    {
-        return array_key_exists($key, $this->attributes);
-    }
-
-    /**
      * Only include the given attribute from the attribute array.
      *
-     * @param  mixed  $keys
+     * @param  mixed|array  $keys
      * @return static
      */
     public function only($keys)
@@ -171,29 +160,6 @@ class ComponentAttributeBag implements ArrayAccess, Htmlable, IteratorAggregate
         }
 
         return $this->except($props);
-    }
-
-    /**
-     * Conditionally merge classes into the attribute bag.
-     *
-     * @param  mixed|array  $classList
-     * @return static
-     */
-    public function class($classList)
-    {
-        $classList = Arr::wrap($classList);
-
-        $classes = [];
-
-        foreach ($classList as $class => $constraint) {
-            if (is_numeric($class)) {
-                $classes[] = $constraint;
-            } elseif ($constraint) {
-                $classes[] = $class;
-            }
-        }
-
-        return $this->merge(['class' => implode(' ', $classes)]);
     }
 
     /**

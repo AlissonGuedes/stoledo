@@ -5,20 +5,17 @@ namespace Illuminate\Database\Eloquent\Factories;
 use Closure;
 use Faker\Generator;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\ForwardsCalls;
-use Illuminate\Support\Traits\Macroable;
 use Throwable;
 
 abstract class Factory
 {
-    use ForwardsCalls, Macroable {
-        __call as macroCall;
-    }
+    use ForwardsCalls;
 
     /**
      * The name of the factory's corresponding model.
@@ -108,12 +105,12 @@ abstract class Factory
      * Create a new factory instance.
      *
      * @param  int|null  $count
-     * @param  \Illuminate\Support\Collection|null  $states
-     * @param  \Illuminate\Support\Collection|null  $has
-     * @param  \Illuminate\Support\Collection|null  $for
-     * @param  \Illuminate\Support\Collection|null  $afterMaking
-     * @param  \Illuminate\Support\Collection|null  $afterCreating
-     * @param  string|null  $connection
+     * @param  \Illuminate\Support\Collection  $states
+     * @param  \Illuminate\Support\Collection  $has
+     * @param  \Illuminate\Support\Collection  $for
+     * @param  \Illuminate\Support\Collection  $afterMaking
+     * @param  \Illuminate\Support\Collection  $afterCreating
+     * @param  string  $connection
      * @return void
      */
     public function __construct($count = null,
@@ -484,22 +481,18 @@ abstract class Factory
     /**
      * Define an attached relationship for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Factories\Factory|\Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model  $factory
+     * @param  \Illuminate\Database\Eloquent\Factories\Factory  $factory
      * @param  callable|array  $pivot
      * @param  string|null  $relationship
      * @return static
      */
-    public function hasAttached($factory, $pivot = [], $relationship = null)
+    public function hasAttached(self $factory, $pivot = [], $relationship = null)
     {
         return $this->newInstance([
             'has' => $this->has->concat([new BelongsToManyRelationship(
                 $factory,
                 $pivot,
-                $relationship ?: Str::camel(Str::plural(class_basename(
-                    $factory instanceof Factory
-                        ? $factory->modelName()
-                        : Collection::wrap($factory)->first()
-                )))
+                $relationship ?: Str::camel(Str::plural(class_basename($factory->modelName())))
             )]),
         ]);
     }
@@ -507,17 +500,15 @@ abstract class Factory
     /**
      * Define a parent relationship for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Factories\Factory|\Illuminate\Database\Eloquent\Model  $factory
+     * @param  \Illuminate\Database\Eloquent\Factories\Factory  $factory
      * @param  string|null  $relationship
      * @return static
      */
-    public function for($factory, $relationship = null)
+    public function for(self $factory, $relationship = null)
     {
         return $this->newInstance(['for' => $this->for->concat([new BelongsToRelationship(
             $factory,
-            $relationship ?: Str::camel(class_basename(
-                $factory instanceof Factory ? $factory->modelName() : $factory
-            ))
+            $relationship ?: Str::camel(class_basename($factory->modelName()))
         )])]);
     }
 
@@ -750,10 +741,6 @@ abstract class Factory
      */
     public function __call($method, $parameters)
     {
-        if (static::hasMacro($method)) {
-            return $this->macroCall($method, $parameters);
-        }
-
         if (! Str::startsWith($method, ['for', 'has'])) {
             static::throwBadMethodCallException($method);
         }

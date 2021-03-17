@@ -8,7 +8,6 @@ class GeneratedExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
 {
     /**
      * @var string[]
-     *
      * @internal
      */
     public const MIME_TYPES_FOR_EXTENSIONS = [
@@ -667,7 +666,6 @@ class GeneratedExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
         'opf' => 'application/oebps-package+xml',
         'opml' => 'text/x-opml',
         'oprc' => 'application/vnd.palm',
-        'opus' => 'audio/ogg',
         'org' => 'text/x-org',
         'osf' => 'application/vnd.yamaha.openscoreformat',
         'osfpvg' => 'application/vnd.yamaha.openscoreformat.osfpvg+xml',

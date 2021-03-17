@@ -1374,17 +1374,17 @@ trait Date
     /**
      * Returns the minutes offset to UTC if no arguments passed, else set the timezone with given minutes shift passed.
      *
-     * @param int|null $minuteOffset
+     * @param int|null $offset
      *
      * @return int|static
      */
-    public function utcOffset(int $minuteOffset = null)
+    public function utcOffset(int $offset = null)
     {
         if (\func_num_args() < 1) {
             return $this->offsetMinutes;
         }
 
-        return $this->setTimezone(CarbonTimeZone::createFromMinuteOffset($minuteOffset));
+        return $this->setTimezone(static::safeCreateDateTimeZone($offset / static::MINUTES_PER_HOUR));
     }
 
     /**
@@ -2295,10 +2295,10 @@ trait Date
             if ($macro instanceof Closure) {
                 $boundMacro = @Closure::bind($macro, null, static::class);
 
-                return ($boundMacro ?: $macro)(...$parameters);
+                return \call_user_func_array($boundMacro ?: $macro, $parameters);
             }
 
-            return $macro(...$parameters);
+            return \call_user_func_array($macro, $parameters);
         });
     }
 
@@ -2412,10 +2412,10 @@ trait Date
         if ($macro instanceof Closure) {
             $boundMacro = @$macro->bindTo($this, static::class) ?: @$macro->bindTo(null, static::class);
 
-            return ($boundMacro ?: $macro)(...$parameters);
+            return \call_user_func_array($boundMacro ?: $macro, $parameters);
         }
 
-        return $macro(...$parameters);
+        return \call_user_func_array($macro, $parameters);
     }
 
     protected function executeCallableWithContext($macro, ...$parameters)

@@ -276,7 +276,8 @@ class AssertableJsonString implements ArrayAccess, Countable
     /**
      * Reorder associative array keys to make it easy to compare arrays.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return array
      */
     protected function reorderAssocKeys(array $data)

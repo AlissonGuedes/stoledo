@@ -586,15 +586,11 @@ if (! function_exists('report')) {
     /**
      * Report an exception.
      *
-     * @param  \Throwable|string  $exception
+     * @param  \Throwable  $exception
      * @return void
      */
-    function report($exception)
+    function report(Throwable $exception)
     {
-        if (is_string($exception)) {
-            $exception = new Exception($exception);
-        }
-
         app(ExceptionHandler::class)->report($exception);
     }
 }
@@ -605,7 +601,7 @@ if (! function_exists('request')) {
      *
      * @param  array|string|null  $key
      * @param  mixed  $default
-     * @return \Illuminate\Http\Request|string|array|null
+     * @return \Illuminate\Http\Request|string|array
      */
     function request($key = null, $default = null)
     {
