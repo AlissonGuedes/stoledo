@@ -1,6 +1,0 @@
-{
-	"editor.find.autoFindInSelection": "always",
-	"python.pythonPath": "/usr/bin/python",
-	"python.formatting.provider": "black",
-	"editor.defaultFormatter": "vscode.git"
-}
