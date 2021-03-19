@@ -1,16 +1,17 @@
 #!/bin/bash
 
-USER=$4
-PASS=$1
-BD=$2
-LOG=$3
+USERNAME=$1
+PASSWORD=$2
+DATABASE=$3
+LOG=$4
+LOG_BACKUP=$5
 
 FILE=../storage/app/public/files/*/*.txt
 
 function Execute () {
 
 	QUERY=$1
-	mysql -e "$QUERY" --user=$USER --password=$PASS --database=$BD
+	mysql -e "$QUERY" --user=$USERNAME --password=$PASSWORD --database=$DATABASE
 
 }
 
@@ -68,7 +69,6 @@ function Spedfiscal() {
 for i in `ls $FILE`
 do
 
-
 	ID_SPED_FISCAL=0
 	ID_CONTADOR=0
 
@@ -101,8 +101,8 @@ do
 
 	done < "$i"
 
-	# mv $LOG "`date +%Y-%m-%d_%H%M%S`".log
+done > $LOG
 
-done # > $LOG
+mv $LOG $LOG_BACKUP # "`date +%Y-%m-%d_%H%M%S`".log
 
 echo "A importação do arquivo foi finalizada!"
