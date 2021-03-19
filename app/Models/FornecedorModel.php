@@ -58,7 +58,7 @@ class FornecedorModel extends Authenticatable
 			DB::raw('(SELECT xMun FROM tb_municipio WHERE cMun = F.cMun) AS xMun'),
 			DB::raw('(select sum(tb_nfe.vNF)  from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS totais'),
 			DB::raw('(select count(tb_nfe.id) from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90) AS qtd_nf'),
-			DB::raw('(IF(F.cnpj!="",F.cnpj,F.cpf) ) AS cnpj'),
+			DB::raw('(IF(F.cnpj!="",F.cnpj,F.cpf) ) AS cnpj')
 		);
 
 		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {

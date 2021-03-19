@@ -76,7 +76,7 @@ class NFeModel extends Authenticatable
 							DB::raw('(SELECT nro FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS nroDest'),
 							DB::raw('(SELECT xBairro FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS bairroDest'),
 							DB::raw('(SELECT xMun FROM tb_municipio WHERE cMun = (SELECT cMun from tb_fornecedor WHERE cnpj = tb_nfe.cDest) ) AS munDest'),
-							DB::raw('(SELECT uf FROM tb_municipio WHERE cMun = (SELECT cMun from tb_fornecedor WHERE cnpj = tb_nfe.cDest) ) AS ufDest'),
+							DB::raw('(SELECT uf FROM tb_municipio WHERE cMun = (SELECT cMun from tb_fornecedor WHERE cnpj = tb_nfe.cDest) ) AS ufDest')
 						);
 
 		if ( !is_null($xml) ) {
