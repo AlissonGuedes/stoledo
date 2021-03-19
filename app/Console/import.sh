@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=phpmyadmin
+USER=$4
 PASS=$1
 BD=$2
 LOG=$3
