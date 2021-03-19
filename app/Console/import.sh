@@ -72,37 +72,40 @@ do
 	ID_SPED_FISCAL=0
 	ID_CONTADOR=0
 
-	while IFS= read -r REGISTRO || [[ -n "$REGISTRO" ]]
-	do
+	# while IFS= read -r REGISTRO || [[ -n "$REGISTRO" ]]
+	# do
 
-		LINHA=$(echo -e $REGISTRO | sed 's/|//' | rev | sed 's/|//' | rev | sed 's/ /\+/g' | sed 's/\///g')
-		REGISTRO=$(echo -e $REGISTRO | sed 's/|// ; s/|.*//' )
+	# 	LINHA=$(echo -e $REGISTRO | sed 's/|//' | rev | sed 's/|//' | rev | sed 's/ /\+/g' | sed 's/\///g')
+	# 	REGISTRO=$(echo -e $REGISTRO | sed 's/|// ; s/|.*//' )
 
-		if [[ $REGISTRO == 0100 ]] || [[ $REGISTRO == 0000 ]]
-		then
+	# 	if [[ $REGISTRO == 0100 ]] || [[ $REGISTRO == 0000 ]]
+	# 	then
 
-			if [[ $REGISTRO == 0000 ]]
-			then
-				ID_SPED_FISCAL=$(echo $LINHA | cut -f2 -d "|")
-			fi
+	# 		if [[ $REGISTRO == 0000 ]]
+	# 		then
+	# 			ID_SPED_FISCAL=$(echo $LINHA | cut -f2 -d "|")
+	# 		fi
 
-			if [[ $REGISTRO == 0100 ]]
-			then
-				ID_CONTADOR=$(echo `Contabilista $LINHA`)
-			fi
-		fi
+	# 		if [[ $REGISTRO == 0100 ]]
+	# 		then
+	# 			ID_CONTADOR=$(echo `Contabilista $LINHA`)
+	# 		fi
+	# 	fi
 
-		if [[ $ID_SPED_FISCAL != 0 ]] && [[ $ID_CONTADOR != 0 ]]
-		then
+	# 	if [[ $ID_SPED_FISCAL != 0 ]] && [[ $ID_CONTADOR != 0 ]]
+	# 	then
 
-			echo Spedfiscal $LINHA $ID_CONTADOR $ID_SPED_FISCAL
+	# 		echo Spedfiscal $LINHA $ID_CONTADOR $ID_SPED_FISCAL
 
-		fi
+	# 	fi
 
-	done < "$i"
+	# done < "$i"
+
+	echo 'Importando arquivo ' $i
 
 done > $LOG
 
-mv $LOG $LOG_BACKUP # "`date +%Y-%m-%d_%H%M%S`".log
+mv $LOG $LOG_BACKUP
 
+ # "`date +%Y-%m-%d_%H%M%S`".log
 echo "A importação do arquivo foi finalizada!"
