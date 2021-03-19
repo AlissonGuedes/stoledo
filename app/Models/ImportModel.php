@@ -40,25 +40,27 @@ namespace App\Models {
 		/**
 		* Run from the import process
 		*/
-		public function import_nfe($file) {
+		// public function import_nfe($file) {
 
-			print_r($file -> getClientOriginalName());
-			$name = explode('.', $file -> getClientOriginalName());
-			$name = limpa_string(substr($name, $name[count($name) - 1]));
-			$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
+		// 	print_r($file -> getClientOriginalName());
+		// 	$name = explode('.', $file -> getClientOriginalName());
+		// 	$name = limpa_string(substr($name, $name[count($name) - 1]));
+		// 	$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
 
-			$this -> readXMLFile($name);
+		// 	$this -> readXMLFile($name);
 
-		}
+		// }
 
 		/** Importação do arquivo SPED Fiscal */
-		public function import_sped($file){
+		public function import_sped($file) {
 
 			$name = explode('.', $file -> getClientOriginalName());
-			$name = limpa_string(substr($name, $name[count($name) - 1]));
-			$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
+			$extension = strtolower($file -> getClientOriginalExtension());
+			$filename  = limpa_string($name[count($name) - 2]);
+			$filename  = $filename . '.' . $extension;
+			$file -> storeAs('public/files/' . $extension, $filename);
 
-			$this -> readTXTFile($name);
+			$this -> readTXTFile($filename);
 
 		}
 

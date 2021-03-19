@@ -59,7 +59,7 @@
     </ul>
 
     <div id="footer" style="position: absolute; z-index: 9999; bottom: 0; left: 0;">
-        <button type="button" class="btn waves-effect blue" disabled="disabled" id="shell_exec">
+        <button type="button" class="btn waves-effect blue" id="shell_exec">
             <i class="material-icons">code</i>
         </button>
     </div>

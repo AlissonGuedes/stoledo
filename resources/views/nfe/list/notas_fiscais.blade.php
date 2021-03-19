@@ -4,7 +4,7 @@
 
     @foreach ($paginate as $row)
 
-        {? $url = route('reports.fornecedores.nfe', ['emitente' => $row->cEmi, 'chave_nfe' => $row->chNFe]) ?}
+        {? $url = route('reports.nfe.danfe', $row->chNFe) ?}
 
         <tr class="{{ $row->status === '0' ? 'blocked' : null }}" id="{{ $row->chNFe }}"
             data-link="{{ $url }}" data-disabled="false">

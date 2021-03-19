@@ -79,8 +79,6 @@ class NFeModel extends Authenticatable
 							DB::raw('(SELECT uf FROM tb_municipio WHERE cMun = (SELECT cMun from tb_fornecedor WHERE cnpj = tb_nfe.cDest) ) AS ufDest'),
 						);
 
-		// $get -> join('tb_fornecedor', ['tb_fornecedor.cnpj' => 'tb_nfe.cEmi', 'tb_fornecedor.cnpj' => 'tb_nfe.cDest'], 'join');
-
 		if ( !is_null($xml) ) {
 			$get -> where('chNFe', $xml);
 		}

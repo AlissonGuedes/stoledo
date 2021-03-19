@@ -30,9 +30,11 @@ namespace App\Http\Controllers {
 
 		}
 
-		public function notas_fiscais() {
+		public function danfe($chave_nfe) {
 
-			return view('home');
+			$dados['pdf'] = '';
+			$dados['nfe'] = $this -> nfe_model -> getNFe($chave_nfe) -> first();
+			return view('nfe.danfe', $dados);
 
 		}
 

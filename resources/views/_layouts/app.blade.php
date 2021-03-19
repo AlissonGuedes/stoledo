@@ -27,7 +27,11 @@
 
         <div id="main">
             <div class="container">
-                @section('container') @yield('content') @show
+
+                @section('container')
+                    {{-- <pre> {{ print_r(session()->all()) }}</pre> --}}
+                    @yield('content')
+                @show
             </div>
         </div>
 
@@ -35,10 +39,10 @@
 
     <div id="log"
         style="background: rgba(0, 0, 0, 0.8); width: 600px; height: 400px; border: 1px solid #ccc; position: absolute; fixed; bottom: 0;z-index: 9999; right: 0; color: #fff !important; display:none; overflow: scroll;">
-		<div id="console" style="position: relative; overflow: hidden; padding: 15px;"></div>
+        <div id="console" style="position: relative; overflow: hidden; padding: 15px;"></div>
     </div>
 
-	@include('_layouts.scripts')
+    @include('_layouts.scripts')
 
 </body>
 

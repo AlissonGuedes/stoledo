@@ -42,12 +42,12 @@ namespace App\Http\Controllers {
 
 		}
 
-		public function detalhes_nfe(Request $request, $emitente, $chave_nfe) {
+		public function danfe(Request $request, $emitente, $chave_nfe) {
 
 			$dados['pdf'] = '';
 			$dados['fornecedor'] = $this -> fornecedor_model -> getFornecedor($emitente);
 			$dados['nfe'] = $this -> nfe_model -> getNFe($chave_nfe) -> first();
-			return view('fornecedores.nfe', $dados);
+			return view('fornecedores.danfe', $dados);
 
 		}
 
