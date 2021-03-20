@@ -1,111 +1,164 @@
 #!/bin/bash
 
+#########################################################################
+source ../app/Console/DB.sh
+source ../app/Console/spedfiscal.sh
+source ../app/Console/empresa.sh
+source ../app/Console/contabilista.sh
+source ../app/Console/participante.sh
+source ../app/Console/unidades_de_medida.sh
+source ../app/Console/produto.sh
+#########################################################################
+
+#########################################################################
+TIMESTART=$(echo "`date +%H%M%S`")					# Hora que o script iniciou
+DATESTART=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script iniciou
 USERNAME=$1
 PASSWORD=$2
 DATABASE=$3
 LOG=$4
 LOG_BACKUP=$5
-
 FILE=../storage/app/public/files/*/*.txt
+#########################################################################
 
-function Execute () {
-
-	QUERY=$1
-	mysql -e "$QUERY" --user=$USERNAME --password=$PASSWORD --database=$DATABASE
-
-}
-
-function Contabilista() {
-
-	CONTADOR=$1
-
-	NUM_REGISTRO=$(echo $1 | cut -f 1 -d "|")
-	NOME=$(echo $1 | cut -f 2 -d "|" | sed 's/+/\ /g')
-	CPF=$(echo $1 | cut -f 3 -d "|")
-	CRC=$(echo $1 | cut -f 4 -d "|")
-	CNPJ=$(echo $1 | cut -f 5 -d "|")
-	CEP=$(echo $1 | cut -f 6 -d "|")
-	END=$(echo $1 | cut -f 7 -d "|" | sed 's/+/\ /g')
-	NUM=$(echo $1 | cut -f 8 -d "|" | sed 's/+/\ /g')
-	COMPL=$(echo $1 | cut -f 9 -d "|" | sed 's/+/\ /g')
-	BAIRRO=$(echo $1 | cut -f 10 -d "|" | sed 's/+/\ /g')
-	FONE=$(echo $1 | cut -f 11 -d "|")
-	FAX=$(echo $1 | cut -f 12 -d "|")
-	EMAIL=$(echo $1 | cut -f 13 -d "|")
-	COD_MUN=$(echo $1 | cut -f 14 -d "|")
-
-	query="SELECT id FROM tb_contabilista WHERE cpf = '$CPF' OR cnpj = '$CNPJ';";
-
-	result=$(Execute "$query")
-
-	ID_CONTADOR=`echo $result | awk '{print $2}'`
-
-	if [[ $ID_CONTADOR != '' ]]
-	then
-
-		echo $ID_CONTADOR
-
-	else
-
-		query="INSERT INTO tb_contabilista (nome, cpf, crc, cnpj, cep, logradouro, numero, complemento, bairro, fone, fax, email, cod_mun) VALUES ('$NOME', '$CPF', '$CRC', '$CNPJ', '$CEP', '$END', '$NUM', '$COMPL', '$BAIRRO', '$FONE', '$FAX', '$EMAIL', '$COD_MUN');"
-
-		ID_CONTADOR=$(Execute "$query select last_insert_id();")
-
-		echo $ID_CONTADOR
-
-	fi
-
-}
-
-function Spedfiscal() {
-
-	SPED=$1
-	CONTADOR=$2
-
-	echo "$SPED $CONTADOR ======== "
-
-}
+> $LOG
 
 for i in `ls $FILE`
 do
 
-	ID_SPED_FISCAL=0
+	SPEDFISCAL=0
+	ID_SPEDFISCAL=0
+	ID_EMPRESA=0
 	ID_CONTADOR=0
+	ID_PRODUTO=0
 
-	# while IFS= read -r REGISTRO || [[ -n "$REGISTRO" ]]
-	# do
+	while IFS= read -r REGISTRO || [[ -n "$REGISTRO" ]]
+	do
 
-	# 	LINHA=$(echo -e $REGISTRO | sed 's/|//' | rev | sed 's/|//' | rev | sed 's/ /\+/g' | sed 's/\///g')
-	# 	REGISTRO=$(echo -e $REGISTRO | sed 's/|// ; s/|.*//' )
+		DATETIME="[`date +%Y-%m-%d\ %H:%M:%S`] - "
 
-	# 	if [[ $REGISTRO == 0100 ]] || [[ $REGISTRO == 0000 ]]
-	# 	then
+		LINHA=$(echo -e $REGISTRO | sed 's/ /\+/g' | sed 's/\///g ; s/|//')
+		REGISTRO=$(echo -e $REGISTRO | sed 's/|// ; s/|.*//' )
 
-	# 		if [[ $REGISTRO == 0000 ]]
-	# 		then
-	# 			ID_SPED_FISCAL=$(echo $LINHA | cut -f2 -d "|")
-	# 		fi
+		# Precisamos guardar as informações do arquivo para não perdê-las:
+		# >>> Registro 0000: Spedfiscal
+		# >>> Registro 0005: Empresa
+		# >>> Registro 0100: Contador
 
-	# 		if [[ $REGISTRO == 0100 ]]
-	# 		then
-	# 			ID_CONTADOR=$(echo `Contabilista $LINHA`)
-	# 		fi
-	# 	fi
+		# BEGIN REGISTRO 0000
+		# Gravar informações do arquivo: Spedfiscal, Contador e Empresa
+		if  [[ $REGISTRO == '0000' ]] || [[ $REGISTRO == '0005' ]] || [[ $REGISTRO == '0100' ]]
+		then
 
-	# 	if [[ $ID_SPED_FISCAL != 0 ]] && [[ $ID_CONTADOR != 0 ]]
-	# 	then
+			# Spedfiscal
+			# Primeiro, pegamos apenas o registro da linha 0000 para manipular mais à frente
+			if [[ $REGISTRO == '0000' ]]
+			then
+				SPEDFISCAL=$LINHA
+			fi
 
-	# 		echo Spedfiscal $LINHA $ID_CONTADOR $ID_SPED_FISCAL
+			# Contador
+			# Antes de tudo, vamos primeiro gravar no banco de dados as informações
+			# da empresa e do contador para vinculá-las na tabela do spedfiscal (tb_spedfiscal)
+			if [[ $REGISTRO == 0100 ]]
+			then
+				ID_CONTADOR=$(Contabilista $LINHA)
+			fi
 
-	# 	fi
+			# Empresa
+			if [[ $REGISTRO == '0005' ]]
+			then
+				ID_EMPRESA=$(Empresa $LINHA $SPEDFISCAL)
+			fi
 
-	# done < "$i"
+			# Registrar o nome do Sped no cabeçalho do arquivo de log
+			if [[ $SPEDFISCAL != 0 ]] && [[ $ID_EMPRESA != 0 ]] && [[ $ID_CONTADOR != 0 ]]
+			then
 
-	echo 'Importando arquivo ' $i
+				echo "#######################################################################"
+				echo "# Importação SpedFiscal	#" | expand -t 72
+				echo "# Arquivo: $i	#" | expand -t 70
+				echo "# Data/Hora início da execução: ${DATESTART}	#" | expand -t 74
+				echo "# Empresa: $(echo $SPEDFISCAL | cut -d '|' -f 6 | sed 's/\+/\ /g')	#" | expand -t 70
+				echo "# Período: $(echo $SPEDFISCAL | cut -d '|' -f 4) a $(echo $SPEDFISCAL | cut -d '|' -f 5)	#" | expand -t 71
+				echo "#######################################################################"
 
-done > $LOG
+				ID_SPEDFISCAL=$(Spedfiscal $SPEDFISCAL $ID_EMPRESA $ID_CONTADOR)
 
+			fi
+
+		fi
+		# END REGISTRO 0000
+
+		# BEGIN REGISTRO 0150
+		if [[ $REGISTRO == '0150' ]]
+		then
+
+			echo $DATETIME "Verificação do participante $(echo $LINHA | cut -d '|' -f 2) - $(echo $LINHA | cut -d '|' -f 3 | sed 's/\+/ /g')"
+
+			ID_PARTICIPANTE=$(Participante $LINHA $ID_SPEDFISCAL)
+
+		fi
+		# END REGISTRO 0150
+
+		# BEGIN REGISTRO 0190
+		if [[ $REGISTRO == '0190' ]]
+		then
+
+			echo $DATETIME "Cadastrando unidade de medida $(echo $LINHA | cut -d '|' -f 2) - $(echo $LINHA | cut -d '|' -f 3 | sed 's/\+/ /g')"
+
+			ID_UNIDADE=$(Unidades $LINHA) >> $LOG
+
+		fi
+		# END REGISTRO 0190
+
+		# BEGIN REGISTRO 0200
+		if [[ $REGISTRO == '0200' ]] || [[ $REGISTRO == '0220' ]]
+		then
+
+			if [[ $REGISTRO == '0200' ]]
+			then
+
+				echo $DATETIME "Cadastrando produto $(echo $LINHA | cut -d '|' -f 2) - $(echo $LINHA | cut -d '|' -f 3 | sed 's/\+/ /g')"
+
+				ID_PRODUTO=$(Produtos $LINHA)
+
+			fi
+
+			if [[ $REGISTRO == '0220' ]]
+			then
+
+				echo $DATETIME "Cadastrando fator de conversão $(echo $LINHA | cut -d '|' -f 2) - $(echo $LINHA | cut -d '|' -f 3 | sed 's/\+/ /g')"
+
+				ProdutoConversao $ID_PRODUTO $LINHA
+
+			fi
+
+		fi
+		# END REGISTRO 0200
+
+	done < "$i"
+
+	echo ''
+	echo "#######################################################################"
+	echo '# Importação do arquivo '$i' finalizada com sucesso!	#'  | expand -t 70
+	echo '#######################################################################'
+	echo ''
+
+done >> $LOG
+
+echo '#######################################################################'	>> $LOG
+echo '# Todas as importações foram realizadas com sucesso!'						>> $LOG
+echo '#######################################################################'	>> $LOG
+echo ''	>> $LOG
+
+TIMEEND=$(echo "`date +%H%M%S`")				# Hora que o script finalizou
+DATEEND=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script finalizou
+
+TIMETOTAL=$(echo $((TIMEEND - TIMESTART)))	# Calcula o tempo que o script passou para ser processado
+
+echo 'Script finalizado às '	$DATEEND	>> $LOG
+echo 'Tempo decorrido: '		$TIMETOTAL	>> $LOG ' segundos'
+
+# Depois de finalizado, renomeia o arquivo para não ser sobrescript em um próximo processamento
 mv $LOG $LOG_BACKUP
-
- # "`date +%Y-%m-%d_%H%M%S`".log
-echo "A importação do arquivo foi finalizada!"

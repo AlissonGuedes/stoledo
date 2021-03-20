@@ -27,7 +27,6 @@
 
         <div id="main">
             <div class="container">
-
                 @section('container')
                     {{-- <pre> {{ print_r(session()->all()) }}</pre> --}}
                     @yield('content')
@@ -35,6 +34,14 @@
             </div>
         </div>
 
+    </div>
+
+    <div id="btn_log"
+        style="position: absolute; z-index: 9999; bottom: 0; right: 0;height: 100%; top: 0; display: flex; align-items: center;">
+        <button type="button" class="btn waves-effect blue" id="shell_exec"
+            style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+            <i class="material-icons">code</i>
+        </button>
     </div>
 
     <div id="log"

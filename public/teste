@@ -1,0 +1,1577 @@
+#######################################################################
+# Importação SpedFiscal                                               #
+# Arquivo: ../storage/app/public/files/txt/sped-2.txt                 #
+# Data/Hora início da execução: 20/03/2021, às 03:55:03               #
+# Empresa: MASTER SUPERMERCADOS LTDA                                  #
+# Período: 01122020 a 31122020                                        #
+#######################################################################
+[2021-03-20 03:55:03] - Verificação do participante F000002 - MULTIGIRO DISTRIBUIDORA LTDA
+[2021-03-20 03:55:03] - Verificação do participante F000006 - SAO BRAZ SA IND COM DE ALIMENTOS
+[2021-03-20 03:55:03] - Verificação do participante F000007 - NORDIL NORDESTE DIST E LOGISTICA LTDA
+[2021-03-20 03:55:03] - Verificação do participante F000012 - VALERIANO VALENTE DE OLIVEIRA E CIA LTDA
+[2021-03-20 03:55:03] - Verificação do participante F000013 - ASL COMERCIO ATACADISTA DE ALIMENTO LTDA
+[2021-03-20 03:55:03] - Verificação do participante F000015 - IRMAOS MARTINS COMERCIO DE HORTIFRUTIGRA
+[2021-03-20 03:55:03] - Verificação do participante F000019 - PANVEIGA INDUSTRIA DE ALIMENTOS LTDA EPP
+[2021-03-20 03:55:03] - Verificação do participante F000021 - WILSON NUNES DA COSTA
+[2021-03-20 03:55:03] - Verificação do participante F000022 - INDUSTRIA ALIMENTICIA TRES DE MAIO SA
+[2021-03-20 03:55:04] - Verificação do participante F000025 - BRF S.A.
+[2021-03-20 03:55:04] - Verificação do participante F000028 - CEREALISTA MADALENA LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000030 - CIPAN - COM. E IND. DE PROD. ALIM. DO NO
+[2021-03-20 03:55:04] - Verificação do participante F000039 - NEGREIROS & NEGREIROS LTDA - EPP
+[2021-03-20 03:55:04] - Verificação do participante F000040 - GS COMERCIO DE COMBUSTIVEIS E LUBRIFICAN
+[2021-03-20 03:55:04] - Verificação do participante F000049 - MARTINS COM SERV DISTR SA
+[2021-03-20 03:55:04] - Verificação do participante F000050 - FRINSCAL DISTRIBUIDORA E IMPORTADORA DE
+[2021-03-20 03:55:04] - Verificação do participante F000053 - ANTONIO VITORIO DE SOUZA
+[2021-03-20 03:55:04] - Verificação do participante F000055 - SEARA COMERCIO DE ALIMENTOS LT
+[2021-03-20 03:55:04] - Verificação do participante F000059 - C.A.A COMERCIO ATACADISTA DE ALIMENTOS
+[2021-03-20 03:55:04] - Verificação do participante F000060 - J B COMERCIO VAREJ DE PROD ALIM EIRELI -
+[2021-03-20 03:55:04] - Verificação do participante F000068 - GAGLIARDI DISTRIBUIDORA DE LUBRIFICANTES
+[2021-03-20 03:55:04] - Verificação do participante F000070 - KARNE KEIJO LOG. INTEGRADA LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000073 - NORDECE NE REPRESENTACAO E DISTRIB LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000075 - DIST DE ALIM GALDINO LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000077 - FERREIRA ATACADO DISTRIBUIDOR LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000078 - POLYBALAS DISTRIBUIDORA E LOGISTICA LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000080 - GUARAVES GUARABIRA AVES LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000081 - GENERAL MILLS BRASIL ALIMENTOS LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000082 - FRANCISCO DE ASSIS DE LIRA SILVA- ME
+[2021-03-20 03:55:04] - Verificação do participante F000084 - ROBERTO GUIMARAES PEREIRA
+[2021-03-20 03:55:04] - Verificação do participante F000085 - CAMPINA COMERCIO DE ALIMENTOS LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000087 - DISTRIBUIDORA DE ALIMENTOS FARIAS EIRELI
+[2021-03-20 03:55:04] - Verificação do participante F000089 - INDUSTRIAS REUNIDAS CORINGA LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000090 - NAZARIA DIST.DE PRODUTOS FARM.LTDA
+[2021-03-20 03:55:04] - Verificação do participante F000093 - PERILIMA INDUSTRIA DE ALIMENTOS LTDA.
+[2021-03-20 03:55:04] - Verificação do participante F000095 - CAMTEX IND E COMERCIO TEXTIL LTDA-ME
+[2021-03-20 03:55:05] - Verificação do participante F000096 - SABOR SERTANEJO INDUSTRIA E COMERCIO DE
+[2021-03-20 03:55:05] - Verificação do participante F000105 - MARFIM DISTRIBUIDORA DE ALIMENTOS DA PB.
+[2021-03-20 03:55:05] - Verificação do participante F000115 - REVENDEDORA DE GAS DO BRASIL LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000119 - FREITAS E CAVALCANTE LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000123 - LEONAM IND. E COM. LTDA EPP
+[2021-03-20 03:55:05] - Verificação do participante F000125 - PRODUTOS TROPEIROS COMERCIO EIRELI
+[2021-03-20 03:55:05] - Verificação do participante F000127 - DSJ COM ATAC DE EQUIP E ART DOMESTICOS E
+[2021-03-20 03:55:05] - Verificação do participante F000129 - SERRANA PRODUTOS DE MANDIOCA LTDA ME - F
+[2021-03-20 03:55:05] - Verificação do participante F000130 - INDUSTRIA DE MASSAS REAL SABOR LTDA EPP
+[2021-03-20 03:55:05] - Verificação do participante F000135 - INDAIA BRASIL AGUAS MINERAIS LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000149 - JOSE TADEU SALES DE LUNA
+[2021-03-20 03:55:05] - Verificação do participante F000153 - CAMPINA RACOES LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000160 - LACTALIS DO BRASIL CABOS AGOST
+[2021-03-20 03:55:05] - Verificação do participante F000161 - JOSIAS JOSE DA SILVA
+[2021-03-20 03:55:05] - Verificação do participante F000175 - COTEMINAS S.A.
+[2021-03-20 03:55:05] - Verificação do participante F000183 - PACHECO DIST. DE PERF E UTIL. LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000185 - COOPERATIVA AGROPECUARIA DO CARIRI LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000187 - IMPERIAL BRASIL INDUSTRIA E COMERCIO LTD
+[2021-03-20 03:55:05] - Verificação do participante F000193 - NANCY MORGANA RAMOS DINIZ
+[2021-03-20 03:55:05] - Verificação do participante F000197 - INDUSTRIA ORIENTAL LTDA
+[2021-03-20 03:55:05] - Verificação do participante F000198 - ERONALDO ALVES DOS SANTOS 42399645472
+[2021-03-20 03:55:05] - Verificação do participante F000207 - C & G PRODUTOS ALIMENTICIOS EIRELI
+[2021-03-20 03:55:05] - Verificação do participante F000220 - PB FOODS DIST COMERCIO E INDUSTRIA DE AL
+[2021-03-20 03:55:05] - Verificação do participante F000224 - FILIAL ITALLO COMERCIO E INDUSTRIA DE AL
+[2021-03-20 03:55:05] - Verificação do participante F000226 - PANIFICADORA MENINO JESUS EIRELI
+[2021-03-20 03:55:05] - Verificação do participante F000230 - EDILSON EMERSON DE ARAUJO BARROS ME
+[2021-03-20 03:55:05] - Verificação do participante F000239 - MARIZA INDUSTRIA E COMERCIO DE ALIMENTOS
+[2021-03-20 03:55:05] - Verificação do participante F000241 - JBS SA
+[2021-03-20 03:55:06] - Verificação do participante F000243 - JBS SA
+[2021-03-20 03:55:06] - Verificação do participante F000251 - MARIO ANDRE SILVA MACEDO - ME
+[2021-03-20 03:55:06] - Verificação do participante F000253 - INDUSTRIA EMBALA DE EMBALAGENS PLASTICAS
+[2021-03-20 03:55:06] - Verificação do participante F000256 - BOM LEITE INDUSTRIAL LTDA CAMPINA GRANDE
+[2021-03-20 03:55:06] - Verificação do participante F000259 - GO TRADE IMPORTACAO E EXPORTACAO LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000260 - DIBEEX LOGISTICA E DISTRIBUICAO LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000264 - MARCONE MENDONCA DE BRITO
+[2021-03-20 03:55:06] - Verificação do participante F000269 - ULTRA COMERCIO E DISTRIBUICAO LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000273 - HONORATO E ARAUJO LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000274 - WELINGTON OLIVEIRA DE ARAUJO NUNES
+[2021-03-20 03:55:06] - Verificação do participante F000275 - NORDESTINA INDUSTRIA DE ALIMENTOS EIRELI
+[2021-03-20 03:55:06] - Verificação do participante F000277 - INDUSTRIA E COMERCIO DE ALIMENTOS R MELO
+[2021-03-20 03:55:06] - Verificação do participante F000278 - COMETA COMERCIO DE CEREAIS EIRELI
+[2021-03-20 03:55:06] - Verificação do participante F000282 - BARA COMERCIO VAREJISTA DE BALAS,BOMBONS
+[2021-03-20 03:55:06] - Verificação do participante F000287 - ELETROPOLO ELETRICIDADE LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000298 - AGROINDUSTRIAL FRUTNAA LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000299 - DANILO GUSTAVO SANTOS DE SANTANA - ME
+[2021-03-20 03:55:06] - Verificação do participante F000301 - JFS FABRICACAO DE SORDAS E DOCES EIRELI
+[2021-03-20 03:55:06] - Verificação do participante F000302 - BODOPITA INDUSTRIA E COMERCIO DE LATICIN
+[2021-03-20 03:55:06] - Verificação do participante F000306 - ALBUQUERQUE IND. E COM DE LATICINIOS LTD
+[2021-03-20 03:55:06] - Verificação do participante F000307 - META 55 COMERCIO E REPRESENTACOES LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000308 - FRANCISCA DE CASSIA DA SILVA VITAL - ME
+[2021-03-20 03:55:06] - Verificação do participante F000309 - ERNANI TAVARES DE MORAIS ME
+[2021-03-20 03:55:06] - Verificação do participante F000311 - LIANE DO SOCORRO ARARUJO PEREIRA ME
+[2021-03-20 03:55:06] - Verificação do participante F000316 - JUBERTO ZACARIAS DE VASCONCELOS EIRELI M
+[2021-03-20 03:55:06] - Verificação do participante F000320 - ALBERTO E ALBERES - FARINHA DE MANDIOCA
+[2021-03-20 03:55:06] - Verificação do participante F000324 - LISSANDRA ACIOLI COSTA ME.
+[2021-03-20 03:55:06] - Verificação do participante F000326 - JBS SA
+[2021-03-20 03:55:06] - Verificação do participante F000327 - TOPMASSAS INDUSTRIA E COMERCIO DE ALIMEN
+[2021-03-20 03:55:06] - Verificação do participante F000330 - DS FABRICACAO DE PRODUTOS DE PAPEL LTDA
+[2021-03-20 03:55:06] - Verificação do participante F000333 - ADAILTON ISMAEL ARAUJO
+[2021-03-20 03:55:06] - Verificação do participante F000334 - MS DISTRIBUIDORA LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000336 - LUCIANNE MORAES DE BARROS
+[2021-03-20 03:55:07] - Verificação do participante F000337 - INDUSTRIA DE LATICINIOS SANTO EXPEDITO L
+[2021-03-20 03:55:07] - Verificação do participante F000338 - CASA NORTE LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000339 - ELETROPOLO ELETRICIDADE AC
+[2021-03-20 03:55:07] - Verificação do participante F000344 - DISTRIBUIDORA DE ALIMENTOS PARARI LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000395 - G. R. DISTRIBUIDORA
+[2021-03-20 03:55:07] - Verificação do participante F000417 - NUTRI MAIS DIST. DE ALIMENTOS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000419 - DICOPLAST DIST E COM DE PLASTICOS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000433 - HACATA COMERCIO INDUSTRIA LTDA.
+[2021-03-20 03:55:07] - Verificação do participante F000465 - B E A COMERCIAL EIRELI
+[2021-03-20 03:55:07] - Verificação do participante F000479 - BASE DISTRIBUIDORA DE COSMETICOS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000516 - COMERCIAL JUSTINO LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000529 - COMERCIAL JUSTINO LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000559 - LIDER COMERCIO DE ALIMENTOS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000614 - O L INDUSTRIA DE PAPEIS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000641 - GROTA ESTIVAS E CEREAIS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000647 - MASTER SUPERMERCADOS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000653 - COMPANHIA DE REFRIGERANTES BRAHMA SKOL
+[2021-03-20 03:55:07] - Verificação do participante F000667 - SOLANGE MARIA DA SILVA BOLOS ME
+[2021-03-20 03:55:07] - Verificação do participante F000680 - INDUSTRIA DE TEMPERO REGINA LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000697 - COOPERATIVA CENTRAL AURORA ALIMENTOS
+[2021-03-20 03:55:07] - Verificação do participante F000703 - DISTRIBUIDORA DE ALIMENTOS FARIAS EIRELI
+[2021-03-20 03:55:07] - Verificação do participante F000709 - MAIS COMERCIO DE DESCARTAVEIS LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000711 - ACO PARAIBA INDUSTRIA LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000723 - RIOGRANDENSE DISTRIBUIDORA LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000728 - A B DE LUCENA FILHO ME
+[2021-03-20 03:55:07] - Verificação do participante F000729 - TECELAGEM SAO CRISTOVAO LTDA
+[2021-03-20 03:55:07] - Verificação do participante F000741 - MARCOS ANTONIO SILVA MACEDO - ME
+[2021-03-20 03:55:08] - Verificação do participante F000743 - IRMAOS ALMEIDA COMERCIO HORTGRANJ LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000782 - INDUSTRIA DE VASSOURAS UNIAO EIRELI
+[2021-03-20 03:55:08] - Verificação do participante F000791 - M. DIAS BRANCO S.A. INDUSTRIA E COM DE A
+[2021-03-20 03:55:08] - Verificação do participante F000795 - NESTLE BRASIL LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000829 - LATICINIO BELO VALE LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000830 - LATICINIO GUARARAPES LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000865 - TMC DISTRIB E ATAC DE ALIMENTOS LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000872 - LATICINIOS BELA VISTA LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000878 - IND DE ALIM ESPECIARIAS E COND SM LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000884 - OLIVEIRA OLIVEIRA COMERCIO DE PRODUTOS D
+[2021-03-20 03:55:08] - Verificação do participante F000888 - EBANO DISTRIBUIDORA DE ALIMENTOS
+[2021-03-20 03:55:08] - Verificação do participante F000901 - ATACADAO S.A.
+[2021-03-20 03:55:08] - Verificação do participante F000918 - COMERCIAL VITA NORTE LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000969 - SOUZA DISTRIBUIDORA COM E REP LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000972 - AGROFRIOS COM DE FRIOS E HORTI
+[2021-03-20 03:55:08] - Verificação do participante F000975 - AVICOLA TRIUNFO LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000985 - NG DISTRIBUIDORA DE ALIMENTOS LTDA
+[2021-03-20 03:55:08] - Verificação do participante F000996 - KARLA COSMETICOS LTDA
+[2021-03-20 03:55:08] - Verificação do participante F001000 - MAIS CLEAN HIGIENIZACAO LTDA ME
+[2021-03-20 03:55:08] - Verificação do participante F001085 - PORTO DE MAR
+[2021-03-20 03:55:08] - Verificação do participante F001097 - REFRESCOS GUARARAPES LTDA
+[2021-03-20 03:55:08] - Verificação do participante F001121 - VIEIRA DA SILVA DISTRIBUIDORA LTDA
+[2021-03-20 03:55:08] - Verificação do participante F001136 - USINA MONTE ALEGRE SA
+[2021-03-20 03:55:08] - Verificação do participante F001143 - CERVEJARIA PETROPOLIS SA
+[2021-03-20 03:55:08] - Verificação do participante F001164 - EMBALA COMERCIO VAREJISTA DE EMBALAGENS
+[2021-03-20 03:55:08] - Verificação do participante F001170 - UNILEVER BR GELADOS DO NOR SA
+[2021-03-20 03:55:08] - Verificação do participante F001207 - FRIGELAR COMERCIO E INDUSTRIA LTDA
+[2021-03-20 03:55:08] - Verificação do participante F001241 - EMBARE INDUSTRIAS ALIMENTICIAS S.A.
+[2021-03-20 03:55:08] - Verificação do participante F001249 - TRES CORACOES ALIMENTOS S.A
+[2021-03-20 03:55:08] - Verificação do participante F001251 - MONTEIRO PECAS COMERCIO E SERVICOS PARA
+[2021-03-20 03:55:09] - Verificação do participante F001266 - ALMEIDA COMERCIO DIST.MAT.CONST.LTDA
+[2021-03-20 03:55:09] - Verificação do participante F001273 - ANTONIO DE SOUZA DUARTE
+[2021-03-20 03:55:09] - Verificação do participante F001276 - SL DISTRIBUIDORA ATACADISTA DE BEBIDAS E
+[2021-03-20 03:55:09] - Verificação do participante F001278 - M S DA SILVA OLIVEIRA - ME
+[2021-03-20 03:55:09] - Verificação do participante F001286 - DCS DISTRIBUIDORA COMERCIAL SILVA LTDA
+[2021-03-20 03:55:09] - Verificação do participante F001288 - BETANIA LACTEOS SA.
+[2021-03-20 03:55:09] - Verificação do participante F001291 - JADER SALES DE BRITO
+[2021-03-20 03:55:09] - Verificação do participante F001294 - AGRO INDUSTRIAL LIRA LTDA - ME
+[2021-03-20 03:55:09] - Verificação do participante F001299 - STER BOM INDUSTRIA E COMERCIO LTDA
+[2021-03-20 03:55:09] - Verificação do participante F001304 - EMANUEL RIVARDIEL LIMA LUNA
+[2021-03-20 03:55:09] - Verificação do participante F001319 - SENDAS DISTRIBUIDORA SA LJ83
+[2021-03-20 03:55:09] - Verificação do participante F001331 - FABIO TRAVASSOS BARBOSA
+[2021-03-20 03:55:09] - Verificação do participante F001334 - DA BARRA COMERCIO E SERVICOS DE EMPACOTA
+[2021-03-20 03:55:09] - Verificação do participante F001339 - DPC DISTRIBUIDOR ATACADISTA SA
+[2021-03-20 03:55:09] - Verificação do participante F001343 - ALMIR ZECA DA SILVA - ME
+[2021-03-20 03:55:09] - Verificação do participante F001348 - QG COM ATAC DE PROD DE HIGIENE LIMPEZA D
+[2021-03-20 03:55:09] - Verificação do participante F001352 - GRANJA SOUZA CRIACAO DE AVES LTDA - EPP
+[2021-03-20 03:55:09] - Verificação do participante F001358 - MUNDO VERDE INDUSTRIA DE ALIMENTOS LTDA
+[2021-03-20 03:55:09] - Verificação do participante F001366 - VIEIRA COMERCIO ATACADISTA DE PRODUTOS A
+[2021-03-20 03:55:09] - Verificação do participante F001382 - COMERCIO DE CEREAIS SAFRA LTDA
+[2021-03-20 03:55:09] - Verificação do participante F001393 - ALESSANDRA DIAS CORREA 89319311404
+[2021-03-20 03:55:09] - Verificação do participante F001394 - TECIDOS E ARMARINHOS MIGUEL BARTOLOMEU S
+[2021-03-20 03:55:09] - Verificação do participante F001404 - AGRESTE COMERCIO ATACADO E VAREJO EIRELI
+[2021-03-20 03:55:09] - Verificação do participante F001408 - FRIGORIFICO NOVA ESPERANCA EIRELI - EPP
+[2021-03-20 03:55:09] - Verificação do participante F001409 - IANE INDUSTRIA DE ALIMENTOS NORDESTE LTD
+[2021-03-20 03:55:09] - Verificação do participante F001411 - RIBEIRO E NASCIMENTO LTDA - ME
+[2021-03-20 03:55:09] - Verificação do participante F001417 - S. GALVAO DINIZ COM. VAR. E ATAC. DE BEB
+[2021-03-20 03:55:09] - Verificação do participante F008899 - JOSELITO INACIO FEITOSA
+[2021-03-20 03:55:09] - Verificação do participante F008931 - DIERCIO GARCIA DE MEDEIROS GUEDES - ME
+[2021-03-20 03:55:09] - Verificação do participante F008943 - JOSE ARIMATEIA ALMEIDA MELO
+[2021-03-20 03:55:09] - Verificação do participante F008958 - FRIGORIFICO DALIA E MACHADO LTDA
+[2021-03-20 03:55:09] - Verificação do participante F008963 - MONICA SILVA DE SOUSA FERREIRA - ME
+[2021-03-20 03:55:09] - Verificação do participante F008969 - INDUSTRIA DE LATICINIO JUCURUTU LTDA
+[2021-03-20 03:55:10] - Verificação do participante F008972 - BOMPRECO SUPERMERCADOS DO NORDESTE LTDA
+[2021-03-20 03:55:10] - Verificação do participante F008973 - DJ COMERCIO E DISTRIBUIDORA DE ALIMENTOS
+[2021-03-20 03:55:10] - Verificação do participante F008974 - CP COMERCIO DE EMBALAGENS LTDA - EPP
+[2021-03-20 03:55:10] - Verificação do participante F008975 - DEMEL INDUSTRIA ALIMENTICIA LTDA - EPP
+[2021-03-20 03:55:10] - Verificação do participante F008987 - UNIL INDUSTRIA E COMERCIO DE MATERIAIS P
+[2021-03-20 03:55:10] - Verificação do participante F008988 - PANIFICADORA NOSSA SENHORA ROSA MISTICA
+[2021-03-20 03:55:10] - Verificação do participante F008989 - DEBORA OLIVEIRA DE FIGUEIREDO - ME
+[2021-03-20 03:55:10] - Verificação do participante F008992 - CAICARA FOODS INDUSTRIA & COMERCIO LTDA
+[2021-03-20 03:55:10] - Verificação do participante F008994 - THIAGO FERNANDO NOGUEIRA DE MELO ME
+[2021-03-20 03:55:10] - Verificação do participante F008997 - DOKAPACK INDUSTRIA E COMERCIO DE EMBALAG
+[2021-03-20 03:55:10] - Verificação do participante F009003 - JOSIGLEI GONCALVES DOS SANTOS 0236596640
+[2021-03-20 03:55:10] - Verificação do participante F009029 - LUIS CLENILSON DE MEDEIROS
+[2021-03-20 03:55:10] - Verificação do participante F009041 - TRA DISTRIBUIDORA E LOGISTICA LTDA
+[2021-03-20 03:55:10] - Verificação do participante F009043 - SANREMO SA
+[2021-03-20 03:55:10] - Verificação do participante C000016 - SECRETARIA DE ESTADO DA SAUDE-SES
+[2021-03-20 03:55:10] - Verificação do participante C000020 - FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL DE ALCANTIL
+[2021-03-20 03:55:10] - Verificação do participante C000035 - PREFEITURA MUNICIPAL DE ALCANTIL
+[2021-03-20 03:55:10] - Verificação do participante C000012 - MARCELO CORDEIRO DA SILVA
+[2021-03-20 03:55:10] - Verificação do participante C000010 - NAZARIA DISTRIB DE PROD FARM LTDA
+[2021-03-20 03:55:10] - Verificação do participante C000018 - COMERCIAL DE CONSTRUCAO NOSSA TERRA LTDA
+[2021-03-20 03:55:10] - Verificação do participante C000006 - MASTER SUPERMERCADOS LTDA
+[2021-03-20 03:55:10] - Verificação do participante C000007 - ASSOSSORIA E SERVIOS A PROJETOS EM AGRI
+[2021-03-20 03:55:10] - Cadastrando unidade de medida UN - UNIDADE
+[2021-03-20 03:55:10] - Cadastrando unidade de medida KG - QUILO
+[2021-03-20 03:55:10] - Cadastrando produto 1 - BISC.VITARELLA MAIZENA TRAD.400G
+[2021-03-20 03:55:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:10] - Cadastrando produto 2 - ALFACE CRESPA HORTFIT UN.
+[2021-03-20 03:55:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:10] - Cadastrando produto 3 - CARAMBOLA KG
+[2021-03-20 03:55:10] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 4 - ABACATE KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 5 - ABOBRINHA KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 6 - ALHO ARGENTINO KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 7 - AMEIXA SECA C CAROCO KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 8 - BANANA COMPRIDA KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 9 - BANANA MACA KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 10 - BANANA PACOVAN KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 11 - BATATA DOCE KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:11] - Cadastrando produto 12 - BATATA INGLESA KG
+[2021-03-20 03:55:11] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 13 - BERINJELA KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 14 - BETERRABA KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 15 - CEBOLA BRANCA KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 16 - CEBOLA ROXA KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 17 - CENOURA KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 18 - COUVE FLOR KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 19 - CHUCHU KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:12] - Cadastrando produto 20 - FRUTAS CRISTALIZADAS KG
+[2021-03-20 03:55:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 21 - GOIABA KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 22 - INHAME KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 23 - JERIMUM CABOCLO KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 24 - JERIMUM LEITE KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 25 - JILO KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 26 - LARANJA PERA KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 28 - LIMAO TAITI KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 29 - MACA ARGENTINA KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:13] - Cadastrando produto 30 - MACA NACIONAL KG
+[2021-03-20 03:55:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 32 - MAMAO FORMOSA KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 33 - MAMAO HAVAI KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 34 - BICIC.FISCHER FRE.V-BRAKE MASC.PTO ARO-20
+[2021-03-20 03:55:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:14] - Cadastrando produto 35 - MANGA HADEN KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 36 - MARACUJA KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 37 - MELANCIA KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 38 - MELAO ESPANHOL KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 39 - MELAO JAPONES KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 40 - PASSAS AGRANEL KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 41 - PEPINO KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:14] - Cadastrando produto 42 - PERA KG
+[2021-03-20 03:55:14] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 43 - PIMENTAO KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 44 - QUIABO KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 45 - REPOLHO VERDE KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 46 - TOMATE KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 47 - UVA ITALIA KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 48 - UVA RUBI KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 49 - REPOLHO ROXO KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 50 - VAGEM VERDE KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:15] - Cadastrando produto 51 - LARANJA POKAN KG
+[2021-03-20 03:55:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:15] - Cadastrando produto 52 - AMENDOA S CASCA 250G
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 53 - C.COSTELA DT FRIBOI KG
+[2021-03-20 03:55:16] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:16] - Cadastrando produto 54 - C.PICANHA RESERVA FRIBOI RESF.KG
+[2021-03-20 03:55:16] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:16] - Cadastrando produto 55 - CAST.CAJU TOR.250G
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 60 - PLACA PCI 2 SERIAS
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 61 - SEM.GIRASSOL TRIUNFO 500G
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 62 - BICIC.FICSHER FAST GIRL ROSA BCO ARO-20
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 63 - BICIC.FISCHER FLEX ARO-20
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 64 - PINCA DEP.ROSEBRAND UN
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:16] - Cadastrando produto 65 - PENTE MARAVILHA BABY
+[2021-03-20 03:55:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 67 - LIXA PUNHA R-100
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 78 - SAND.GREND.IPAN.FLORAL INF.III
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 79 - ARROZ PARB.CHINES 30X1KG
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 80 - BEBIDA MISTA LEBOM FRUT.CITRICAS 2LT
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 81 - GRAVIOLA KG
+[2021-03-20 03:55:17] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:17] - Cadastrando produto 89 - SAND.MORANGUINHO LIQUIDACAO
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 90 - SAND.RIDER BRASIL
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 92 - C.COSTELA FRIBOI MINGA BOV.COSSO CONG.KG
+[2021-03-20 03:55:17] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:17] - Cadastrando produto 93 - ISQUEIRO CRICKET ORIG.
+[2021-03-20 03:55:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:17] - Cadastrando produto 95 - C.BISTEQUINHA FRIBOI PEITO BDJ KG
+[2021-03-20 03:55:17] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:18] - Cadastrando produto 100 - PANO PRATO SARJA 42X70CM
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 102 - CHICLE ARCOR SORT.UND.
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 105 - CARNE TR-RESFRIADO KG
+[2021-03-20 03:55:18] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:18] - Cadastrando produto 106 - CARNE DT-RESFRIADO KG
+[2021-03-20 03:55:18] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:18] - Cadastrando produto 110 - KIT BANHEIRO RN APLICADO 3PCS
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 111 - EMB.CESTA DE NATAL 10KG
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 112 - KIT NESCAFE ORIG. POTE
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 113 - PENTE FINO BONITINHO INQUEB.1086
+[2021-03-20 03:55:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:18] - Cadastrando produto 114 - FRANGO BOM TODO INT.RESF.KG
+[2021-03-20 03:55:18] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:19] - Cadastrando produto 116 - SAND.HAV.DECORATIVAS
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 117 - PENTE DIVA 1148
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 121 - JEEP BERTOLUCCI
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 122 - TORNEIRA HERC PIA 1 2
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 123 - TORNEIRA BERTOLUCCI TANQUE 1 2
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 126 - VALVULA BERTOLUCCI P LAV.
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 127 - REGISTRO BERTOLUCCI COLA 1 2
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 131 - QUEIJO STA ANNA COALHO CHUR.KG
+[2021-03-20 03:55:19] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:19] - Cadastrando produto 135 - FRANGO NATTO INT.RESF.KG
+[2021-03-20 03:55:19] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:19] - Cadastrando produto 137 - PENTE MIL MARAVILHA 1105
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 139 - TESOURA ESCOLAR STYLO ST1101
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 140 - EMB.CESTA DE NATAL 10KG
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 142 - ENERG.VULCANO ENERGY DRINK LTA 250ML
+[2021-03-20 03:55:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:19] - Cadastrando produto 144 - CANJINHA VITA CONG.KG
+[2021-03-20 03:55:20] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:20] - Cadastrando produto 145 - PEITO FGO RESF.AGRAN.KG
+[2021-03-20 03:55:20] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:20] - Cadastrando produto 146 - COXA FGO RESF.AGRAN.KG
+[2021-03-20 03:55:20] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:20] - Cadastrando produto 147 - COXA CSOBR.FGO CONG.AGRAN.KG
+[2021-03-20 03:55:20] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:20] - Cadastrando produto 149 - CREME LEITE TGUINHO TP 200G
+[2021-03-20 03:55:20] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:20] - Cadastrando produto 153 - RACAO NUTRIDOG FGO CAR FIG.1KG
+[2021-03-20 03:55:20] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:20] - Cadastrando produto 156 - BOLA LIDER CAMISA 10
+[2021-03-20 03:55:20] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:20] - Cadastrando produto 158 - BOLA LIDER MARMORIZADA N?11 R-104
+[2021-03-20 03:55:20] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:20] - Cadastrando produto 165 - CORACAO FGO BOM TODO CONG.BDJ 1KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:21] - Cadastrando produto 167 - MOELA FGO BOM TODO CONG.BDJ 1KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:21] - Cadastrando produto 170 - PRESUNTO PERDIGAO SGORD.KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:21] - Cadastrando produto 172 - CERV.PETRA PURO MALTE LTA 12X350ML
+[2021-03-20 03:55:21] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:21] - Cadastrando produto 173 - CODORNA CODORMIX CONG.KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:21] - Cadastrando produto 175 - VALVULA ALUSP P PANELA PRESSAO
+[2021-03-20 03:55:21] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:21] - Cadastrando produto 181 - MOCOTO BOVINO SERRADO KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:21] - Cadastrando produto 182 - GENGIBRE KG
+[2021-03-20 03:55:21] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:21] - Cadastrando produto 191 - CANETA C GLITER
+[2021-03-20 03:55:21] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:21] - Cadastrando produto 192 - CANETA POROSA ROLER
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 193 - GRAFITE GOLLER HB 0,7 C 12 R-2899
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 196 - CANETA IMPORT CORES
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 199 - SAND.KENDEN AD.
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 200 - SAND.MARES SLIM AD.
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 207 - LING.SADIA TOSC.CONG.KG
+[2021-03-20 03:55:22] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:22] - Cadastrando produto 208 - LING.REZENDE PALITUS KG
+[2021-03-20 03:55:22] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:22] - Cadastrando produto 214 - CARIMBO P MARCAR BOI
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 217 - QUEIJO RICOTA FRESCA DO SERRO KG
+[2021-03-20 03:55:22] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:22] - Cadastrando produto 221 - LANCHE WILSON SUINO KG
+[2021-03-20 03:55:22] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:22] - Cadastrando produto 222 - AGUARD.PITU 965ML
+[2021-03-20 03:55:22] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:22] - Cadastrando produto 224 - BIFE AMACIADO 2? KG
+[2021-03-20 03:55:22] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:23] - Cadastrando produto 225 - CORTADOR UNHAS ENOX
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 229 - SACO P PRESENTES 45X60
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 233 - CORTADOR UNHAS UNHEX ORIG.MEDIO
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 243 - PAPEL LAMINADO PRATA 48X60
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 255 - BACALHAU SAITH 79 KG
+[2021-03-20 03:55:23] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:23] - Cadastrando produto 258 - CANETA BIC SHIMMERS PERF.
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 272 - AVGAS GASOLINA P AVIACAO) 100
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:23] - Cadastrando produto 274 - LANTEJOLAS CORES
+[2021-03-20 03:55:23] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:24] - Cadastrando produto 278 - CHESTER PERDIGAO PEITO DEFUMADO KG
+[2021-03-20 03:55:24] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:24] - Cadastrando produto 280 - BUCHO FRIBOI BOV.PORC.CONG.KG
+[2021-03-20 03:55:24] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:24] - Cadastrando produto 281 - CHA VERDE MEDICINAL 120G
+[2021-03-20 03:55:24] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:24] - Cadastrando produto 283 - RACAO FOXY CLASSIC VEG.1KG
+[2021-03-20 03:55:24] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:24] - Cadastrando produto 299 - PELANCA KG
+[2021-03-20 03:55:24] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:24] - Cadastrando produto 300 - TENIS OLYMPIKUS TWISTER
+[2021-03-20 03:55:24] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:24] - Cadastrando produto 301 - LIVRO AVENTURA DO APRENDER 1?SERIE
+[2021-03-20 03:55:24] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:24] - Cadastrando produto 302 - BIFE AMACIADO TRAZ.BOV.(1?) KG
+[2021-03-20 03:55:24] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:24] - Cadastrando produto 303 - LIVRO ENSINO FUND II HISTORIA
+[2021-03-20 03:55:25] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:25] - Cadastrando produto 309 - MAXIXE KG
+[2021-03-20 03:55:25] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:25] - Cadastrando produto 311 - FEIJAO VERDE KG
+[2021-03-20 03:55:25] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:25] - Cadastrando produto 312 - PIMENTAO VERM.KG
+[2021-03-20 03:55:25] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:25] - Cadastrando produto 313 - CABIDE VIANA ALUM.C 5 GANCHOS
+[2021-03-20 03:55:25] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:25] - Cadastrando produto 314 - MACAXEIRA KG
+[2021-03-20 03:55:25] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:25] - Cadastrando produto 315 - PIMENTAO AMAR.KG
+[2021-03-20 03:55:26] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:26] - Cadastrando produto 316 - MACA VERDE KG
+[2021-03-20 03:55:26] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:26] - Cadastrando produto 317 - LIVRO AQUARELA DO SABER INTEG.3?ANO
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:26] - Cadastrando produto 320 - LIVRO INF.MARAVILHAS DO SABER ANUAL I
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:26] - Cadastrando produto 332 - LICHIA KG
+[2021-03-20 03:55:26] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:26] - Cadastrando produto 333 - SALSICHA SEARA HOT DOG KG(5,0)
+[2021-03-20 03:55:26] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:26] - Cadastrando produto 335 - PORTA CANUDO VIANA
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:26] - Cadastrando produto 339 - AMEIXA SECA SCAROCO KG
+[2021-03-20 03:55:26] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:26] - Cadastrando produto 356 - CX.PALONI KRAFT LISO R-K-0
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:26] - Cadastrando produto 360 - CX.PALONI EMOCAO R-E-1
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:26] - Cadastrando produto 366 - SABAO LAVARTE TAB.200G
+[2021-03-20 03:55:26] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 367 - CX.PALONI CAMISA R-93
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 373 - CX.PALONI PARIS CAMISETA R-P-02
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 376 - BOLA LIDER BASKET BALL
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 382 - FRANGO BOM TODO INT.CONG.CM.KG
+[2021-03-20 03:55:27] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:27] - Cadastrando produto 384 - SAND.DUPE BOLINHAS
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 387 - SAND.DUPE CHIQUE
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 400 - PORTA SH.VIANA VD RETANG.50X15CM
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 404 - SAND.HAV.SLIM BUTTERFLY
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 410 - RELOGIO AQUA
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:27] - Cadastrando produto 411 - PORTA SH.VIANA VD CANTON.20X20CM
+[2021-03-20 03:55:27] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 415 - FITA EUROCEL DUREX TRANSP.12X10M
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 416 - FITA EUROCEL DUREX COLOR 12X30M
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 417 - FITA EUROCEL DUREX TRANSP.12X30M
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 418 - FITA EUROCEL DUREX 12X40M
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 432 - FRANGO UNIAVES INT.CONG.KG
+[2021-03-20 03:55:28] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:28] - Cadastrando produto 433 - SABAO BIO BRIZ TAB.200G
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 436 - CERA PETER K MULTI USO 250G
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 438 - ASA FGO CONG.AGRAN.KG
+[2021-03-20 03:55:28] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:28] - Cadastrando produto 444 - UVA ISABEL KG
+[2021-03-20 03:55:28] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:28] - Cadastrando produto 446 - KIT SANDALIA 3
+[2021-03-20 03:55:28] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:28] - Cadastrando produto 453 - VISOR DELLO P PASTA SUSPENSA UN
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 456 - MINE GRAMATICA
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 466 - LIVRO AQUARELA DO SABER INTEG.4?ANO
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 470 - FRUTEIRA MADRI BCO MART.N?2
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 473 - CERV.SKOL LTAO 12X473ML
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 474 - ENVELOPE OFF SET BRANCO 114X162
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 476 - CERV.ITAIPAVA PILSEN LTAO 12X473ML
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 482 - SAND.RARITA LUXUOSA INDIANA CORES
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 497 - CABO TERMISTOR NTC PT 2,5MT
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 501 - LING.AURORA TOSC.KG
+[2021-03-20 03:55:29] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:29] - Cadastrando produto 507 - SALAME AURORA ITALIANO INT.KG
+[2021-03-20 03:55:29] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:29] - Cadastrando produto 515 - LA ACO BOMBRIL C8
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 517 - ENFEITE NATAL.MERRY C.PEND.SINO PRES CORN.1UN
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 519 - LAMINA ESTILETE 18MM C 10
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 528 - ENVELOPE VINHO
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 529 - TANGERINA KG
+[2021-03-20 03:55:30] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:30] - Cadastrando produto 530 - PLACA ANUNCIO VENDE-SE
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 531 - SALSICHA FRIALL MISTA KG
+[2021-03-20 03:55:30] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:30] - Cadastrando produto 533 - CORTADOR UNHAS MUNDIAL FLEX
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 534 - GALINHA MATRIZ LEVE COCORICO CONG.KG
+[2021-03-20 03:55:30] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:30] - Cadastrando produto 546 - TAPETE PELUCIA R-406
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 554 - PERNIL AURORA SUINO C OSSO C PELE CONG.KG
+[2021-03-20 03:55:30] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:30] - Cadastrando produto 555 - PRESUNTO SADIA PERU SCAPA KG
+[2021-03-20 03:55:30] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:30] - Cadastrando produto 561 - SAND.HAV.KIDS SEREIA
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:30] - Cadastrando produto 567 - MORT.FRESKI FGO PC.500G
+[2021-03-20 03:55:30] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 571 - PERU SADIA TEMP.CONG.KG
+[2021-03-20 03:55:31] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:31] - Cadastrando produto 574 - COUVE FOLHA UN.
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 596 - TOUCA ACOUGUE DESC.C 100
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 604 - MANTEIGA DA TERRA SABOR CARIRI 200G
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 607 - CX.PALONI P-04
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 608 - PAPEL MADEIRA
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 609 - MANTEIGA DA TERRA SABOR CARIRI 500G
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 616 - LINGUA BOV.CONG.KG
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:31] - Cadastrando produto 633 - BIFE FIGADO BOVINO KG
+[2021-03-20 03:55:31] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:31] - Cadastrando produto 636 - AMORTECEDOR DT FRONTIER SEL
+[2021-03-20 03:55:31] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 644 - PRESUNTO REZENDE COZ.SCAPA KG
+[2021-03-20 03:55:32] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:32] - Cadastrando produto 655 - CORRENTE P CAES MPD ZINC.N?7 1,5M
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 659 - BALA REGALIZ DORI PESC GIRAFA MOR.30G
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 665 - LING.BOM TODO FGO KG
+[2021-03-20 03:55:32] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:32] - Cadastrando produto 670 - BUCHADA TEMP.PRE-COZIDA KG
+[2021-03-20 03:55:32] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:32] - Cadastrando produto 679 - COPO BELA DECORADO UND.
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 690 - ESTILETE CIS 120 COLOR
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 698 - ESCORREDOR PLANETA C PE
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 700 - FORMA BOLO PLANETA N?26
+[2021-03-20 03:55:32] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:32] - Cadastrando produto 706 - OSSO DO PATINHO KG
+[2021-03-20 03:55:32] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:33] - Cadastrando produto 708 - PANELAO PLANETA ASA N?38
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 738 - LIXA P PES EVA PEDIC.
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 739 - FRIG.PLANETA C TPA N?24
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 743 - BACALHAU SAITH 1620 KG
+[2021-03-20 03:55:33] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:33] - Cadastrando produto 750 - PANETTONE POINT CHOC.400G
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 759 - ALCOOL TUBARAO 200ML
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 761 - MANGA ESPADA KG
+[2021-03-20 03:55:33] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:33] - Cadastrando produto 776 - BEBEDOURO PPASSAR.PEQ.
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 777 - BEBEDOURO PPASSAR.MEDIO
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 781 - LAPISEIRA BIC SHIMMERS VIBE COLORS 0,7
+[2021-03-20 03:55:33] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:33] - Cadastrando produto 786 - ESPOS REFR-AESB-4 2,56M
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 787 - LIVRO TUDO E MATEMATICA 7
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 801 - SUPORTE P GFAO AGUA MIN.RED.
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 803 - QUEIJO PRATO NATVILLE KG
+[2021-03-20 03:55:34] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:34] - Cadastrando produto 807 - OVOS GRANJA ALMEIDA BCO GDE C 30
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 809 - CARRO SENNINHA TUNING
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 812 - TINTA SPRAY COLORGIN DEC.BCO FOSCO 360ML
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 818 - ACESSORIOS TUBULACAO
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 821 - MASSA PASTEL MASSAFEST ANIVERS.500G
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:34] - Cadastrando produto 824 - COLAR GARRA FILA MPD P CAO N?10
+[2021-03-20 03:55:34] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 834 - CARNE CHARQUE PA SERRA NEGRA KG
+[2021-03-20 03:55:35] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:35] - Cadastrando produto 837 - CARNE CHARQUE COXAO SERRA NEGRA 5KG
+[2021-03-20 03:55:35] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 841 - SAND.GREND.IPANEMA PROMOCAO
+[2021-03-20 03:55:35] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 853 - PLACA ALUGA-SE VENDE-SE
+[2021-03-20 03:55:35] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 859 - BOLA LIDER BRASIL R-186
+[2021-03-20 03:55:35] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 873 - BACON DALIA KG
+[2021-03-20 03:55:35] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:35] - Cadastrando produto 884 - BRINCO STRASS R-35
+[2021-03-20 03:55:35] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:35] - Cadastrando produto 901 - FILE PEITO FGO INDIV.CONG.AGRAN.KG
+[2021-03-20 03:55:35] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 902 - MOCOTO BOVINO INT.KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 903 - DIESEL B S500 COMUM
+[2021-03-20 03:55:36] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:36] - Cadastrando produto 905 - SOBRECOXA FGO NATTO RESF.KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 906 - LING.COPACOL FGO KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 908 - BISTECA PEITO FGO CONG.KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 909 - CORTADOR UNHAS IDEA R-903
+[2021-03-20 03:55:36] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:36] - Cadastrando produto 910 - FRANGO AVE NOVA CONG.KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 918 - SALSICHA REZENDE HOT DOG KG(5,0)
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:36] - Cadastrando produto 919 - RABADA BOVINA CONG.KG
+[2021-03-20 03:55:36] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 924 - CABO ALUSP C ARRUELA PPR
+[2021-03-20 03:55:37] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:37] - Cadastrando produto 929 - MORT.SADIA DEFUM.KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 934 - UTENSILIOS MAXXAM BLACK
+[2021-03-20 03:55:37] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:37] - Cadastrando produto 939 - PRESUNTO FRIATO COZ.SCAPA GORD.KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 947 - PERU PERDIGAO TEMP.INT.CONG.KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 954 - CARNE CHARQUE COSTELA GMA ROJAO KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 961 - REGADOR PLASTIKERO VIRGEM VERDE 8L
+[2021-03-20 03:55:37] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:37] - Cadastrando produto 963 - PORTA RET.MET.TIME DE CORACAO
+[2021-03-20 03:55:37] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:37] - Cadastrando produto 969 - LING.SADIA CALAB.KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 978 - PRESUNTO AURORA FGO KG
+[2021-03-20 03:55:37] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:37] - Cadastrando produto 983 - PROC.INTEL PENTIUM G2030 3 GERA?AO
+[2021-03-20 03:55:37] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 984 - AR COND.SPLIT VAREJO 2
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 986 - GRILL
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 988 - PLACA MAE ASUS H61M-A BR 1155 HDMI
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 999 - AVE CHESTER PERDIGAO INT.CONG.KG
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1006 - FILE SALMAO CPELE CONG.KG
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1009 - MESA PARIS C 4 CAD.GRAN.LUXO PTO PTO
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1023 - PAO DE FORMA VISCONTI TRAD.400G
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1025 - CORACAO FGO BOM TODO RESF.KG
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1028 - TORRADA POINT AMANT.TRAD.KG
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1029 - BOLO POINT DE SAIA BDJ C6
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1030 - XUXA TOP BELLA EXT.GDE LISA ESC.
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1033 - ACELGA KG
+[2021-03-20 03:55:38] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:38] - Cadastrando produto 1042 - LUVA 5 8
+[2021-03-20 03:55:38] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1051 - PENTE CONDOR BASIC
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1056 - TORRADA POINT OREGANO KG
+[2021-03-20 03:55:39] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1064 - MORT.BOM TODO FGO KG (2,5)
+[2021-03-20 03:55:39] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1065 - SALSICHA BOM TODO HOT DOG KG (3,0)
+[2021-03-20 03:55:39] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1076 - VALVULA SCHRADER 1 4SAE 1 4 SOLDA
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1090 - QUEIJO CATUPIRY POINT QUEIJO KG
+[2021-03-20 03:55:39] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1095 - PAO DE FORMA VISCONTI INTEG.400G
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1099 - C.CX MOLE RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:39] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1101 - BALA REGALIZ DORI FLOR RECHEADA 70G
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1121 - BALA GELATINA DORI AMORA 85G
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1122 - PRATO LAM.PRISCILLA N?08
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:39] - Cadastrando produto 1127 - CABO EXTINFLAN FLEX 1MM
+[2021-03-20 03:55:39] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1132 - CABO COBRE NU 50MM 2,41M
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1133 - BARRA COBRE CHATA 1X3 16(1,080KG) P M
+[2021-03-20 03:55:40] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1134 - ABRACADEIRA PLASTICA 200X3,6MM BC
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1144 - ARRUELA LISA 1 4 ZB 938677
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1146 - ARRUELA LISA 3 8 938678
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1151 - FRANGO ABATIDO KG
+[2021-03-20 03:55:40] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1160 - ABRACADEIRA TIPO CUNHA 1 1 2
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1161 - ABRACADEIRA PLASTICA 100X2,5MM BC
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1164 - CABO FLEX EPR 0,6 1KV 95MM 90G PTO
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1166 - CABO FLEX EPR 0,6 1KV 150MM 90G PTO
+[2021-03-20 03:55:40] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1169 - BARRA COBRE CHATA 1 1 2X3 8 (3,230KG) P M
+[2021-03-20 03:55:40] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:40] - Cadastrando produto 1172 - CABO EXTINFLAN FLEX 2,5MM VD
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1173 - CABO EXTINFLAN FLEX 2,5MM PT
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1174 - CABO EXTINFLAN FLEX 2,5MM AZ
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1175 - CABO EXTINFLAN FLEX 4,0MM BC
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1176 - CABO EXTINFLAN FLEX 4,0MM AZ
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1177 - CABO EXTINFLAN FLEX 4,0MM VD
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1187 - AMPERIMETRO 96X96 0 500
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1201 - ABRACADEIRA PLASTICA 300X7,2MM BCA
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1212 - BACON FATIADO KG
+[2021-03-20 03:55:41] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1213 - BATERIA NP7-12T
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1215 - FILE BACALHAU SAITHE CONG.KG
+[2021-03-20 03:55:41] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1217 - ENVELOPE SCRITY OURO 229X324
+[2021-03-20 03:55:41] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:41] - Cadastrando produto 1218 - APONTADOR CIS ESCOLAR 638
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1220 - BORRACHA CIS PONT.FANTASIA UN
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1239 - HAMBURGUEIRA ULTRA TERM.N-2
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1242 - LAPIS BIC GRAF.SHIMMERS 0,7
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1251 - TINT.MAXTON KIT PRAT.CHOC.SUP.INT.100G
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1253 - TESOURA ESCOLAR LEO LEO 13CM
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1255 - LAMP.PHILIPS LED BULB BCA 4.5W
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1258 - TELEF.CELULAR POSITIVO 4G
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1291 - ALFACE AMERICANA UN.
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1297 - PA UNIAO LIXO ZINCO CCABO
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:42] - Cadastrando produto 1318 - CABO INSTRUMENTO 1 PAR 0,50MM
+[2021-03-20 03:55:42] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1319 - CONDUTOR CABO BLINDADO 14X0,50MM
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1333 - FITA LINEAR PVC 10MT
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1336 - CABO FLEXIVEL PP 4X2,5MM
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1338 - SAND.BUTTERFLY FEM.AD.
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1344 - BR CANT 3 4
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1347 - PARAFUSO AUTB.14X3 4
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1350 - BR CHATA 1 2X1 8
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1354 - BROCOLIS VERDE KG
+[2021-03-20 03:55:43] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1358 - FITA ISOLANTE PRATIK 18MMX20M
+[2021-03-20 03:55:43] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1366 - QUEIJO GOUDA BELLA ITALIA KG
+[2021-03-20 03:55:43] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:43] - Cadastrando produto 1369 - MELAO ORANGE KG
+[2021-03-20 03:55:43] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1372 - TOMATE CEREJA KG
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1375 - PEPINO JAPONES KG
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1376 - PIMENTA DE CHEIRO KG
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1387 - CEREJA KG
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1426 - QUEIJO PROVOLONE CURRAL MINAS KG
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:44] - Cadastrando produto 1435 - MORT.PERDIGAO MISTA KG(3,5)
+[2021-03-20 03:55:44] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1436 - MORT.PERDIGAO FGO KG(3,5)
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1437 - C.CX MOLE FRIBOI PEDACO RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1438 - C.CX MOLE FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1440 - C.BIFE LIGHT FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1442 - C.BIFE PARIS FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1443 - C.STROGONOFF CX MOLE FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1444 - C.BROCHETE CX MOLE FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1447 - C.DUCKBEFF FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1450 - QUEIJO PRATO ISIS LANCHE KG(500G)
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1452 - C.FLANBEEF FRIBOI RESF.KG
+[2021-03-20 03:55:45] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:45] - Cadastrando produto 1455 - PENTE DARMA PLAST.REF-172
+[2021-03-20 03:55:46] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1465 - C.LAGARTO RED.FRIBOI PEDACO RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1468 - C.LAGARTO RED.FRIBOI SANFONADO RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1479 - PRESUNTO SADIA PERU LIGHT KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1480 - LING.SADIA CALAB.FINA DEFUM.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1482 - C.BIFE CACAROLA FRIBOI RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1485 - C.ACEM MOIDA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1487 - C.BOLA PALETA FRIBOI ESPECIAL RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1488 - C.BIFE PALETA FRIBOI P MILANESA RESF.KG
+[2021-03-20 03:55:46] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:46] - Cadastrando produto 1490 - C.PEIXINHO FRIBOI ESPECIAL RESF.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1496 - FRANGO A PASSARINHO SEARA CONG.PCT 1KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1498 - C.BIFE BORBOLETA PALETA FRIBOI RESF.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1500 - FILE PEITO FGO RESF.AGRAN.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1503 - C.BIFE MINEIRA FRIBOI RESF.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1506 - NECTARINA KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1507 - PESSEGO KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1514 - MOLHO TOM.PALMEIRON SACH.TRAD.340G
+[2021-03-20 03:55:47] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1518 - ASA FGO FRIATO CONG.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1519 - FRANGO ESP.TEMP.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1538 - C.CONTRA FILE RESERVA FRIBOI RESF.KG
+[2021-03-20 03:55:47] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1542 - ARRANJO PROMOCAO 3
+[2021-03-20 03:55:47] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:47] - Cadastrando produto 1570 - SALSICHA FRIATO MISTA LONG.CONG.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1572 - C.ALCATRA RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1578 - LING.CARRER CALAB.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1581 - PANETTONE POINT FRUTAS 400G
+[2021-03-20 03:55:48] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1582 - C.LAGARTO RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1587 - C.CX DURO RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1591 - PAPEL TOALHA CHEFF BOBINA 200FLS
+[2021-03-20 03:55:48] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1599 - LIXA MERHEJE BASIC P UNHAS
+[2021-03-20 03:55:48] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1603 - FINESSE SEARA PERU KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1604 - C.MUSCULO RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:48] - Cadastrando produto 1606 - C.PALETA S OSSO FRIBOI KG
+[2021-03-20 03:55:48] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1607 - LANCHE AURORA FGO QUAD.KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1608 - C.PALETA RESERVA FRIBOI BOV.SOSSO RESF.KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1609 - QUEIJO COALHO ISIS ZERO LACT.KG(500G)
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1610 - QUEIJO PRATO PIRACANJUBA LANCHE KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1611 - C.PEITO RESERVA FRIBOI BOV.SOSSO RESF.KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1615 - PEITO PERU SEARA DEF.KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1618 - C.SOL FRIBOI BOV.CX MOLE KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1619 - SALSICHA FRIATO FGO KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1624 - QUEIJO REINO IATAROLA KG
+[2021-03-20 03:55:49] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:49] - Cadastrando produto 1639 - SUCO AURORA UVA VD 500ML
+[2021-03-20 03:55:49] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1650 - BAND.COPOBRAS B1 LAR.
+[2021-03-20 03:55:50] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1651 - BAND.COPOBRAS B2 LAR.
+[2021-03-20 03:55:50] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1652 - BAND.COPOBRAS B3 LAR.
+[2021-03-20 03:55:50] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1653 - BAND.COPOBRAS B4 LAR.
+[2021-03-20 03:55:50] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1661 - FRANGO FIESTA SEARA ASSA FACIL TEMP.CONG.KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1666 - FRANGO FIESTA SEARA DESOS.TEMP.CONG.KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1669 - PERU SEARA ASSA FACIL INT.TEMP.CONG.KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1670 - LING.FRIATO DEFUM.FGO KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1674 - PERU SADIA TEMP.MANT. ERVAS CONG.KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:50] - Cadastrando produto 1678 - C.FRALDINHA RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:50] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1680 - LING.PERDIGAO PERNIL SUINO KG
+[2021-03-20 03:55:51] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1682 - BOBINA FUNDO ESTRELA 34X45CM
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1683 - BOBINA FUNDO ESTRELA 25X35CM
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1702 - GASOLINA
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1704 - ANEL BICO
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1709 - SALSICHA AVIVAR MISTA KG
+[2021-03-20 03:55:51] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1710 - MOLHO TOM.PALMEIRON SACH.PIZZA 340G
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1713 - CANECA FIONA APRENDIZADO AZUL 180ML
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1714 - CANECA FIONA APRENDIZADO ROSA 180ML
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1715 - PERNIL SUINO MASTER C OSSO KG
+[2021-03-20 03:55:51] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1716 - COSTELA SUINA MASTER KG
+[2021-03-20 03:55:51] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:51] - Cadastrando produto 1722 - PILHA RAYOVAC AMAR.PEQ.AA C 4
+[2021-03-20 03:55:51] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1738 - GALINHA MATRIZ SOMAVE CONG.KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1740 - COXINHA DA ASA CONG.AGRAN.KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1742 - PERU SEARA MANT.ERVAS KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1743 - PERU REZENDE TEMP.CONG.KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1760 - C.MAMINHA RESERVA FRIBOI BOV.RESF.KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1785 - C.PICANHA FRIBOI PEDACO RESF.KG
+[2021-03-20 03:55:52] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1801 - CUMEEIRA AZ.
+[2021-03-20 03:55:52] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1808 - MUNGUZA PATOENSE MILHO AMAR.500G
+[2021-03-20 03:55:52] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1810 - PENTE DARMA PLAST.R-158
+[2021-03-20 03:55:52] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:52] - Cadastrando produto 1821 - BORRACHA LEO LEO PONTEIRA COLORS NEON
+[2021-03-20 03:55:52] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1826 - C.PICANHA FRIBOI FAT.RESF.KG
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1827 - CANECA LILLO DISNEY MICKEY 330ML
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1828 - BOBINA FUNDO ESTRELA 30X40
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1835 - CANECA ESMALT.BCA 8CM R-2108W
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1837 - CANECA ESMALT.DECORADA 10CM R-2110D
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1839 - FILME PVC BOREDA 1X15MT
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1865 - UVA THOMPSON SSEM.KG
+[2021-03-20 03:55:53] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1867 - GEL DENTAL SANIFILL KIDS RIO2 50G
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1874 - BEBEDOURO ALVORADA CURIO CAC.50ML
+[2021-03-20 03:55:53] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:53] - Cadastrando produto 1876 - FILE PEITO FGO JAGUA INDIV.CONG.KG
+[2021-03-20 03:55:54] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1879 - BOLO MAND.NORTE BOLOS BARRA BCA 350G
+[2021-03-20 03:55:54] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1881 - SAND.BEIJA FLOR INF.
+[2021-03-20 03:55:54] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1885 - PEIXE TILAPIA POR DO SOL TRAT.CONG.KG
+[2021-03-20 03:55:54] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1886 - PEIXE TILAPIA POR DO SOL SESPINHA CONG.KG
+[2021-03-20 03:55:54] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1887 - BACON PERDIGAO PEDACO DEF.KG
+[2021-03-20 03:55:54] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:54] - Cadastrando produto 1901 - CANETA COMPACTOR ESF.07 PTO
+[2021-03-20 03:55:54] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1905 - REGUA WALEU TRANSF.30CM
+[2021-03-20 03:55:55] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1908 - FRUTEIRA MADRI LUXO BRM C MARM.78CM
+[2021-03-20 03:55:55] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1935 - SALG.REIZINHO SABORES 10X30G
+[2021-03-20 03:55:55] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1936 - BACON PERDIGAO EM CUBOS KG
+[2021-03-20 03:55:55] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1938 - MELANCIA SSEMENTE UND*
+[2021-03-20 03:55:55] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1940 - COXA PERU PERDIGAO INDIV.CONG.KG
+[2021-03-20 03:55:55] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:55] - Cadastrando produto 1942 - PEITO FGO SEARA DEFUM.KG
+[2021-03-20 03:55:55] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1951 - CABECOTE
+[2021-03-20 03:55:56] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1963 - GONDOLA DE CENTRO INICIAL
+[2021-03-20 03:55:56] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1965 - PEIXE CORVINA INT.CONG.KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1969 - AMEND.CROC.CHUR.KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1974 - CAST.PARA KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1975 - LING.PERDIGAO NABRASA TOSC.KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1976 - LOMBO PERDIGAO SUINO S OSSO CONG.KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:56] - Cadastrando produto 1985 - CAQUI KG
+[2021-03-20 03:55:56] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:57] - Cadastrando produto 1990 - PEITO FGO INDIV.CONG.KG
+[2021-03-20 03:55:57] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:57] - Cadastrando produto 1992 - PEITO PERU SADIA DEFUM.LIGHT KG
+[2021-03-20 03:55:57] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2000 - TAPETE CAMTEX MALHA 35X55CM
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2012 - SAND.GREND.IPANEMA ART.PRINT BEGE AZUL.N.39 40
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2022 - METALON 30X40
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2023 - METALON 40X40
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2024 - PERFIL ERG 3
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2038 - BAND.LAM.C P ROCAMBOLE
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2048 - AGUA MIN.ITACOATIARA SVASILHAME 20LT
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2056 - BALAO SAO ROQUE IMPER.N?7 DOUR.CINT.C 50
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:57] - Cadastrando produto 2059 - PIPOCA KARINTO SAL AMANT.10X45G
+[2021-03-20 03:55:57] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2062 - BABUCH BOTA ANTIDERRAPANTE-BB80
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2064 - BABUCH EVA MED.WORK FECHADA-BB65
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2086 - EXPOSITOR
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2087 - SENSOR TEMP.DE FREIO
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2089 - SENSOR PRESSAO DE OLEO
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2099 - TANGERINA IMPORT.SCAR.KG
+[2021-03-20 03:55:58] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2114 - SACA ROLHAS C CABO PLAST.
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2126 - SACO PAPEL IMPRESSO BATAT.C 100
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2127 - FIGADO FGO BOM TODO RESF.BDJ 500G
+[2021-03-20 03:55:58] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:58] - Cadastrando produto 2128 - MOELA FGO BOM TODO RESF.BDJ 500G
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2132 - PILHA RAYOVAC AMAR.GDE C 2
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2137 - CARNE CHARQUE PA SERRA NEGRA MANTA KG
+[2021-03-20 03:55:59] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2144 - SAB.PHEBO LIMA DA PERSIA 90G
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2145 - ESM.FUSION CUPIDO.6,5ML
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2149 - SAB.EVEN SUAVE BUQUE DE ROSAS 85G
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2151 - SAB.EVEN SUAVE LIMAO E CHA VERDE 85G
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2153 - ESM.FUSION EU AMO A VIDA.6,5ML
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2154 - SAB.EVEN SUAVE EXTR FLORES E BURITI 85G
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2157 - ESM.FUSION SERENATA.6,5ML
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:55:59] - Cadastrando produto 2158 - ESM.FUSION EU AMO FERIAS 6,5ML
+[2021-03-20 03:55:59] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2159 - ESM.FUSION EU AMO O CRUSH 6,5ML
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2164 - ESM.FUSION AMIZADE 6,5ML
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2171 - SUSPIROS POINT SORT.KG
+[2021-03-20 03:56:00] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2173 - ESM.FUSION TEMPO DE AMAR 6,5ML
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2174 - ESM.FUSION PAZ E AMOR 6,5ML
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2177 - PERA PORTUG.KG
+[2021-03-20 03:56:00] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2182 - ABAFADOR DO ESCAP.14936-002
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2183 - ABAFADOR
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2185 - MOLHO TOM.MARATA PRONTO SACH.BOLONHESA 340G
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:00] - Cadastrando produto 2186 - SAB.NIVEA HIDR.ORQUIDEAS 85G
+[2021-03-20 03:56:00] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2188 - LIMP.CIF CREM.MULTIUSO ORIGINAL 250ML
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2189 - PIRULITO DANILLA DIPLOKO EXP.FRUT.VERM.11G
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2191 - PIRULITO DANILLA DIPLOKO EXP.MOR.11G
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2195 - CONFEITO DANILLA FRUTINHA CORNETA 2G
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2197 - CERV.BUDWEISER 550ML
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2200 - AGUA MIN.SAVOY S VASILHAME 20LT
+[2021-03-20 03:56:01] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:01] - Cadastrando produto 2202 - BALA REGALIZ DORI PESC.GIRAFA YOG.30G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2203 - BALA GELATINA DORI MINHOCA ACIDA 85G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2224 - CARA PRETO KG
+[2021-03-20 03:56:02] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2229 - GALINHA MATRIZ MADALO CONG.KG
+[2021-03-20 03:56:02] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2233 - CHOC.GAROTO TAB.CORES 90G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2239 - BISC.GAROTO RECH.CHOC.BCO 130G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2241 - BISC.GAROTO RECH.CHOC.130G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2251 - BALA REGALIZ DORI PESC.GIRAFA GOTA COLA 30G
+[2021-03-20 03:56:02] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2256 - FRANGO SADIA CONG.KG
+[2021-03-20 03:56:02] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:02] - Cadastrando produto 2257 - LOMBO SADIA TEMP.CONG.KG
+[2021-03-20 03:56:03] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2268 - C.COSTELA FRIBOI TR (JANEL) BOV.COSSO CONG.KG
+[2021-03-20 03:56:03] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2270 - C.ACEM SUINA KG
+[2021-03-20 03:56:03] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2278 - ESPUMANTE CHANDON BRUT 750ML
+[2021-03-20 03:56:03] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2279 - C.PICANHA BORDON FAT.RESF.KG
+[2021-03-20 03:56:03] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2280 - ODORIZADOR PRATIK REFIL TALCO 12ML
+[2021-03-20 03:56:03] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2282 - DES.AER.ENLANCE WOMEN TEEN 150ML
+[2021-03-20 03:56:03] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2284 - C.ACEM FRIBOI BOV.COSSO CONG.KG
+[2021-03-20 03:56:03] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2287 - CERA AUT.FITTIPALDI 200G
+[2021-03-20 03:56:03] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:03] - Cadastrando produto 2289 - C.COSTELA FRIBOI TR (MINGA) COSSO CONG.KG
+[2021-03-20 03:56:04] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2290 - CR.MASSAG.DORGEL PUP LYNE 250G
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2297 - CALENDARIO 01
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2307 - CANET COMPACTOR TOP 2000 VERM.
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2318 - FITA ADELBRAS DUPLA-FACE 12X30M
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2319 - MASCARA TNT DESCART.C 100
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2340 - LING.NORDESTINA TOSC.KG
+[2021-03-20 03:56:04] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2343 - AZEITONA VERDE MAITA VD C CAROCO 500G
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2344 - LANCHE BOM TODO FGO KG
+[2021-03-20 03:56:04] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2345 - PENTE MARILU DESEMB.R-1234
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2347 - APRESUNTADO SEARA RET.KG
+[2021-03-20 03:56:04] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2349 - AZEITONA VERDE MAITA VD C CAROCO 160G
+[2021-03-20 03:56:04] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:04] - Cadastrando produto 2352 - C.PEITO FRIBOI BOV.COSSO CONG.KG
+[2021-03-20 03:56:04] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2353 - AZEITONA VERDE MAITA VD FATIADA 160G
+[2021-03-20 03:56:05] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2359 - COCOROTE POINT KG
+[2021-03-20 03:56:05] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2361 - BLOCOS EPS 2F
+[2021-03-20 03:56:05] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2365 - MANGA ROSA KG
+[2021-03-20 03:56:05] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2382 - IOG.BETANIA GREGO INTEG.ADOC.TRAD.BDJ 540G
+[2021-03-20 03:56:05] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2388 - LING.PREMIADA CALAB.KG
+[2021-03-20 03:56:05] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2390 - C.PALETA FRIBOI BOV.COSSO CONG.KG
+[2021-03-20 03:56:05] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2410 - SACO SERGPLAST CACH.QUENTE 20X10 C 100
+[2021-03-20 03:56:05] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2411 - SACO SERGPLAST P HAMBURGUER 20X15 C 100
+[2021-03-20 03:56:05] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:05] - Cadastrando produto 2413 - QUEIJO MINAS MEIA CURA DO SERRO KG
+[2021-03-20 03:56:05] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2414 - LING.NORDESTINA FGO KG
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2417 - BOBINA VALVULA SOLENOIDE 10W 220V 60HZ
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2418 - MICRO MOTOR ELCO 1 25 BIV C SUPORTE   HELICE PLASTICA 254MM
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2423 - PILHA RAYOVAC AMAR.PEQ.AA C4
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2425 - LAPIS LABRA PTO N?2
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2426 - UVA VITORIA IMPORT.SCAR.KG
+[2021-03-20 03:56:06] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2436 - UVA REDE GLOBO KG
+[2021-03-20 03:56:06] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2437 - CAJU KG
+[2021-03-20 03:56:06] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2438 - SOQUETE DECORLUX (USO LOJA)
+[2021-03-20 03:56:06] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2453 - UVA ISIS IMPORT.S SEM.KG
+[2021-03-20 03:56:06] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:06] - Cadastrando produto 2456 - C.COXAO DURO FRIBOI BIFE PAULISTA BDJ KG
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2460 - QUEIJO GOUDA ISIS KG (220G)
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2462 - FRANGO BOM TODO FEST TEMP.CONG.C M KG
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2466 - GALINHA MATRIZ BIP CONG.KG
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2480 - QUEIJO REINO ISIS KG (400G)
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2482 - GUITARRA PLAST.R-10002
+[2021-03-20 03:56:07] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2484 - PERNIL SADIA SUINO TEMP.ASSA FACIL KG
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2485 - PERNIL SADIA SUINO COSSO INT.CONG.KG
+[2021-03-20 03:56:07] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:07] - Cadastrando produto 2486 - LOMBO SADIA SUINO SOSSO CONG.KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2493 - FRANGO SADIA SUPREME ESPECIAL INT.CONG.KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2494 - LOMBO SUINO S OSSO CONG.KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2499 - PULVERIZ.PRATIK AGRO MANUAL 1L
+[2021-03-20 03:56:08] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2501 - FRALDA PAMPERS SUPERSEC PCTAO M 30UND
+[2021-03-20 03:56:08] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2504 - HAMB.SEARA TEXAS BURG.AVEBOV.56G
+[2021-03-20 03:56:08] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2510 - BISC.POINT AMANT.KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2522 - BORRACHA MERCUR PONTEIRA BCA UND
+[2021-03-20 03:56:08] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2525 - QUEIJO MANTEIGA SERTAO JUCURUTU KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2527 - QUEIJO COALHO SERTAO JUCURUTU OREGANO KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2528 - QUEIJO COALHO SERTAO JUCURUTU LIGHT KG
+[2021-03-20 03:56:08] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:08] - Cadastrando produto 2541 - PORTA LATA ISOPLAST
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2544 - KIT AMERICANO C.TEXTIL C 7PCS
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2550 - PLASTICOS DIVERSOS UND
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2551 - BEBEDOURO P PASSAR.GDE
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2554 - CANECAO ALUSP POP C TP N?16
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2558 - CORTADOR UNHA MUNDIAL FLEX PEQ.R-157
+[2021-03-20 03:56:09] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2559 - QUEIJO RICOTA FRESCA SERTAO JUCURUTU KG
+[2021-03-20 03:56:09] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2560 - QUEIJO MANTEIGA SERTAO JUCURUTU C RASPA KG
+[2021-03-20 03:56:09] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:09] - Cadastrando produto 2561 - BOLACHA POINT 7CAPAS ESPECIAL KG
+[2021-03-20 03:56:09] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2568 - POTE PLASTIGEL PET DECOR.CIRCULUS PEQ.
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2571 - CANALETA DND 50X30 B A BRANCA- DUTOPLAST
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2575 - CONECTOR RETO 1 1 2 WETZEL
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2576 - ARRUELA ALUMINIO WETZEL 1 1 2
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2584 - CABO DE COBRE NU 50MM 2 41M - CONDUSPAR
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2585 - CABO FLEX EPR COBRECOM 0 6 1KV 4MM 90G AZUL
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2590 - CABO DE COBRE NU 50MM 2 41M - CONDUSPAR
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2592 - AVE FIESTA SEARA TEMP.CONG.KG
+[2021-03-20 03:56:10] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2594 - QUEIJO MANTEIGA SERTAO JUCURUTU C RASPA GDE KG
+[2021-03-20 03:56:10] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:10] - Cadastrando produto 2596 - CABO COMANDO 80M
+[2021-03-20 03:56:10] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2598 - ACESSORIOS DO CARRO
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2603 - SAB.J&J ADULTO DAILY CARE LAVANDA 80G
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2604 - CR.MULTIF.YAMASTEROL QUERATINA 900G
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2609 - CR.PENT.SALON LINE RICINO E QUERATINA 300ML
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2611 - SAB.J&J ADULTO DAILY CARE ERVA DOCE 80G
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2614 - BALA GELATINA DORI MINHOCA 85G
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2615 - HIDRAT.SKALA ABACAXI 500ML
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:11] - Cadastrando produto 2621 - CR.MULTIF.YAMASTEROL BRANCO 900G
+[2021-03-20 03:56:11] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2623 - CR.PENT.SALON LINE CACHOS RADIANCE 300ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2624 - CR.PENT.SALON LINE MEL E OLEO DE MANGA 300ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2628 - DAMASCO KG
+[2021-03-20 03:56:12] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2630 - CR.PENT.SALON LINE SUPER OLEOS 300ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2632 - SH.SKALA EXPERT BOMBA BANANA 325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2633 - SH.SKALA 12EM1 RESTAUR.325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2638 - COND.SKALA O.ARGAN 325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2640 - COND.SKALA BABOSA 325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2641 - COND.SKALA CERAMIDAS G3 325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2643 - COND.SKALA MANGA 325ML
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2646 - BALA GELATINA DORI URSO 85G
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2647 - BALA REGALIZ DORI TUBO RECH.YOGURTE 70G
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2648 - BALA REGALIZ DORI TUBO RECH.YOG.ACIDO 70G
+[2021-03-20 03:56:12] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:12] - Cadastrando produto 2649 - BALA REGALIZ DORI TUBO RECH.MOR.ACIDO 70G
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2650 - BALA REGALIZ DORI TUBO RECH.UVA.ACIDA 70G
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2652 - PEITO PERU SEARA DEFUM.KG
+[2021-03-20 03:56:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2654 - LING.ESTRELA CALAB.KG
+[2021-03-20 03:56:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2660 - BALA REGALIZ DORI TUBO RECH.MOR.70G
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2663 - PRESUNTO AURORA S GORD.KG
+[2021-03-20 03:56:13] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2665 - RACAO DOG CHOW SACH.FRANGO AO MOLHO 100G
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2666 - SAB.EVEN SUAVE FLOR PESSEGO MAR.85G
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2668 - PEITORAL P CAO NYLON CGUIA N?2
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2669 - PEITORAL P CAO NYLON CGUIA N?00
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2670 - PEITORAL P CAO NYLON CGUIA N?04
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2675 - SAB.LIQ.DOVE MICELAR ANTI STRESS.REF.200ML
+[2021-03-20 03:56:13] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:13] - Cadastrando produto 2676 - SAB.LIQ.DOVE NUTRICAO PROFUNDA REF.200ML
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2677 - SAB.EVEN SUAVE ALGAS MARINHAS 85G
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2678 - SAND.GREND.IPAN.CLAS.TAN INF.RS RS 27 28
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2679 - SAND.GREND.IPAN.CLAS.INF.RX LL 23 24
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2680 - VINHO EA CARTUXA TTO 750ML
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2681 - FLOR DE HIBISCO CARRO DE BOI 100G
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2682 - SAND.GREND.IPAN.CLAS.FEM.VM VM 37 38
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:14] - Cadastrando produto 2683 - OVO PASCOA CIA DO CACAU KATA BIXO 80G
+[2021-03-20 03:56:14] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2686 - SAND.GREND.IPAN.FEM.CLAS.ROSAROSA 3536
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2688 - REFRIG.COCA COLA VD CRET.1L
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2693 - VASILHAME COCA COLA 2LT
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2694 - ANEL VEDACAO VEDA BEM SILIC.PTO
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2695 - COCA COLA LS 1L(VASILHAME)
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2698 - TAPETE CRU PINTADO
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2699 - REFRIG.COCA COLA PET CRET.2L
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2704 - REFRIG.COCA COLA PET CRET.2L
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2710 - TINT.KOLESTON KIT LOURO CL.80
+[2021-03-20 03:56:15] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:15] - Cadastrando produto 2711 - CHOC.NESTLE TAB.GALAK 20G
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2717 - FIO DENTAL CONDOR HOTWHEELS 25MT
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2720 - OVO PASCOA LACTA LAKA BCO 175G
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2727 - MAM.LILLO S.EVOLUTION SIL.300ML AZ
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2729 - MAM.LILLO S.EVOLUTION SIL.300ML RS
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2737 - LAVA ROUPAS ARIEL LIQ.CLASSICO REF.700ML
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2738 - LAVA ROUPAS ARIEL LIQ.CLASSICO REF.1,5L
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2739 - GALINHA MATRIZ AGOSTO CONG.KG
+[2021-03-20 03:56:16] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2742 - CHOC.NESTLE TAB.CRUNCH 22,5G
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2744 - CHOC.NESTLE TAB.CLASSIC MEIO AMAR.90G
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:16] - Cadastrando produto 2745 - FAR.CHIA LC.200G
+[2021-03-20 03:56:16] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2751 - ABS.DIANA ACT.TEEN SUAVE CAB.C8
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2752 - ABS.DIANA ACT.SUAVE SAB C8UND
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2753 - ABS.DIANA ACT.FASHION SUAVE CAB.LV16 PG14
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2754 - PAPEL HIG.COTTON F.D.NEUTRO 30MT C4
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2755 - PAPEL HIG.COTTON F.D.NEUTRO 30MT LV12 PG11
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2756 - BISC.MAURICEA MINI MARIA TRAD.400G
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2757 - CERV.SKOL PURO MALTE LTA 350ML
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2762 - QUEIJO COALHO SERTAO JUCURUTU CHUR.KG
+[2021-03-20 03:56:17] - Cadastrando fator de conversão KG - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2765 - BISC.BAUD.WAFER DUPLO CHOC.78G
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2770 - BISC.BAUD.WAFER BRIG.78G
+[2021-03-20 03:56:17] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:17] - Cadastrando produto 2772 - BISC.BAUD.WAFER MOR.78G
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2773 - BISC.BAUD.WAFER CHOC.78G
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2778 - CX.TERM.ISOPLAST C DRENO 120LT
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2779 - FIO DENTAL GREEN MENTA TRAD.100MT
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2781 - SH.SEDA LIMPEZA MICELAR 325ML
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2782 - KIT LUBSIL LAVA AUTOS LIMPA PNEUS CERA BRILHO
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2791 - ESC.DENTAL GREEN POCKET PVIAGEM
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2793 - ESC.DENTAL GREEN TREND AD.MACIA
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2794 - ESC.DENTAL GREEN DINO INF.MACIA
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2795 - GEL MURIEL TEEN PT VERM.180G
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2798 - COND.ACQUA KIDS TUTTI FRUTTI 400ML
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2799 - GEL MURIEL TEEN PT AMAR.180G
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:18] - Cadastrando produto 2800 - COND.MURIEL UMIDILIZ BABY AZUL 150ML
+[2021-03-20 03:56:18] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:19] - Cadastrando produto 2802 - COND.MURIEL UMIDILIZ BABY ROSA 150ML
+[2021-03-20 03:56:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:19] - Cadastrando produto 2803 - BARRA CER.PARATI GRAN.BRIG.20G
+[2021-03-20 03:56:19] - Cadastrando fator de conversão UN - 1
+[2021-03-20 03:56:19] - Cadastrando produto 2804 - BARRA CER.PARATI GRAN.BROWNIE 20G

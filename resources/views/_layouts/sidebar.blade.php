@@ -58,12 +58,6 @@
         </li>
     </ul>
 
-    <div id="footer" style="position: absolute; z-index: 9999; bottom: 0; left: 0;">
-        <button type="button" class="btn waves-effect blue" id="shell_exec">
-            <i class="material-icons">code</i>
-        </button>
-    </div>
-
     <a href="#" data-target="slide-out"
         class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only">
         <i class="material-icons">menu</i>
