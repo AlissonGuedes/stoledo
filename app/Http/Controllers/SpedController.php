@@ -7,6 +7,7 @@ namespace App\Http\Controllers {
 	use Maatwebsite\Excel\Facades\Excel;
 
 	use App\Models\SpedfiscalModel;
+	use App\Models\FornecedorModel;
 	use App\Models\NFeModel;
 
 	class SpedController extends Controller {
@@ -15,12 +16,14 @@ namespace App\Http\Controllers {
 		{
 			$this -> nfe_model = new NFeModel();
 			$this -> spedfiscal_model = new SpedfiscalModel();
+			$this -> fornecedor_model = new FornecedorModel();
 		}
 
 		public function index(Request $request) {
 
 			if ( $request -> ajax() ) {
 
+				$dados['tipo'] = request() -> route() -> parameters['tipo'];
 				$dados['paginate'] = $this -> spedfiscal_model -> getSpedfiscal();
 				return view('spedfiscal.list.spedfiscal', $dados);
 
@@ -30,14 +33,22 @@ namespace App\Http\Controllers {
 
 		}
 
-		public function notas_fiscais(Request $request, $cnpj) {
+		/**
+		 * Onde
+		 * Tipo = 0 : Notas não escrituradas
+		 * Tipo = 1 : Notas Escrituradas
+		 */
+		public function notas_fiscais(Request $request, $tipo, $cnpj, $data_inicial, $data_final) {
 
 			if ( $request -> ajax() ) {
-				$dados['paginate'] = $this -> nfe_model -> getNFe(null, $cnpj);
+
+				$dados['paginate'] = $this -> spedfiscal_model -> getNotas($tipo, $cnpj, $data_inicial, $data_final);
+
 				return view('spedfiscal.list.notas_fiscais', $dados);
+
 			}
 
-			$dados['spedfiscal'] = $this -> spedfiscal_model -> getSpedfiscal($cnpj);
+			$dados['fornecedor'] = $this -> fornecedor_model -> getFornecedor($cnpj);
 			return view('spedfiscal.notas_fiscais', $dados);
 
 		}

@@ -13,47 +13,69 @@ function Produtos() {
 	COD_BARRA=$(echo $PRODUTO | cut -d '|' -f 4)
 	COD_ANT_ITEM=$(echo $PRODUTO | cut -d '|' -f 5)
 	UNID_INV=$(echo $PRODUTO | cut -d '|' -f 6)
-	TIPO_ITEM=$(echo $PRODUTO | cut -d '|' -f 7)
+	TIPO_ITEM=$([[ $(echo $PRODUTO | cut -d '|' -f 7) != '' ]] && echo $PRODUTO | cut -d '|' -f 7 || echo 00 )
 	COD_NCM=$(echo $PRODUTO | cut -d '|' -f 8)
 	EX_IPI=$(echo $PRODUTO | cut -d '|' -f 9)
 	COD_GEN=$(echo $PRODUTO | cut -d '|' -f 10 | sed 's/+/\ /g')
 	COD_LST=$(echo $PRODUTO | cut -d '|' -f 11 | sed 's/+/\ /g')
-	ALIQ_ICMS=$(echo $PRODUTO | cut -d '|' -f 12 | sed 's/\,/\./g')
-	CEST=$(echo $PRODUTO | cut -d '|' -f 13)
+	ALIQ_ICMS=$([[ $(echo $PRODUTO | cut -d '|' -f 12) != '' ]] && echo $PRODUTO | cut -d '|' -f 12 | sed 's/\,/\./g' || echo 0.00 )
+	CEST=$([[ $(echo $PRODUTO | cut -d '|' -f 13) != '' ]] && echo $PRODUTO | cut -d '|' -f 13 | sed 's/\,/\./g' || echo 0.00 )
 
-	if [[ $CEST == '' ]]
-	then
-		CEST=0
-	fi
+	echo "set @codItem='$COD_ITEM';"
+	echo "set @descricao='$DESCR_ITEM';"
+	echo "set @codBarra='$COD_BARRA';"
+	echo "set @codAntItem='$COD_ANT_ITEM';"
+	echo "set @unidInv='$UNID_INV';"
+	echo "set @tipoItem='$TIPO_ITEM';"
+	echo "set @codNcm='$COD_NCM';"
+	echo "set @exIpi='$EX_IPI';"
+	echo "set @codGen='$COD_GEN';"
+	echo "set @codLst='$COD_LST';"
+	echo "set @aliqICMS='$ALIQ_ICMS';"
+	echo "set @cest='$CEST';"
 
-	if [[ $COD_ITEM != '' ]]
-	then
+	echo "CALL Cadastra_Produto(@codItem, @descricao, @codBarra, @codAntItem, @unidInv, @tipoItem, @codNcm, @exIpi, @codGen, @codLst, @aliqICMS, @cest);"
 
-		WHERE="cod_item = '$COD_ITEM'"
+	# if [[ $CEST == '' ]]
+	# then
+	# 	CEST=0
+	# fi
 
-	elif [[ $DESCR_ITEM != '' ]]
-	then
+	# if [[ $COD_ITEM != '' ]]
+	# then
 
-		WHERE="descricao = '$DESCR_ITEM'"
+	# 	WHERE="cod_item = '$COD_ITEM'"
 
-	fi
+	# elif [[ $DESCR_ITEM != '' ]]
+	# then
 
-	query="SELECT id FROM tb_produto WHERE $WHERE;";
+	# 	WHERE="descricao = '$DESCR_ITEM'"
 
-	result=$(Execute "$query")
+	# fi
 
-	if [[ $result == '' ]]
-	then
+	# query="SELECT id FROM tb_produto WHERE $WHERE;";
 
-		query="INSERT INTO tb_produto (cod_item, descricao, cod_barra, cod_ant_item, unidade_inv, tipo_item, cod_ncm, ex_ipi, cod_gen, cod_lst, aliquota_icms, cest) VALUES ('$COD_ITEM', '$DESCR_ITEM', '$COD_BARRA', '$COD_ANT_ITEM', '$UNID_INV', '$TIPO_ITEM', '$COD_NCM', '$EX_IPI', '$COD_GEN', '$COD_LST', '$ALIQ_ICMS', '$CEST');"
+	# result=$(Execute "$query")
 
-		result=$(Execute "$query select last_insert_id();")
+	# if [[ $result == '' ]]
+	# then
 
-	fi
+	# 	echo '-- '
+	# 	echo '-- Inserido dados na tabela `tb_produto` '
+	# 	echo '-- '
 
-	ID=`echo $result | awk '{print $2}'`
+	# 	query="INSERT INTO tb_produto (cod_item, descricao, cod_barra, cod_ant_item, unidade_inv, tipo_item, cod_ncm, ex_ipi, cod_gen, cod_lst, aliquota_icms, cest) VALUES ('$COD_ITEM', '$DESCR_ITEM', '$COD_BARRA', '$COD_ANT_ITEM', '$UNID_INV', '$TIPO_ITEM', '$COD_NCM', '$EX_IPI', '$COD_GEN', '$COD_LST', '$ALIQ_ICMS', '$CEST');"
 
-	echo $ID
+	# 	echo $query ''
+	# 	idProduto="(select last_insert_id())"
+
+	# else
+
+	# 	idProduto=$(echo $result | awk '{print $2}')
+
+	# fi
+
+	# echo "set @idProduto=$idProduto;" ''
 
 }
 
@@ -63,21 +85,24 @@ function Produtos() {
 function ProdutoConversao() {
 
 	ID_PRODUTO=$1
-	REG=$(echo $2 | cut -d '|' -f 1)
-	UNIDADE=$(echo $2 | cut -d '|' -f 2)
-	FATOR=$(echo $2 | cut -d '|' -f 3)
+	REG=$(echo $1 | cut -d '|' -f 1)
+	UNIDADE=$(echo $1 | cut -d '|' -f 2)
+	FATOR=$(echo $1 | cut -d '|' -f 3 | sed 's/\,/\./g')
 
-	# Cadastrar fator de conversão na tabela tb_produto_conversao
-	query="SELECT id FROM tb_produto_conversao WHERE id_produto = '$ID_PRODUTO' AND unidade = '$UNIDADE';"
+	echo "set @unidade='$UNIDADE';"
+	echo "set @fatorConversao='$FATOR';"
+	echo "CALL Cadastra_ProdutoConversao(@idProduto, @unidade, @fatorConversao);"
+	# # Cadastrar fator de conversão na tabela tb_produto_conversao
+	# query="SELECT id FROM tb_produto_conversao WHERE id_produto = '$ID_PRODUTO' AND unidade = '$UNIDADE';"
 
-	result=$(Execute "$query")
+	# result=$(Execute "$query")
 
-	if [[ $result == '' ]]
-	then
+	# if [[ $result == '' ]]
+	# then
 
-		query="INSERT INTO tb_produto_conversao (id_produto, unidade, fator_conversao) VALUES ('$ID_PRODUTO', '$UNIDADE', '$FATOR');"
-		Execute "$query"
+	# 	query="INSERT INTO tb_produto_conversao (id_produto, unidade, fator_conversao) VALUES ('$ID_PRODUTO', '$UNIDADE', '$FATOR');"
+	# 	Execute "$query"
 
-	fi
+	# fi
 
 }

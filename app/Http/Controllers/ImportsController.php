@@ -14,12 +14,33 @@ namespace App\Http\Controllers {
 			$this -> import_model = new ImportModel();
 
 		}
+
 		/**
 		 * Show the system home page
 		 */
 		public function index() {
 
 			return view('imports.index');
+
+		}
+
+		/**
+		 * Show the system home page
+		 */
+		public function nfe() {
+
+			$dados['tipo_arquivo'] = 'notasfiscais';
+			return view('imports.index', $dados);
+
+		}
+
+		/**
+		 * Show the system home page
+		 */
+		public function sped() {
+
+			$dados['tipo_arquivo'] = 'spedfiscal';
+			return view('imports.index', $dados);
 
 		}
 
@@ -35,7 +56,9 @@ namespace App\Http\Controllers {
 					break;
 
 					case 'txt' :
-						$this -> import_model -> import_sped($file);
+
+						$this -> import_model -> import_sped($file, $request -> arquivo);
+
 					break;
 
 					default:

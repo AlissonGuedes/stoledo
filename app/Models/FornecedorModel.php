@@ -63,23 +63,28 @@ class FornecedorModel extends Authenticatable
 
 		if ( isset($_GET['search']['value']) && ! empty($_GET['search']['value'])) {
 
-			$search = $_GET['search']['value'];
+			$get->where(function($get) {
 
-			$get -> orWhere('F.cnpj', 'like', '%' . $search . '%')
-					-> orWhere('F.cpf', 'like', '%' .  $search . '%')
-					-> orWhere('F.ie', 'like', '%' .  $search . '%')
-					-> orWhere('F.nome', 'like', $search . '%');
+				$search = $_GET['search']['value'];
+
+				$get -> orWhere('F.cnpj', 'like', '%' . limpa_string($search, '') . '%')
+					 -> orWhere('F.cpf', 'like', '%' .  limpa_string($search, '') . '%')
+					 -> orWhere('F.ie', 'like', '%' .  $search . '%')
+					 -> orWhere('F.nome', 'like', '%' . $search . '%')
+					 -> orWhere('F.xFant', 'like', '%' .  $search . '%');
+
+			});
+
 		}
 
 		if ( !is_null($cnpj) ) {
 			$get -> where('F.cnpj', $cnpj);
-
 			return $get -> first();
 		}
 
 		$this -> order = [
 			null,
-			'F.nome',
+			'F.xFant',
 			'F.cnpj',
 			DB::raw('(select count(tb_nfe.id) from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90)'),
 			DB::raw('(select sum(tb_nfe.vNF)  from tb_nfe where tb_nfe.cEmi = F.cnpj AND tb_nfe.tPag <> 90)'),

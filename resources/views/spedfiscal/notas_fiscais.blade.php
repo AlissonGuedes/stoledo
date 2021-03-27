@@ -1,10 +1,11 @@
 @extends('_layouts.app')
 
+{? $tipo = request() -> route() -> parameters['tipo']; ?}
 @section('page-title', cnpj($fornecedor->cnpj) . ' - ' . $fornecedor->nome)
 
 @section('header')
 
-    <button data-href="{{ route('reports.fornecedores') }}"
+    <button data-href="{{ route('reports.sped', $tipo) }}"
         class="btn btn-floating waves-effect transparent white-text btn-flat" data-tooltip="Voltar">
         <i class="material-icons">arrow_back</i>
     </button>
@@ -22,8 +23,7 @@
 @section('container')
 
 
-    <table class="datatable responsiveDatatable" data-link="{{ url('reports/fornecedores', $fornecedor->cnpj) }}"
-        data-placeholder="Pesquisar Fornecedor">
+    <table class="datatable responsiveDatatable">
         <thead>
             <tr>
                 <th data-clickable="false" width="1%" data-orderable="false">

@@ -52,13 +52,23 @@ namespace App\Models {
 		// }
 
 		/** Importação do arquivo SPED Fiscal */
-		public function import_sped($file) {
+		public function import_sped($file, $arquivo = null) {
+
+			if ( is_null($arquivo) ) {
+				$filetype = DS;
+			} else {
+				$filetype = DS . $arquivo . DS;
+			}
 
 			$name = explode('.', $file -> getClientOriginalName());
 			$extension = strtolower($file -> getClientOriginalExtension());
+			$path = 'public/files/' . $extension . $filetype;
+
 			$filename  = limpa_string($name[count($name) - 2]);
 			$filename  = $filename . '.' . $extension;
-			$file -> storeAs('public/files/' . $extension, $filename);
+
+
+			$file -> storeAs($path, $filename);
 
 			$this -> readTXTFile($filename);
 

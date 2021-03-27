@@ -18,17 +18,18 @@ namespace App\Http\Controllers {
 			$user = $_ENV['DB_USERNAME'];
 			$pass = $_ENV['DB_PASSWORD'];
 
-			$path = storage_path('logs/imports/');
+			$pathfile   = public_path('/logs/');
+			$pathbackup = storage_path('logs/imports/');
 
-			$logfile = $path . 'sped_fiscal.log';
-			$logbackup = $path . 'sped_fiscal_' . date('Y-m-d_His') . '.log';
+			$logfile = $pathfile . 'sped_fiscal.log';
+			$logbackup = $pathbackup . 'sped_fiscal_' . date('Y-m-d_His') . '.log';
 
 			// $request -> session() -> forget('import_txt');
 			$request -> session() -> put('import_txt', 'log_file');
 			$request -> session() -> put('import_txt.log_file', $logfile);
 
-			if ( !is_dir($path)) {
-				shell_exec('mkdir ' . $path);
+			if ( !is_dir($pathbackup)) {
+				shell_exec('mkdir ' . $pathbackup);
 			}
 
 			shell_exec('touch ' . $logfile);
@@ -43,7 +44,8 @@ namespace App\Http\Controllers {
 				return $request -> session() -> forget('import_txt');
 			}
 
-			$logfile = storage_path('logs/imports/sped_fiscal.log');
+			$logfile = public_path('/logs/sped_fiscal.sql');
+			// $logfile = storage_path('logs/imports/sped_fiscal.log');
 
 			echo json_encode(['log' => (shell_exec('tail ' . $logfile) ?? null)]);
 

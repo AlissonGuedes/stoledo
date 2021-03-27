@@ -13,7 +13,7 @@
                     <span></span>
                 </label>
             </td>
-            <td style="width: 40%"> {{ strtoupper($row->nome) }} </td>
+            <td style="width: 40%"> {{ strtoupper($row->xFant) }} </td>
             <td style="width: 15%"> {{ cnpj($row->cnpj) }} </td>
             <td style="width: 15%"> {{ $row->qtd_nf }} </td>
             <td style="width: 15%" class="right-align"> <span class="left">R$</span>

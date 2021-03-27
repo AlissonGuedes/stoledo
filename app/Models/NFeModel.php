@@ -57,7 +57,7 @@ class NFeModel extends Authenticatable
 							'tb_nfe.*',
 
 							// Emitente
-							DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS nomeEmit'),
+							DB::raw('(SELECT IF(nome<>"",nome,xFant) FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS nomeEmit'),
 							DB::raw('(SELECT cnpj FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS cnpjEmit'),
 							DB::raw('(SELECT ie FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS ieEmit'),
 							DB::raw('(SELECT fone FROM tb_fornecedor WHERE cnpj = tb_nfe.cEmi) AS foneEmit'),
@@ -68,7 +68,7 @@ class NFeModel extends Authenticatable
 							DB::raw('(SELECT uf FROM tb_municipio WHERE cMun = (SELECT cMun from tb_fornecedor WHERE cnpj = tb_nfe.cEmi) ) AS ufEmit'),
 
 							// Destinatário
-							DB::raw('(SELECT nome FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS nomeDest'),
+							DB::raw('(SELECT IF(nome<>"",nome,xFant) FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS nomeDest'),
 							DB::raw('(SELECT cnpj FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS cnpjDest'),
 							DB::raw('(SELECT ie FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS ieDest'),
 							DB::raw('(SELECT fone FROM tb_fornecedor WHERE cnpj = tb_nfe.cDest) AS foneDest'),
@@ -125,13 +125,13 @@ class NFeModel extends Authenticatable
 			$get  -> orderBy($this -> order[6], 'ASC');
 		}
 
-		// if ( isset($_GET['length'])) {
-		// 	$get  -> limit($_GET['length']);
-		// }
+		if ( isset($_GET['length'])) {
+			$get  -> limit($_GET['length']);
+		}
 
-		// if ( isset($_GET['start']) ) {
-		// 	$get  -> offset($_GET['start']);
-		// }
+		if ( isset($_GET['start']) ) {
+			$get  -> offset($_GET['start']);
+		}
 
 		return $get -> paginate($_GET['length'] ?? null);
 

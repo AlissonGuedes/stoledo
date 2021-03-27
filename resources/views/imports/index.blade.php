@@ -1,5 +1,23 @@
 @extends('_layouts.app')
 
+@switch($tipo_arquivo)
+
+    @case('notasfiscais')
+    {? $titulo = 'Importação de Notas Fiscais'; ?}
+    @break
+
+    @case('spedfiscal')
+    {? $titulo = 'Importação do Arquivo Sped Fiscal'; ?}
+    @break
+
+    @default
+
+@endswitch
+
+@section('page-title', $titulo)
+
+@section('search', '')
+
 @section('container')
 
     <div class="row">
@@ -23,8 +41,8 @@
                         <p>
                             Quantidade máxima de arquivos permitidos:
                             <b style="color: #ff0000"> {{ ini_get('max_file_uploads') }} </b>
-							<br>
-							<small>Acesse o arquivo de configuração do servidor web para alterar essa quantidade</small>
+                            <br>
+                            <small>Acesse o arquivo de configuração do servidor web para alterar essa quantidade</small>
                         </p>
 
                     </div>
@@ -33,6 +51,7 @@
 
                 <div class="row">
                     <div class="col s3">
+                        <input type="hidden" name="arquivo" value="{{ $tipo_arquivo }}">
                         <button type="submit" class="btn waves-effect green">
                             <i class="material-icons left">send</i>
                             Importar Arquivo

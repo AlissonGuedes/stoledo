@@ -82,7 +82,7 @@
                                 <div class="col s12 l3 m3">
                                     <div class="input-field bordered">
                                         {? $active=$nfe->tpNF ? 'active' : ''; ?}
-                                        <label class="{{ $active }}">Tipo da nota:</label>
+                                        <label class="active">Tipo da nota:</label>
                                         <input type="text" value="@php echo $nfe->tpNF == 1 ? '1 - Saída' : '0 - Entrada'; @endphp" disabled="disabled" class="uppercase">
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@
                                     <div class="input-field bordered">
                                         {? $active = $nfe->nomeEmit ? 'active' : ''; ?}
                                         <label class="{{ $active }}"> Nome/Razão Social: </label>
-                                        <input type="text" value="{{ $nfe->nomeEmit }}" disabled="disabled"
+                                        <input type="text" value="{{ $nfe->nomeEmit ?? $nfe->xFant }}" disabled="disabled"
                                             class="uppercase">
                                     </div>
                                 </div>
@@ -664,16 +664,16 @@
             display: block;
         }
 
-        .collapsible li.header {
+        #dados_produto .collapsible li.header {
             border-bottom: 1px solid #ddd;
         }
 
-        .collapsible-header {
+        #dados_produto .collapsible-header {
             display: block;
             position: relative;
         }
 
-        .collapsible li .collapsible-header::after {
+        #dados_produto .collapsible li .collapsible-header::after {
             content: 'keyboard_arrow_down';
             font-family: 'Material Icons';
             position: absolute;
@@ -685,7 +685,7 @@
             font-size: 24px;
         }
 
-        .collapsible li.active .collapsible-header::after {
+        #dados_produto .collapsible li.active .collapsible-header::after {
             content: 'keyboard_arrow_up';
 
         }

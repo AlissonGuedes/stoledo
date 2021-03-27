@@ -7,6 +7,7 @@ use App\Http\Controllers\ImportsController;
 use App\Http\Controllers\NFeController;
 use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\SpedController;
+use App\Http\Controllers\ProdutosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::post('/api/log', [HomeController::class, 'log']);
 
 // Imports
 Route::any('/imports', [ImportsController::class, 'index']) -> name('imports');
+Route::any('/imports/nfe', [ImportsController::class, 'nfe']) -> name('imports.nfe');
+Route::any('/imports/sped', [ImportsController::class, 'sped']) -> name('imports.sped');
 Route::post('/imports', [ImportsController::class, 'import']);
 
 // NFe
@@ -47,4 +50,8 @@ Route::get('/reports/fornecedores/{emitente}/{chave_nfe}', [FornecedoresControll
 
 // Sped Fiscal
 Route::get('/reports/spedfiscal', [SpedController::class, 'index']) -> name('reports.sped');
-Route::get('/reports/spedfiscal/nfe/{escriturada}/{cnpj}/{data_inicio}/{data_fim}', [NFeController::class, 'sped_fiscal']) -> name('reports.sped.notas.nao-escrituradas');
+Route::get('/reports/spedfiscal/nfe/{tipo}', [SpedController::class, 'index']) -> name('reports.sped');
+Route::get('/reports/spedfiscal/nfe/{tipo}/{cnpj}/{data_inicio}/{data_fim}', [SpedController::class, 'notas_fiscais']) -> name('reports.sped.notas_fiscais');
+
+// Produtos
+Route::get('/produtos', [ProdutosController::class, 'index']) -> name('produtos');

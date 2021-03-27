@@ -43,33 +43,52 @@ function Participante() {
 		WHERE="ie = '$IE'"
 	fi
 
-	query="SELECT id FROM tb_fornecedor WHERE $WHERE;";
+	# query="SELECT id FROM tb_fornecedor WHERE $WHERE;";
 
-	result=$(Execute "$query")
+	# result=$(Execute "$query")
 
-	if [[ $result == '' ]]
-	then
+	# if [[ $result == '' ]]
+	# then
 
-		query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
+	echo "SET @cnpj='$CNPJ';"
+	echo "SET @nome='$FANTASIA';"
+	echo "SET @xFant='$NOME';"
+	echo "SET @cPais='$COD_PAIS';"
+	echo "SET @cMun='$COD_MUN';"
+	echo "SET @uf='$UF';"
+	echo "SET @xBairro='$BAIRRO';"
+	echo "SET @xLgr='$END';"
+	echo "SET @cep='$CEP';"
+	echo "SET @nro='$NUM';"
+	echo "SET @complemento='$COMPL';"
+	echo "SET @fone='$FONE';"
+	echo "SET @fax='$FAX';"
+	echo "SET @email='$EMAIL';"
+	echo "SET @ie='$IE';"
+	echo "SET @indIEDest='$INDIEDEST';"
+	echo "SET @crt='$CRT';"
+	echo "SET @cpf='$CPF';"
+	echo "SET @im='$IM';"
+	echo "SET @suframa='$SUFRAMA';"
+	echo "SET @ind_ati='$IND_ATIV';"
 
-		result=$(Execute "$query select last_insert_id();")
+	echo 'CALL Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati);'
+	# echo "SET @idFornecedor=(SELECT @idFornecedor);"
+	# echo 'SET @idFornecedor=(SELECT Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati));'
 
-	fi
+	# 	query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
 
-	ID=`echo $result | awk '{print $2}'`
+	# 	echo $query
 
-	# Cadastrar o fornecedor na tabela de participantes do sped
-	query="SELECT id FROM tb_spedfiscal_participante WHERE id_sped = '$SPEDFISCAL' AND id_fornecedor = '$ID';"
+	# 	idParticipante="(select last_insert_id())";
+	# else
 
-	result=$(Execute "$query")
-	if [[ $result == '' ]]
-	then
+	# 	idParticipante=$(echo $result | awk '{print $2}')
 
-		query="INSERT INTO tb_spedfiscal_participante (id_sped, id_fornecedor, cod_part) VALUES ('$SPEDFISCAL', '$ID', '$COD_PART');"
-		Execute "$query"
+	# fi
 
-	fi
-
-	echo $ID
+	# echo "set @idParticipante=$idParticipante;"
+	echo "set @codPart='$COD_PART';"
+	echo "CALL Cadastra_Participante(@idSpedfiscal, @idFornecedor, @codPart);"
 
 }

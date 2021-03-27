@@ -17,10 +17,26 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('imports') }}" class="waves-effect waves-cyan">
+            <a href="javascript:void(0);" class="waves-effect waves-cyan collapsible-header" tabindex="0">
                 <i class="material-icons">upload</i>
                 Importação de Arquivos
             </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li>
+                        <a href="{{ route('imports.nfe') }}" class="waves-effect waves-cyan">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            Nota Fiscal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('imports.sped') }}" class="waves-effect waves-cyan">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            Sped Fiscal
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li>
             <a href="javascript:void(0);" class="waves-effect waves-cyan collapsible-header" tabindex="0">
@@ -31,28 +47,43 @@
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                     <li>
                         <a href="{{ route('reports.nfe') }}">
-                            <i class="material-icons"></i>
+                            <i class="material-icons">radio_button_unchecked</i>
                             Notas Fiscais
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('reports.fornecedores') }}" class="waves-effect waves-cyan">
-                            <i class="material-icons"></i> Fornecedores
+                            <i class="material-icons">radio_button_unchecked</i> Fornecedores
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('reports.sped') }}" class="waves-effect waves-cyan">
-                            <i class="material-icons"></i>
+                        <a href="javascript:void(0);" class="waves-effect waves-cyan collapsible-header" tabindex="0">
+                            <i class="material-icons">pie_chart</i>
                             Sped Fiscal
                         </a>
-                    </li>
-                    {{-- <li>
+                        <div class="collapsible-body">
+                            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                                <li>
+                                    <a href="{{ route('reports.sped', 1) }}" class="waves-effect waves-cyan">
+                                        <i class="material-icons">radio_button_unchecked</i>
+                                        Notas Escrituradas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('reports.sped', 0) }}" class="waves-effect waves-cyan">
+                                        <i class="material-icons">radio_button_unchecked</i>
+                                        Notas Não Escrituradas
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{-- <li>
                         <a href="{{ url('reports/sped/nao_escrituradas') }}">
                             <i class="material-icons"></i>
                             Notas não escrituradas
                         </a>
                     </li> --}}
-                    {{-- <li><a href="#">Duplicatas</a></li> --}}
+                        {{-- <li><a href="#">Duplicatas</a></li> --}}
                 </ul>
             </div>
         </li>

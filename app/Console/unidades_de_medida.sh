@@ -10,20 +10,42 @@ function Unidades() {
 	UNID=$(echo $1 | cut -d '|' -f 2)
 	DESCR=$(echo $1 | cut -d '|' -f 3)
 
-	query="SELECT id FROM tb_unidade_medida WHERE unidade = '$UNID' AND descricao = '$DESCR';";
+	echo "SET @unidade='$UNID';"
+	echo "SET @descricao='$DESCR';"
 
-	result=$(Execute "$query")
+	echo "CALL Cadastra_UnidadesMedidas(@unidade, @descricao);"
 
-	if [[ $result == '' ]]
-	then
+	# query="SELECT id FROM tb_unidade_medida WHERE unidade = '$UNID' AND descricao = '$DESCR';";
 
-		query="INSERT INTO tb_unidade_medida (unidade, descricao) VALUES ('$UNID', '$DESCR');"
+	# result=$(Execute "$query")
 
-		result=$(Execute "$query select last_insert_id();")
+	# if [[ $result == '' ]]
+	# then
 
-	fi
+	# 	echo '-- \n'
+	# 	echo '-- Inserido dados na tabela `tb_unidade_medida` \n'
+	# 	echo '-- \n'
 
-	echo $result | awk '{print $2}'
+	# 	query="INSERT INTO tb_unidade_medida (unidade, descricao) VALUES ('$UNID', '$DESCR');"
+
+	# 	# result=$(Execute "$query select last_insert_id();")
+	# 	echo $query
+	# 	echo '\n\n'
+
+	# 	idUnidadeMedida="(select last_insert_id())"
+	# else
+
+	# 	idUnidadeMedida=$(echo $result | awk '{print $2}')
+
+	# fi
+
+	# echo '-- ------------------------------------------- \n'
+	# echo '-- Obtendo o ID da Unidade de Medida			 \n'
+	# echo '-- ------------------------------------------- \n'
+
+	# echo "set @idUnidadeMedida=$idUnidadeMedida;"
+
+	# echo '-- ------------------------------------------- \n'
 
 
 }

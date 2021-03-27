@@ -2,6 +2,8 @@
 
 use App\Models\Admin\ConfigModel;
 
+define('DS', DIRECTORY_SEPARATOR);
+
 if (!function_exists('get_config')) {
 
 	function get_config($config)

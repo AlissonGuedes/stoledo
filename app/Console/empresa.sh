@@ -29,21 +29,62 @@ function Empresa() {
 	CPF=$(echo $INFO | cut -d '|' -f 8)
 	IM=$(echo $INFO | cut -d '|' -f 12)
 	SUFRAMA=$(echo $INFO | cut -d '|' -f 13)
-	IND_ATIV=$(echo $INFO | cut -d '|' -f 15 | sed 'N ; N ; s/\n//')
+	IND_ATIV=$(echo $INFO | cut -d '|' -f 15)
 
-	query="SELECT id FROM tb_fornecedor WHERE  cpf = '$CPF' OR cnpj = '$CNPJ' OR ie = '$IE' OR im = '$IM';";
+	echo "SET @cnpj='$CNPJ';" ''
+	echo "SET @nome='$FANTASIA';" ''
+	echo "SET @xFant='$NOME';" ''
+	echo "SET @cPais='$COD_PAIS';" ''
+	echo "SET @cMun='$COD_MUN';" ''
+	echo "SET @uf='$UF';" ''
+	echo "SET @xBairro='$BAIRRO';"
+	echo "SET @xLgr='$END';"
+	echo "SET @cep='$CEP';"
+	echo "SET @nro='$NUM';"
+	echo "SET @complemento='$COMPL';"
+	echo "SET @fone='$FONE';"
+	echo "SET @fax='$FAX';"
+	echo "SET @email='$EMAIL';"
+	echo "SET @ie='$IE';"
+	echo "SET @indIEDest='$INDIEDEST';"
+	echo "SET @crt='$CRT';"
+	echo "SET @cpf='$CPF';"
+	echo "SET @im='$IM';"
+	echo "SET @suframa='$SUFRAMA';"
+	echo "SET @ind_ati='$IND_ATIV';"
 
-	result=$(Execute "$query")
+	echo "CALL Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati);"
 
-	if [[ $result == '' ]]
-	then
+	# query="SELECT id FROM tb_fornecedor WHERE  cpf = '$CPF' OR cnpj = '$CNPJ' OR ie = '$IE' OR im = '$IM';";
 
-		query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
+	# result=$(Execute "$query")
 
-		result=$(Execute "$query select last_insert_id();")
+	# if [[ $result == '' ]]
+	# then
 
-	fi
+	# 	echo '-- --------------------------------------------'
+	# 	echo '-- Inserido dados na tabela `tb_fornecedor` '
+	# 	echo '-- --------------------------------------------'
 
-	echo $result | awk '{print $2}'
+	# 	query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
+
+	# 	echo $query
+	# 	echo  ''
+
+	# 	idFornecedor="(select last_insert_id())"
+
+	# else
+
+	# 	idFornecedor=$(echo $result | awk '{print $2}')
+
+	# fi
+
+	# echo '-- --------------------------------------------'
+	# echo '-- Obtendo o ID do fornecedor					 '
+	# echo '-- --------------------------------------------'
+
+	# echo "set @idFornecedor=$idFornecedor;"
+
+	# echo '-- --------------------------------------------'
 
 }

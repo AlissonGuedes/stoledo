@@ -6,9 +6,10 @@
 
         {? $data_inicio = convert_to_date($row->dt_ini, 'dmY'); ?}
         {? $data_fim = convert_to_date($row->dt_fin, 'dmY');?}
-		{? $url = route('reports.sped.notas.nao-escrituradas', [0, $row->cnpj_fornecedor, $data_inicio, $data_fim]); ?}
+		{? $dados['tipo'] = request() -> route() -> parameters['tipo']; ?}
+        {? $url = route('reports.sped.notas_fiscais', [$tipo, $row->cnpj_fornecedor, $data_inicio, $data_fim]); ?}
 
-		<tr class="{{ $row->status === '0' ? 'blocked' : null }}" data-link="{{ $url }}"
+        <tr class="{{ $row->status === '0' ? 'blocked' : null }}" data-link="{{ $url }}"
             id="{{ $row->id }}" data-disabled="false">
 
             <td width="1%" data-disabled="true">
@@ -22,11 +23,10 @@
             <td style="width: 20%"> {{ strtoupper($row->empresa) }} </td>
             <td style="width: 15%"> {{ cnpj($row->cnpj_fornecedor) }} </td>
             <td style="width: 20%"> {{ $row->contador }} </td>
-            <td style="width: 15%"> {{ $data_inicio }} - {{ $data_fim }} </td>
+            <td style="width: 15%"> {{ convert_to_date($data_inicio) }} - {{ convert_to_date($data_fim) }} </td>
 
             <td style="width: 15%" data-disabled="true">
-                <a
-                    href="{{ $url }}">
+                <a href="{{ $url }}">
                     Listar NF-e
                 </a>
             </td>

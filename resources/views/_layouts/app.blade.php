@@ -45,7 +45,7 @@
     </div>
 
     <div id="log"
-        style="background: rgba(0, 0, 0, 0.8); width: 600px; height: 400px; border: 1px solid #ccc; position: absolute; fixed; bottom: 0;z-index: 9999; right: 0; color: #fff !important; display:none; overflow: scroll;">
+        style="background: rgba(0, 0, 0, 0.8); width: 100%; height: 100px; border: 1px solid #ccc; position: absolute; fixed; bottom: 0;z-index: 9999; right: 0; color: #fff !important; display:none; overflow-y: scroll;">
         <div id="console" style="position: relative; overflow: hidden; padding: 15px;"></div>
     </div>
 
