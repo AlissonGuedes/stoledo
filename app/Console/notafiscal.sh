@@ -166,7 +166,7 @@ function Notafiscal_Itens() {
 	cod_cta=$(echo $ITEM | cut -d '|' -f 37)
 	vl_abat_nt=$([[ $(echo $ITEM | cut -d '|' -f 38) != '' ]] && echo $ITEM | cut -d '|' -f 38 | sed 's/\,/\./g' || echo 0.00 )
 
-	echo "SET @cod_item=(SELECT id FROM tb_produto WHERE cod_item = '$COD_ITEM' AND descricao = '$DESCR_ITEM');"
+	echo "SET @cod_item=(SELECT id FROM tb_produto WHERE cod_item = '$COD_ITEM');"
 	echo "SET @num_item='$num_item';"
 	echo "SET @qtd='$qtd';"
 	echo "SET @unid='$unid';"

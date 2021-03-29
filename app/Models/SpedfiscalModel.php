@@ -85,26 +85,22 @@ class SpedfiscalModel extends Authenticatable
 
 	public function getNotas($tipo = null, $cnpj = null, $data_inicial = null, $data_final = null) {
 
-		$get = $this -> from('tb_spedfiscal_nfe AS N');
+		$get = $this -> from('tb_nfe AS N');
 
-		$get -> join('tb_spedfiscal AS S', 'S.id', '=', 'N.id_sped');
-
-		if ( !is_null($tipo) ) {
+		if ( ! is_null($tipo) ) {
 
 			if ( $tipo == '0' ) {
 
-				$get -> whereNotIn('N.chv_nfe', function($get) {
-
-					$get -> select('chNFe') -> from('tb_nfe') -> whereColumn('chNFe', 'N.chv_nfe');
-
+				$get -> whereNotIn('chNFe', function($get){
+					$get -> select('chv_nfe') -> from('tb_spedfiscal_nfe AS S')
+					-> join('tb_nfe', 'tb_nfe.chNFe', '=', 'S.chv_nfe', 'inner');
 				});
 
 			} else {
 
-				$get -> whereIn('N.chv_nfe', function($get) {
-
-					$get -> select('chNFe') -> from('tb_nfe') -> whereColumn('chNFe', 'N.chv_nfe');
-
+				$get -> whereIn('chNFe', function($get){
+					$get -> select('chv_nfe') -> from('tb_spedfiscal_nfe AS S')
+					-> join('tb_nfe', 'tb_nfe.chNFe', '=', 'S.chv_nfe', 'inner');
 				});
 
 			}
@@ -113,9 +109,9 @@ class SpedfiscalModel extends Authenticatable
 
 		if ( ! is_null($cnpj) && ! is_null($data_inicial) && !is_null($data_final) )
 		{
-			$get -> where('S.cnpj_fornecedor', $cnpj);
-			$get -> where('S.dt_ini', '>=', $data_inicial);
-			$get -> where('S.dt_fin', '<=', $data_final);
+			$get -> where('N.cDest', $cnpj);
+			$date = [convert_to_date($data_inicial, 'Y-m-d'), convert_to_date($data_final, 'Y-m-d')];
+			$get -> whereBetween('N.dhEmi', $date);
 		}
 
 		return $get -> paginate($_GET['length'] ?? null );

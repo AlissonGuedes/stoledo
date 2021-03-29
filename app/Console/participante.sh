@@ -10,17 +10,17 @@ function Participante() {
 
 	REG=$(echo $PARTICIPANTE | cut -d '|' -f 1)
 	COD_PART=$(echo $PARTICIPANTE | cut -d '|' -f 2)
-	NOME=$(echo $PARTICIPANTE | cut -d '|' -f 3 | sed 's/+/\ /g')
+	NOME=$(echo $PARTICIPANTE | cut -d '|' -f 3 | sed 's/\+/\ /g')
 	COD_PAIS=$(echo $PARTICIPANTE | cut -d '|' -f 4)
 	CNPJ=$(echo $PARTICIPANTE | cut -d '|' -f 5)
 	CPF=$(echo $PARTICIPANTE | cut -d '|' -f 6)
 	IE=$(echo $PARTICIPANTE | cut -d '|' -f 7)
 	COD_MUN=$(echo $PARTICIPANTE | cut -d '|' -f 8)
 	SUFRAMA=$(echo $PARTICIPANTE | cut -d '|' -f 9)
-	END=$(echo $PARTICIPANTE | cut -d '|' -f 10 | sed 's/+/\ /g')
-	NUM=$(echo $PARTICIPANTE | cut -d '|' -f 11 | sed 's/+/\ /g')
-	COMPL=$(echo $PARTICIPANTE | cut -d '|' -f 12 | sed 's/+/\ /g')
-	BAIRRO=$(echo $PARTICIPANTE | cut -d '|' -f 13 | sed 's/+/\ /g')
+	END=$(echo $PARTICIPANTE | cut -d '|' -f 10 | sed 's/\+/\ /g')
+	NUM=$(echo $PARTICIPANTE | cut -d '|' -f 11 | sed 's/\+/\ /g')
+	COMPL=$(echo $PARTICIPANTE | cut -d '|' -f 12 | sed 's/\+/\ /g')
+	BAIRRO=$(echo $PARTICIPANTE | cut -d '|' -f 13 | sed 's/\+/\ /g')
 	FANTASIA=''
 	UF=''
 	CEP=''

@@ -43,7 +43,7 @@ do
 
 		DATETIME="[`date +%Y-%m-%d\ %H:%M:%S`] - "
 
-		LINHA=$(echo $REGISTRO | sed 's/ /\+/g' | sed 's/\///g ; s/|//')
+		LINHA=$(echo $REGISTRO | sed 's/\ /\+/g' | sed 's/|//')
 		REGISTRO=$(echo $REGISTRO | cut -d '|' -f 2)
 
 		# Precisamos guardar as informações do arquivo para não perdê-las:
@@ -212,18 +212,7 @@ do
 
 	done < "$i"
 
-	echo ''
-	echo "-- #######################################################################"
-	echo '-- # Importação do arquivo '$i' finalizada com sucesso!	#'  | expand -t 70
-	echo '-- #######################################################################'
-	echo '-- '
-
 done >> $LOG
-
-echo '-- #######################################################################'	>> $LOG
-echo '-- # Todas as importações foram realizadas com sucesso!'						>> $LOG
-echo '-- #######################################################################'	>> $LOG
-echo ''	>> $LOG
 
 TIMEEND=$(echo "`date +%H%M%S`")				# Hora que o script finalizou
 DATEEND=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script finalizou
@@ -233,5 +222,11 @@ TIMETOTAL=$(echo $((TIMEEND - TIMESTART)))	# Calcula o tempo que o script passou
 echo '-- Script finalizado às '	$DATEEND	>> $LOG
 echo '-- Tempo decorrido: '		$TIMETOTAL	>> $LOG ' segundos'
 
-# Depois de finalizado, renomeia o arquivo para não ser sobrescript em um próximo processamento
-mv $LOG $LOG_BACKUP
+# Converter arquivo para UTF-8
+sudo iconv -f iso-8859-1 -t utf-8 $LOG > script.sql
+
+# Importa no banco de dados o arquivo gerado {$LOG}
+mysql --database=$DATABASE --user=$USERNAME --password=$PASSWORD < script.sql
+
+# Depois de finalizado, renomeia o arquivo para não ser sobrescrito em um próximo processamento
+mv script.sql $LOG_BACKUP

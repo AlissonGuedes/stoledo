@@ -18,7 +18,7 @@
                 </label>
             </td>
             {{-- <td style="width: 15%"> {{ cnpj($row->cDest) }} </td> --}}
-            <td style="width: 15%"> {{ cnpj($row->chv_nfe) }} </td>
+            <td style="width: 15%"> {{ cnpj($row->chNFe) }} </td>
             <td style="width: 20%"> {{ strtoupper($row->nome) }} </td>
             <td style="width: 10%" class="right-align"> {{ $row->nNF . '-' . $row->serie }} </td>
             <td style="width: 15%" class="right-align"> {{ number_format($row->vPag, 2, ',', '.') }} </td>

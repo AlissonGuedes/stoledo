@@ -67,11 +67,11 @@ class FornecedorModel extends Authenticatable
 
 				$search = $_GET['search']['value'];
 
-				$get -> orWhere('F.cnpj', 'like', '%' . limpa_string($search, '') . '%')
-					 -> orWhere('F.cpf', 'like', '%' .  limpa_string($search, '') . '%')
-					 -> orWhere('F.ie', 'like', '%' .  $search . '%')
-					 -> orWhere('F.nome', 'like', '%' . $search . '%')
-					 -> orWhere('F.xFant', 'like', '%' .  $search . '%');
+				$get -> orWhere('F.cnpj', 'like', limpa_string($search, '') . '%')
+					 -> orWhere('F.cpf', 'like', limpa_string($search, '') . '%')
+					 -> orWhere('F.ie', 'like', $search . '%')
+					 -> orWhere('F.xFant', 'like', $search . '%')
+					 -> orWhere('F.nome', 'like', $search . '%');
 
 			});
 
