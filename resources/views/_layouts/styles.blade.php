@@ -53,11 +53,6 @@
         place-content: center
     }
 
-    body {
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
-
     .dataTables_scrollBody {
         height: 760px !important;
         max-height: 760px !important;

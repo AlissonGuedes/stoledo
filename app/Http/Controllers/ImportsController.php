@@ -106,6 +106,13 @@ namespace App\Http\Controllers {
 				Session::put('import_txt', 'log_file');
 				Session::put('import_txt.log_file', $file);
 
+			} else {
+
+				if ( ! Session::exists('import_txt') && file_exists(public_path('/logs/imports.log') ) ) {
+					Session::put('import_txt', 'log_file');
+					Session::put('import_txt.log_file', public_path('/logs/imports.log'));
+				}
+
 			}
 
 			echo $this -> import_model -> log($request -> remove);

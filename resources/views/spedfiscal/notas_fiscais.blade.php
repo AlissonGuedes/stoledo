@@ -14,6 +14,26 @@
 
 @endsection
 
+@section('navbar-header')
+    @php
+    $params = [
+        'tipo' => $row['tipo'],
+        'cnpj' => $fornecedor['cnpj'],
+        'data_inicio' => $row['data_inicio'],
+        'data_fim' => $row['data_fim'],
+    ];
+    @endphp
+    <ul class="navbar-list right">
+        <li id="download-sped-nfe">
+            <button data-href="{{ route('reports.sped.export', $params) }}" target="_self"
+                class="waves-effect btn-flat waves-block waves-light" data-target="exports-dropdown"
+                data-tooltip="Baixar tudo" data-position="bottom">
+                <i class="material-icons">file_download</i>
+            </button>
+        </li>
+    </ul>
+@endsection
+
 @section('placeholder', 'Pesquisar fornecedor')
 
 @section('search')

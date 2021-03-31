@@ -114,6 +114,8 @@ class SpedfiscalModel extends Authenticatable
 			$get -> whereBetween('N.dhEmi', $date);
 		}
 
+		// echo $get -> toSql();
+
 		return $get -> paginate($_GET['length'] ?? null );
 
 	}

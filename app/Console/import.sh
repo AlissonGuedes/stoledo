@@ -28,15 +28,6 @@ FILES=../storage/app/public/files/txt/spedfiscal/*.txt
 LOG=logs/imports.log
 #########################################################################
 
-#########################################################################
-# Criar diretório de backup se não existir
-if [ ! ls $DIR_BACKUP 2> /dev/null ]
-then
-	echo "Criando diretório $DIR_BACKUP" >> $LOG
-	mkdir $DIR_BACKUP
-fi
-#########################################################################
-
 exit_success() {
 	exit 0
 }

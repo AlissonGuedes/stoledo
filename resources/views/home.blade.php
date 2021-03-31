@@ -18,7 +18,7 @@
 
 @section('content')
 
-	{{-- @if ( shell_exec() )
+    {{-- @if (shell_exec())
 
 	Arquivo sendo importado
 

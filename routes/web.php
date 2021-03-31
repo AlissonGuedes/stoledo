@@ -51,5 +51,7 @@ Route::get('/reports/spedfiscal', [SpedController::class, 'index']) -> name('rep
 Route::get('/reports/spedfiscal/nfe/{tipo}', [SpedController::class, 'index']) -> name('reports.sped');
 Route::get('/reports/spedfiscal/nfe/{tipo}/{cnpj}/{data_inicio}/{data_fim}', [SpedController::class, 'notas_fiscais']) -> name('reports.sped.notas_fiscais');
 
+Route::get('/reports/spedfiscal/export/{tipo}/{cnpj}/{data_inicio}/{data_fim}', [SpedController::class, 'export']) -> name('reports.sped.export');
+
 // Produtos
 Route::get('/produtos', [ProdutosController::class, 'index']) -> name('produtos');
