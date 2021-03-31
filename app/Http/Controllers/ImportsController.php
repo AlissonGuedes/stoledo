@@ -4,6 +4,7 @@ namespace App\Http\Controllers {
 
 	use Illuminate\Http\Request;
 	use Maatwebsite\Excel\Facades\Excel;
+	use Illuminate\Support\Facades\Session;
 
 	use App\Models\ImportModel;
 
@@ -20,32 +21,28 @@ namespace App\Http\Controllers {
 		 */
 		public function index() {
 
+			// Session::forget('import_txt');
 			return view('imports.index');
 
 		}
 
-		/**
-		 * Show the system home page
-		 */
-		public function nfe() {
-
-			$dados['tipo_arquivo'] = 'notasfiscais';
-			return view('imports.index', $dados);
-
-		}
-
-		/**
-		 * Show the system home page
-		 */
-		public function sped() {
-
-			$dados['tipo_arquivo'] = 'spedfiscal';
-			return view('imports.index', $dados);
-
-		}
+		private $logfile;
 
 		/** Importação do arquivo SPED Fiscal */
 		public function import(Request $request){
+
+			$this -> logfile = $request -> arquivo;
+
+			if ( is_null($this -> logfile) ) {
+				$filetype = DS;
+			} else {
+				$filetype = DS . $this -> logfile . DS;
+			}
+
+			$request -> validate([
+				'arquivo' => [ 'required' ],
+				'files' => [ 'required' ]
+			]);
 
 			foreach ( $request -> file('files') as $file) {
 
@@ -57,19 +54,61 @@ namespace App\Http\Controllers {
 
 					case 'txt' :
 
-						$this -> import_model -> import_sped($file, $request -> arquivo);
+						$name = explode('.', $file -> getClientOriginalName());
+						$extension = strtolower($file -> getClientOriginalExtension());
+						$path = 'public/files/' . $extension . $filetype;
+
+						$filename  = limpa_string($name[count($name) - 2]);
+						$filename  = $filename . '.' . $extension;
+
+						if ( $file -> storeAs($path, $filename) ) {
+							$success = true;
+						} else {
+							$success = false;
+						}
 
 					break;
 
 					default:
-						return json_encode(['status' => 'error', 'message' => 'Você inseriu arquivos válidos. Utilize apenas TXT ou XML.' ]);
+
+						$success = false;
+						$status = 'error';
+						$message = 'Você inseriu arquivos válidos. Utilize apenas TXT ou XML.';
+						// Session::forget('import_txt');
+
 					break;
 
 				}
 
 			}
 
-			return json_encode(['status' => 'success', 'message' => 'Importação finalizada com sucesso!']);
+			if ( isset($success) && $success === TRUE) {
+
+				$this -> import_model -> readFiles( $request -> arquivo);
+
+				$status = 'success';
+				$message = 'Importação finalizada com sucesso!';
+
+			}
+
+			// Remover a sessão para parar de exibir o Log.
+			Session::forget('import_txt');
+
+			return json_encode(['status' => $status, 'message' => $message]);
+
+		}
+
+		public function log(Request $request) {
+
+			if ( ! Session::exists('import_txt') && $request -> arquivo ) {
+
+				$file = public_path('/logs/') . $request -> arquivo;
+				Session::put('import_txt', 'log_file');
+				Session::put('import_txt.log_file', $file);
+
+			}
+
+			echo $this -> import_model -> log($request -> remove);
 
 		}
 

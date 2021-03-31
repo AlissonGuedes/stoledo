@@ -36,47 +36,6 @@ function Produtos() {
 
 	echo "CALL Cadastra_Produto(@codItem, @descricao, @codBarra, @codAntItem, @unidInv, @tipoItem, @codNcm, @exIpi, @codGen, @codLst, @aliqICMS, @cest);"
 
-	# if [[ $CEST == '' ]]
-	# then
-	# 	CEST=0
-	# fi
-
-	# if [[ $COD_ITEM != '' ]]
-	# then
-
-	# 	WHERE="cod_item = '$COD_ITEM'"
-
-	# elif [[ $DESCR_ITEM != '' ]]
-	# then
-
-	# 	WHERE="descricao = '$DESCR_ITEM'"
-
-	# fi
-
-	# query="SELECT id FROM tb_produto WHERE $WHERE;";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	echo '-- '
-	# 	echo '-- Inserido dados na tabela `tb_produto` '
-	# 	echo '-- '
-
-	# 	query="INSERT INTO tb_produto (cod_item, descricao, cod_barra, cod_ant_item, unidade_inv, tipo_item, cod_ncm, ex_ipi, cod_gen, cod_lst, aliquota_icms, cest) VALUES ('$COD_ITEM', '$DESCR_ITEM', '$COD_BARRA', '$COD_ANT_ITEM', '$UNID_INV', '$TIPO_ITEM', '$COD_NCM', '$EX_IPI', '$COD_GEN', '$COD_LST', '$ALIQ_ICMS', '$CEST');"
-
-	# 	echo $query ''
-	# 	idProduto="(select last_insert_id())"
-
-	# else
-
-	# 	idProduto=$(echo $result | awk '{print $2}')
-
-	# fi
-
-	# echo "set @idProduto=$idProduto;" ''
-
 }
 
 #########################################################################
@@ -92,17 +51,5 @@ function ProdutoConversao() {
 	echo "set @unidade='$UNIDADE';"
 	echo "set @fatorConversao='$FATOR';"
 	echo "CALL Cadastra_ProdutoConversao(@idProduto, @unidade, @fatorConversao);"
-	# # Cadastrar fator de conversão na tabela tb_produto_conversao
-	# query="SELECT id FROM tb_produto_conversao WHERE id_produto = '$ID_PRODUTO' AND unidade = '$UNIDADE';"
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	query="INSERT INTO tb_produto_conversao (id_produto, unidade, fator_conversao) VALUES ('$ID_PRODUTO', '$UNIDADE', '$FATOR');"
-	# 	Execute "$query"
-
-	# fi
 
 }

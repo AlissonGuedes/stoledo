@@ -14,13 +14,6 @@ function Execute () {
 
 function Procedure_CadastraSpedfiscal() {
 
-	# COD_VER=$(echo $SPED | cut -d '|' -f 2)
-	# COD_FIN=$(echo $SPED | cut -d '|' -f 3)
-	# DT_INI=$(echo $SPED | cut -d '|' -f 4)
-	# DT_FIN=$(echo $SPED | cut -d '|' -f 5)
-	# CNPJ=$(echo $SPED | cut -d '|' -f 7)
-	# IND_PERFIL=$(echo $SPED | cut -d '|' -f 14)
-
 	echo 'CREATE OR REPLACE PROCEDURE Cadastra_Contador(
 		IN C_nome VARCHAR(100) CHARSET utf8,
 		IN C_cpf VARCHAR(11) CHARSET utf8,
@@ -221,13 +214,13 @@ function Procedure_UnidadesMedidas() {
 function Procedure_InformacaoComplementar() {
 
 	echo 'CREATE OR REPLACE PROCEDURE Cadastra_InformacaoComplementar	(
-		IN INF_codInformacao INT,
-		IN INF_descricao TEXT
+		IN INF_codInformacao VARCHAR(6) CHARSET utf8,
+		IN INF_descricao TEXT CHARSET utf8
 	)
 	BEGIN
 		IF ( (SELECT COUNT(id) FROM tb_informacao_complementar WHERE cod_inf = INF_codInformacao) = 0 ) THEN
 
-			INSERT INTO tb_natureza_operacao (cod_nat, descr_nat) VALUES (
+			INSERT INTO tb_informacao_complementar (cod_inf, texto) VALUES (
 				INF_codInformacao,
 				INF_descricao
 			);
@@ -560,6 +553,7 @@ function Procedures() {
 	echo -e $(Procedure_CadastraFornecedor)
 	echo -e $(Procedure_CadastraParticipante)
 	echo -e $(Procedure_UnidadesMedidas)
+	echo -e $(Procedure_InformacaoComplementar)
 	echo -e $(Procedure_CadastraProduto)
 	echo -e $(Procedure_CadastraProdutoConversao)
 	echo -e $(Procedure_NautrezaOperacao)

@@ -17,26 +17,10 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0);" class="waves-effect waves-cyan collapsible-header" tabindex="0">
-                <i class="material-icons">upload</i>
+            <a href="{{ route('imports') }}" class="waves-effect waves-cyan">
+				<i class="material-icons">upload</i>
                 Importação de Arquivos
             </a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li>
-                        <a href="{{ route('imports.nfe') }}" class="waves-effect waves-cyan">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            Nota Fiscal
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('imports.sped') }}" class="waves-effect waves-cyan">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            Sped Fiscal
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </li>
         <li>
             <a href="javascript:void(0);" class="waves-effect waves-cyan collapsible-header" tabindex="0">

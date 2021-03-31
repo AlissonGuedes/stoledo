@@ -38,37 +38,4 @@ function Contabilista() {
 
 	echo "CALL Cadastra_Contador(@nome, @cpf, @crc, @cnpj, @cep, @logradouro, @numero, @complemento, @bairro, @fone, @fax, @email, @cod_mun);"
 
-
-	# query="SELECT id FROM tb_contabilista WHERE cpf = '$CPF' OR cnpj = '$CNPJ';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	echo '-- --------------------------------------------\n'
-	# 	echo '-- Inserido dados na tabela `tb_contabilista`  \n'
-	# 	echo '-- --------------------------------------------\n'
-
-	# 	query="INSERT INTO tb_contabilista (nome, cpf, crc, cnpj, cep, logradouro, numero, complemento, bairro, fone, fax, email, cod_mun) VALUES ('$NOME', '$CPF', '$CRC', '$CNPJ', '$CEP', '$END', '$NUM', '$COMPL', '$BAIRRO', '$FONE', '$FAX', '$EMAIL', '$COD_MUN');"
-
-	# 	echo $query
-	# 	echo '\n\n'
-
-	# 	idContador="(select last_insert_id())"
-
-	# else
-
-	# 	idContador=$(echo $result | awk '{print $2}')
-
-	# fi
-
-	# echo '-- ------------------------------------------- \n'
-	# echo '-- Obtendo o ID do Contador					 \n'
-	# echo '-- ------------------------------------------- \n'
-
-	# echo "set @idContador=$idContador;"
-
-	# echo '-- ------------------------------------------- \n'
-
 }

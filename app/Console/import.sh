@@ -12,22 +12,70 @@ source ../app/Console/notafiscal.sh
 #########################################################################
 
 #########################################################################
-TIMESTART=$(echo "`date +%H%M%S`")					# Hora que o script iniciou
-DATESTART=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script iniciou
-USERNAME=$1
-PASSWORD=$2
-DATABASE=$3
-LOG=$4
-LOG_BACKUP=$5
-FILE=../storage/app/public/files/txt/spedfiscal/*.txt
+# CREDENCIAIS PARA O BANCO DE DADOS
+DATABASE=$1
+USERNAME=$2
+PASSWORD=$3
 #########################################################################
 
-> $LOG
+#########################################################################
+# Local de onde os registros vão ser processados
+FILES=../storage/app/public/files/txt/spedfiscal/*.txt
+#########################################################################
 
-Procedures >> $LOG
+#########################################################################
+# Arquivos para armazenamento dos logs
+LOG=logs/imports.log
+#########################################################################
 
-for i in `ls $FILE`
+#########################################################################
+# Criar diretório de backup se não existir
+if [ ! ls $DIR_BACKUP 2> /dev/null ]
+then
+	echo "Criando diretório $DIR_BACKUP" >> $LOG
+	mkdir $DIR_BACKUP
+fi
+#########################################################################
+
+exit_success() {
+	exit 0
+}
+
+for i in `ls $FILES`
 do
+
+	> $LOG
+
+	#########################################################################
+	TIMESTART=$(echo "`date +%H%M%S`")							# Hora que o script iniciou
+	DATESTART=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script iniciou
+	#########################################################################
+
+	#########################################################################
+	# Nome do script .sql por arquivo
+	SQL_FILE=spedfiscal # _$(echo "`date +%Y-%m-%d_%H%M%S`")
+
+	# Local de destino do script .sql por arquivo
+	SCRIPT_SQL=logs/$SQL_FILE.sql
+	#########################################################################
+
+
+	echo "#######################################################################"								>> $LOG
+	echo "# Iniciando importação do Sped Fiscal	#" | expand -t 70												>> $LOG
+	echo "# Arquivo: $(echo $i | cut -d '/' -f 8)	#" | expand -t 70											>> $LOG
+	echo "# Data/Hora início da execução: ${DATESTART}	#" | expand -t 74										>> $LOG
+	echo "# Empresa: $(head $i -n 1 | cut -d '|' -f 7 | sed 's/\+/\ /g')	#" | expand -t 70					>> $LOG
+	echo "# Período: $(head $i -n 1 | cut -d '|' -f 5) a $(head $i -n 1 | cut -d '|' -f 6)	#" | expand -t 71	>> $LOG
+	echo "#######################################################################" >> $LOG
+
+	echo "[ ... ] - Criando arquivo arquivo $SCRIPT_SQL" >> $LOG
+	echo "[ OK ] - Arquivo $SQL_FILE criado com sucesso!" >> $LOG
+
+	> $SCRIPT_SQL
+
+	echo "[ ... ] - Salvando procedures..." >> $LOG
+	Procedures >> $SCRIPT_SQL
+	echo "[ OK ] - Procedures salvas com sucesso!" >> $LOG
 
 	SPEDFISCAL=0
 	ID_SPEDFISCAL=0
@@ -45,6 +93,8 @@ do
 
 		LINHA=$(echo $REGISTRO | sed 's/\ /\+/g' | sed 's/|//')
 		REGISTRO=$(echo $REGISTRO | cut -d '|' -f 2)
+
+		echo "$DATETIME Lendo registro $(echo $LINHA | tr '|' ' ' | sed 's/\+/\ /g')" >> $LOG
 
 		# Precisamos guardar as informações do arquivo para não perdê-las:
 		# >>> Registro 0000: Spedfiscal
@@ -82,14 +132,6 @@ do
 			# Registrar o nome do Sped no cabeçalho do arquivo de log
 			if [[ $SPEDFISCAL != 0 ]] && [[ $ID_EMPRESA != 0 ]] && [[ $ID_CONTADOR != 0 ]]
 			then
-
-				echo -e "-- #######################################################################"
-				echo -e "-- # Importação SpedFiscal	#" | expand -t 72
-				echo -e "-- # Arquivo: $i	#" | expand -t 70
-				echo -e "-- # Data/Hora início da execução: ${DATESTART}	#" | expand -t 74
-				echo -e "-- # Empresa: $(echo $SPEDFISCAL | cut -d '|' -f 6 | sed 's/\+/\ /g')	#" | expand -t 70
-				echo -e "-- # Período: $(echo $SPEDFISCAL | cut -d '|' -f 4) a $(echo $SPEDFISCAL | cut -d '|' -f 5)	#" | expand -t 71
-				echo -e "-- #######################################################################"
 
 				ID_SPEDFISCAL=$(Spedfiscal $SPEDFISCAL $ID_EMPRESA $ID_CONTADOR)
 				echo -e $ID_SPEDFISCAL
@@ -210,23 +252,41 @@ do
 		fi
 		# END REGISTRO C170
 
-	done < "$i"
+	done < $i >> $SCRIPT_SQL
 
-done >> $LOG
+	echo "Executando a persistência dos dados..." >> $LOG
 
-TIMEEND=$(echo "`date +%H%M%S`")				# Hora que o script finalizou
-DATEEND=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script finalizou
+	# Importa no banco de dados o arquivo gerado {$SCRIPT_SQL}
+	mysql --database=$DATABASE --user=$USERNAME --password=$PASSWORD < $SCRIPT_SQL
 
-TIMETOTAL=$(echo $((TIMEEND - TIMESTART)))	# Calcula o tempo que o script passou para ser processado
+	echo "Informações salvas com sucesso!"
 
-echo '-- Script finalizado às '	$DATEEND	>> $LOG
-echo '-- Tempo decorrido: '		$TIMETOTAL	>> $LOG ' segundos'
+	#########################################################################
+	TIMEEND=$(echo "`date +%H%M%S`")				# Hora que o script finalizou
+	DATEEND=$(echo "`date +%d/%m/%Y`, às `date +%H:%M:%S`")	# Data/Hora que o script finalizou
+	TIMETOTAL=$(echo $((TIMEEND - TIMESTART)))	# Calcula o tempo que o script passou para ser processado
+	#######################################################################
 
-# Converter arquivo para UTF-8
-sudo iconv -f iso-8859-1 -t utf-8 $LOG > script.sql
+	# Marca a data e hora que o script finalizou
+	echo "#######################################################################"
+	echo "# Script finalizado às $DATEEND	#" >> $LOG | expand -t 72
+	echo "# Tempo decorrido: $TIMETOTAL segundos	#" >> $LOG | expand -t 70
+	echo "# Data/Hora início da execução: ${DATESTART}	#" | expand -t 74
+	echo "# Empresa: $(echo $SPEDFISCAL | cut -d '|' -f 6 | sed 's/\+/\ /g')	#" | expand -t 70
+	echo "# Período: $(echo $SPEDFISCAL | cut -d '|' -f 4) a $(echo $SPEDFISCAL | cut -d '|' -f 5)	#" | expand -t 71
+	echo "#######################################################################"
 
-# Importa no banco de dados o arquivo gerado {$LOG}
-mysql --database=$DATABASE --user=$USERNAME --password=$PASSWORD < script.sql
+	# Depois de finalizado, renomeia o arquivo para não ser sobrescrito em um próximo processamento
+	# mv $LOG $SQL_FILE # $LOG_BACKUP
 
-# Depois de finalizado, renomeia o arquivo para não ser sobrescrito em um próximo processamento
-mv script.sql $LOG_BACKUP
+	# Destino do arquivo de log
+	DIR_BACKUP=../storage/logs/imports/_$(echo "`date +%Y-%m-%d_%H%M%S`")
+	mkdir $DIR_BACKUP
+
+	mv $i $DIR_BACKUP/$(echo $i | cut -d '/' -f 8)
+	mv $LOG $DIR_BACKUP/imports.log
+	mv logs/$SQL_FILE.sql $DIR_BACKUP/$SQL_FILE.sql
+
+done
+
+exit_success

@@ -95,20 +95,6 @@ function Notafiscal_InformacaoComplementar() {
 	echo "SET @codInf='$COD_INF';"
 	echo "SET @textInfo='$TEXTO';"
 	echo "CALL Cadastra_NFe_InformacaoComplementar(@codInf, @textInfo);"
-	# query="SELECT id FROM tb_spedfiscal_nfe_informacao_complementar WHERE id_nfe = '$ID_NFE' AND cod_inf = '$COD_INF';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	query="INSERT INTO tb_spedfiscal_nfe_informacao_complementar (id_nfe, cod_inf, texto) VALUES ('$ID_NFE', '$COD_INF', '$TEXTO');"
-
-	# 	result=$(Execute "$query select last_insert_id();")
-
-	# fi
-
-	# echo $result | awk '{print $2}'
 
 }
 
@@ -123,12 +109,6 @@ function Notafiscal_Itens() {
 	REG=$(echo $ITEM | cut -d '|' -f 1)
 	COD_ITEM=$(echo $ITEM | cut -d '|' -f 3)
 	DESCR_ITEM=$(echo $ITEM | cut -d '|' -f 4 | sed 's/\+/\ /g')
-
-	# echo "SET @idProduto=(SELECT id FROM tb_produto WHERE cod_item = '$COD_ITEM' AND descricao = '$DESCR_ITEM');";
-
-	# ID_ITEM=$(Execute "$query" | awk '{print $2}')
-
-	# cod_item="@idProduto"
 
 	num_item=$([[ $(echo $ITEM | cut -d '|' -f 2) != '' ]] && echo $ITEM | cut -d '|' -f 2 || echo 0 )
 	qtd=$([[ $(echo $ITEM | cut -d '|' -f 5) != '' ]] && echo $ITEM | cut -d '|' -f 5 | sed 's/\,/\./g' || echo 0.00 )
@@ -205,19 +185,5 @@ function Notafiscal_Itens() {
 	echo "CALL Cadastra_NFe_Itens(
 		@cod_item, @num_item, @qtd, @unid, @vl_item, @vl_desc, @ind_mov, @cst_icms, @cfop, @cod_nat, @vl_bc_icms, @aliq_icms, @vl_icms, @vl_bc_icms_st, @aliq_st, @vl_icms_st, @ind_apur, @cst_ipi, @cod_enq, @vl_bc_ipi, @aliq_ipi, @vl_ipi, @cst_pis, @vl_bc_pis, @aliq_pis_percent, @quant_bc_pis, @aliq_pis_real, @vl_pis, @cst_cofins, @vl_bc_cofins, @aliq_cofins_percent, @quant_bc_cofins, @aliq_cofins_real, @vl_cofins, @cod_cta, @vl_abat_nt
 	);"
-	# query="SELECT id FROM tb_spedfiscal_nfe_item WHERE id_nfe = '$ID_NFE' AND cod_item = '$ID_ITEM';"
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	query="INSERT INTO tb_spedfiscal_nfe_item (id_nfe, cod_item, num_item, qtd, unid, vl_item, vl_desc, ind_mov, cst_icms, cfop, cod_nat, vl_bc_icms, aliq_icms, vl_icms, vl_bc_icms_st, aliq_st, vl_icms_st, ind_apur, cst_ipi, cod_enq, vl_bc_ipi, aliq_ipi, vl_ipi, cst_pis, vl_bc_pis, aliq_pis_percent, quant_bc_pis, aliq_pis_real, vl_pis, cst_cofins, vl_bc_cofins, aliq_cofins_percent, quant_bc_cofins, aliq_cofins_real, vl_cofins, cod_cta, vl_abat_nt) VALUES ('$ID_NFE', '$ID_ITEM', '$num_item', '$qtd', '$unid', '$vl_item', '$vl_desc', '$ind_mov', '$cst_icms', '$cfop', '$cod_nat', '$vl_bc_icms', '$aliq_icms', '$vl_icms', '$vl_bc_icms_st', '$aliq_st', '$vl_icms_st', '$ind_apur', '$cst_ipi', '$cod_enq', '$vl_bc_ipi', '$aliq_ipi', '$vl_ipi', '$cst_pis', '$vl_bc_pis', '$aliq_pis_percent', '$quant_bc_pis', '$aliq_pis_real', '$vl_pis', '$cst_cofins', '$vl_bc_cofins', '$aliq_cofins_percent', '$quant_bc_cofins', '$aliq_cofins_real', '$vl_cofins', '$cod_cta', '$vl_abat_nt');";
-
-	# 	result=$(Execute "$query select last_insert_id();")
-
-	# fi
-
-	# echo $result | awk '{print $2}'
 
 }

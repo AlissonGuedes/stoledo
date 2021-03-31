@@ -25,39 +25,6 @@ function Spedfiscal() {
 
 	echo "CALL Cadastra_Spedfiscal(@cod_ver, @cod_fin, @dt_ini, @dt_fin, @cnpj_fornecedor, @idContador, @ind_perfil);"
 
-	# query="SELECT id FROM tb_spedfiscal WHERE dt_ini = '$DT_INI' AND dt_fin = '$DT_FIN' AND cnpj_fornecedor = '$CNPJ';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == ]]
-	# then
-
-
-	# 	echo '-- --------------------------------------------'
-	# 	echo '-- Inserido dados na tabela `tb_fornecedor` '
-	# 	echo '-- --------------------------------------------'
-
-	# 	query="INSERT INTO tb_spedfiscal (cnpj_fornecedor, id_contabilista, cod_ver, cod_fin, dt_ini, dt_fin, ind_perfil) VALUES ('$CNPJ', @idContador, '$COD_VER', '$COD_FIN', '$DT_INI', '$DT_FIN', '$IND_PERFIL');"
-
-	# 	echo $query
-	# 	echo
-
-	# 	idSpedfiscal="(select last_insert_id())";
-
-	# else
-
-	# 	idSpedfiscal=$(echo $result | awk '{print $2}')
-
-	# fi
-
-	# echo '-- -------------------------------------------- '
-	# echo '-- Obtendo o ID do SpedFiscal					  '
-	# echo '-- -------------------------------------------- '
-
-	# echo "set @idSpedfiscal=$idSpedfiscal;"
-
-	# echo '-- -------------------------------------------- '
-
 }
 
 ###################################################################
@@ -70,22 +37,6 @@ function Spedfiscal_NaturezaOperacao() {
 	REG=$(echo $OPERACAO | cut -d '|' -f 1)
 	COD_NAT=$(echo $OPERACAO | cut -d '|' -f 2)
 	DESCR_NAT=$(echo $OPERACAO | cut -d '|' -f 3 | sed 's/\+/\ /g')
-
-	# query="SELECT id FROM tb_natureza_operacao WHERE cod_nat = '$COD_NAT';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == ]]
-	# then
-
-	# 	query="INSERT INTO tb_natureza_operacao (cod_nat, descr_nat) VALUES ('$COD_NAT', '$DESCR_NAT');"
-
-	# 	result=$(Execute "$query select last_insert_id();")
-
-	# fi
-
-	# echo $result | awk '{print $2}'
-
 
 	echo "set @codNatureza='$COD_NAT';"
 	echo "set @descricao='$DESCR_NAT';"
@@ -108,20 +59,5 @@ function Spedfiscal_InformacaoComplementar() {
 	echo "set @codInformacao='$COD_INF';"
 	echo "set @descricao='$TEXTO';"
 	echo "CALL Cadastra_InformacaoComplementar(@codInformacao, @descricao);"
-
-	# query="SELECT id FROM tb_informacao_complementar WHERE cod_inf = '$COD_INF';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == ]]
-	# then
-
-	# 	query="INSERT INTO tb_informacao_complementar (cod_inf, texto) VALUES ('$COD_INF', '$TEXTO');"
-
-	# 	result=$(Execute "$query select last_insert_id();")
-
-	# fi
-
-	# # echo $result | awk '{print $2}'
 
 }

@@ -28,14 +28,12 @@ Route::any('/', function(){
 Route::any('/dashboard', [HomeController::class, 'index']) -> name('dashboard');
 Route::any('/home', [HomeController::class, 'index']) -> name('home');
 
-Route::post('/api/shell', [HomeController::class, 'shell']);
-Route::post('/api/log', [HomeController::class, 'log']);
+// Route::post('/api/shell', [HomeController::class, 'shell']);
+Route::post('/api/log', [ImportsController::class, 'log']);
 
 // Imports
 Route::any('/imports', [ImportsController::class, 'index']) -> name('imports');
-Route::any('/imports/nfe', [ImportsController::class, 'nfe']) -> name('imports.nfe');
-Route::any('/imports/sped', [ImportsController::class, 'sped']) -> name('imports.sped');
-Route::post('/imports', [ImportsController::class, 'import']);
+Route::post('/imports', [ImportsController::class, 'import']) -> name('imports.submit');
 
 // NFe
 Route::get('/reports/nfe', [NFeController::class, 'index']) -> name('reports.nfe');

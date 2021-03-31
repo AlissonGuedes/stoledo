@@ -43,13 +43,6 @@ function Participante() {
 		WHERE="ie = '$IE'"
 	fi
 
-	# query="SELECT id FROM tb_fornecedor WHERE $WHERE;";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
 	echo "SET @cnpj='$CNPJ';"
 	echo "SET @nome='$FANTASIA';"
 	echo "SET @xFant='$NOME';"
@@ -73,21 +66,7 @@ function Participante() {
 	echo "SET @ind_ati='$IND_ATIV';"
 
 	echo 'CALL Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati);'
-	# echo "SET @idFornecedor=(SELECT @idFornecedor);"
-	# echo 'SET @idFornecedor=(SELECT Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati));'
 
-	# 	query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
-
-	# 	echo $query
-
-	# 	idParticipante="(select last_insert_id())";
-	# else
-
-	# 	idParticipante=$(echo $result | awk '{print $2}')
-
-	# fi
-
-	# echo "set @idParticipante=$idParticipante;"
 	echo "set @codPart='$COD_PART';"
 	echo "CALL Cadastra_Participante(@idSpedfiscal, @idFornecedor, @codPart);"
 

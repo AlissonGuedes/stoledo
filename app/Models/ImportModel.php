@@ -5,6 +5,8 @@ namespace App\Models {
 	use Illuminate\Database\Eloquent\Factories\HasFactory;
 	use Illuminate\Foundation\Auth\User as Authenticatable;
 	use Illuminate\Notifications\Notifiable;
+	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\Session;
 	use Illuminate\Support\Facades\DB;
 
 	use App\Models\Entities\NFe;
@@ -37,22 +39,8 @@ namespace App\Models {
 
 		}
 
-		/**
-		* Run from the import process
-		*/
-		// public function import_nfe($file) {
-
-		// 	print_r($file -> getClientOriginalName());
-		// 	$name = explode('.', $file -> getClientOriginalName());
-		// 	$name = limpa_string(substr($name, $name[count($name) - 1]));
-		// 	$file -> storeAs('public/files/' . $file -> getClientOriginalExtension(), $name);
-
-		// 	$this -> readXMLFile($name);
-
-		// }
-
 		/** Importação do arquivo SPED Fiscal */
-		public function import_sped($file, $arquivo = null) {
+		public function import_file($file, $arquivo = null) {
 
 			if ( is_null($arquivo) ) {
 				$filetype = DS;
@@ -67,10 +55,11 @@ namespace App\Models {
 			$filename  = limpa_string($name[count($name) - 2]);
 			$filename  = $filename . '.' . $extension;
 
+			if ( $file -> storeAs($path, $filename) ) {
+				return true;
+			}
 
-			$file -> storeAs($path, $filename);
-
-			$this -> readTXTFile($filename);
+			return false;
 
 		}
 
@@ -105,15 +94,46 @@ namespace App\Models {
 		/**
 		 * Start reading the file line by line
          */
-		private function readTXTFile($file) {
+		public function readFiles($file) {
 
-			// $txt = fopen(storage_path('../storage/app/public/files/txt/' . $file), 'r');
+			$database = $_ENV['DB_DATABASE'];
+			$username = $_ENV['DB_USERNAME'];
+			$password = $_ENV['DB_PASSWORD'];
 
-			// while(!feof($txt)) {
-			// 	echo fgets($txt) . '<br>';
-			// }
+			// $pathfile   = public_path('/logs/');
+			// $pathbackup = storage_path('logs/imports/');
 
-			$exec = shell_exec("/usr/bin/python3 ../app/Console/read_file.py");
+			// $logfile = $pathfile . $file . '.log';
+			// $logbackup = $pathbackup .  $file . date('Y-m-d_His') . '.sql';
+
+			if ( !is_dir('logs')) {
+				shell_exec('mkdir logs');
+			}
+
+			if ( ! file_exists('logs/imports.log') )
+				shell_exec('touch logs/imports.log');
+
+			if ( $file == 'spedfiscal' ) {
+				return response( shell_exec("/usr/bin/bash ../app/Console/import.sh $database $username $password"), 200);
+			} elseif ( $file == 'notasfiscais' ) {
+				return response( shell_exec("/usr/bin/bash ../app/Console/NFe/import.sh $database $username $password"), 200);
+			}
+
+		}
+
+		public function log($remove = false) {
+
+			if ( Session::has('import_txt') ) {
+
+				if ( $remove ) {
+					Session::forget('import_txt');
+				}
+
+				$logfile = shell_exec('tail ' . public_path('logs/imports.log'));
+
+			}
+
+			return json_encode(['log' => ( $logfile ?? null ) ]);
 
 		}
 

@@ -55,36 +55,4 @@ function Empresa() {
 
 	echo "CALL Cadastra_Fornecedor(@cnpj, @nome, @xFant, @cPais, @cMun, @uf, @xBairro, @xLgr, @cep, @nro, @complemento, @fone, @fax, @email, @ie, @indIEDest, @crt, @cpf, @im, @suframa, @ind_ati);"
 
-	# query="SELECT id FROM tb_fornecedor WHERE  cpf = '$CPF' OR cnpj = '$CNPJ' OR ie = '$IE' OR im = '$IM';";
-
-	# result=$(Execute "$query")
-
-	# if [[ $result == '' ]]
-	# then
-
-	# 	echo '-- --------------------------------------------'
-	# 	echo '-- Inserido dados na tabela `tb_fornecedor` '
-	# 	echo '-- --------------------------------------------'
-
-	# 	query="INSERT INTO tb_fornecedor (cnpj, nome, xFant, cPais, cMun, uf, xBairro, xLgr, cep, nro, complemento, fone, fax, email, ie, indIEDest, crt, cpf, im, suframa, ind_ativ) VALUES ('$CNPJ', '$NOME', '$FANTASIA', '$COD_PAIS', '$COD_MUN', '$UF', '$BAIRRO', '$END', '$CEP', '$NUM', '$COMPL', '$FONE', '$FAX', '$EMAIL', '$IE', '$INDIEDEST', '$CRT', '$CPF', '$IM', '$SUFRAMA', '$IND_ATIV');"
-
-	# 	echo $query
-	# 	echo  ''
-
-	# 	idFornecedor="(select last_insert_id())"
-
-	# else
-
-	# 	idFornecedor=$(echo $result | awk '{print $2}')
-
-	# fi
-
-	# echo '-- --------------------------------------------'
-	# echo '-- Obtendo o ID do fornecedor					 '
-	# echo '-- --------------------------------------------'
-
-	# echo "set @idFornecedor=$idFornecedor;"
-
-	# echo '-- --------------------------------------------'
-
 }
