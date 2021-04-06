@@ -31,6 +31,9 @@ namespace App\Http\Controllers {
 		/** Importação do arquivo SPED Fiscal */
 		public function import(Request $request){
 
+			$status = 'success';
+			$message = null;
+
 			$this -> logfile = $request -> arquivo;
 
 			if ( is_null($this -> logfile) ) {
@@ -40,7 +43,7 @@ namespace App\Http\Controllers {
 			}
 
 			$request -> validate([
-				'arquivo' => [ 'required' ],
+				// 'arquivo' => [ 'required' ],
 				'files' => [ 'required' ]
 			]);
 
@@ -74,7 +77,6 @@ namespace App\Http\Controllers {
 						$success = false;
 						$status = 'error';
 						$message = 'Você inseriu arquivos válidos. Utilize apenas TXT ou XML.';
-						// Session::forget('import_txt');
 
 					break;
 
@@ -85,9 +87,6 @@ namespace App\Http\Controllers {
 			if ( isset($success) && $success === TRUE) {
 
 				$this -> import_model -> readFiles( $request -> arquivo);
-
-				$status = 'success';
-				$message = 'Importação finalizada com sucesso!';
 
 			}
 
@@ -100,20 +99,20 @@ namespace App\Http\Controllers {
 
 		public function log(Request $request) {
 
-			if ( ! Session::exists('import_txt') && $request -> arquivo ) {
+			// if ( ! Session::exists('import_txt') && $request -> arquivo ) {
 
-				$file = public_path('/logs/') . $request -> arquivo;
-				Session::put('import_txt', 'log_file');
-				Session::put('import_txt.log_file', $file);
+			// 	$file = public_path('/logs/imports.log');
+			// 	Session::put('import_txt', 'log_file');
+			// 	Session::put('import_txt.log_file', $file);
 
-			} else {
+			// } else {
 
 				if ( ! Session::exists('import_txt') && file_exists(public_path('/logs/imports.log') ) ) {
 					Session::put('import_txt', 'log_file');
 					Session::put('import_txt.log_file', public_path('/logs/imports.log'));
 				}
 
-			}
+			// }
 
 			echo $this -> import_model -> log($request -> remove);
 

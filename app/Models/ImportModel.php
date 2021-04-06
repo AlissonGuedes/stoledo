@@ -100,12 +100,6 @@ namespace App\Models {
 			$username = $_ENV['DB_USERNAME'];
 			$password = $_ENV['DB_PASSWORD'];
 
-			// $pathfile   = public_path('/logs/');
-			// $pathbackup = storage_path('logs/imports/');
-
-			// $logfile = $pathfile . $file . '.log';
-			// $logbackup = $pathbackup .  $file . date('Y-m-d_His') . '.sql';
-
 			if ( !is_dir('logs')) {
 				shell_exec('mkdir logs');
 			}
@@ -113,11 +107,12 @@ namespace App\Models {
 			if ( ! file_exists('logs/imports.log') )
 				shell_exec('touch logs/imports.log');
 
-			if ( $file == 'spedfiscal' ) {
+			// if ( $file == 'spedfiscal' ) {
 				return response( shell_exec("/usr/bin/bash ../app/Console/import.sh $database $username $password"), 200);
-			} elseif ( $file == 'notasfiscais' ) {
-				return response( shell_exec("/usr/bin/bash ../app/Console/NFe/import.sh $database $username $password"), 200);
-			}
+			// 	return response( shell_exec("/usr/bin/bash ../app/Console/import.sh $database $username $password"), 200);
+			// } elseif ( $file == 'notasfiscais' ) {
+			// 	return response( shell_exec("/usr/bin/bash ../app/Console/NFe/import.sh $database $username $password"), 200);
+			// }
 
 		}
 
@@ -133,7 +128,11 @@ namespace App\Models {
 
 			}
 
-			return json_encode(['log' => ( $logfile ?? null ) ]);
+			if ( isset($logfile) ) {
+				return json_encode(['log' => ( $logfile ?? null ) ]);
+			} else {
+				return json_encode(['status' => 'success', 'message' => 'Importação finalizada com sucesso!']);
+			}
 
 		}
 

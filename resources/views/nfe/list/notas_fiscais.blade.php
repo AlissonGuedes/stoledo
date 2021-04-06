@@ -18,16 +18,20 @@
             </td>
 
             <td> {{ $row->chNFe }} </td>
-            <td> {{ $row->nNF }}-{{ $row->serie }} </td>
-            <td class="right-align">
+
+			<td> {{ $row->nNF }}-{{ $row->serie }} </td>
+
+			<td class="right-align">
                 <span class="left">R$</span>
                 {{ number_format($row->vPag, 2, ',', '.') }}
             </td>
-            <td class="right-align">
+
+			<td class="right-align">
                 <span class="left">R$</span>
                 {{ number_format($row->vBC, 2, ',', '.') }}
             </td>
-            <td class="right-align">
+
+			<td class="right-align">
                 <span class="left">R$</span>
                 {{ number_format($row->vICMS, 2, ',', '.') }}
             </td>

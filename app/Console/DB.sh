@@ -343,7 +343,7 @@ function Procedure_CadastraProdutoConversao() {
 
 function Procedure_CadastraNFe() {
 
-	echo 'CREATE OR REPLACE PROCEDURE Cadastra_NFe	(
+	echo 'CREATE OR REPLACE PROCEDURE Cadastra_NFe (
 		IN N_indOper CHAR(1) CHARSET utf8,
 		IN N_indEmit CHAR(1) CHARSET utf8,
 		IN N_codPart VARCHAR(60) CHARSET utf8,
@@ -545,10 +545,94 @@ function Procedure_NFe_Itens() {
 
 }
 
+# Cadastra notas na tabela `tb_nfe`
+function Procedure_Cadastra_NotasFiscais() {
+
+	echo 'CREATE OR REPLACE PROCEDURE Cadastra_NotaFiscal(
+		IN N_id VARCHAR(50) CHARSET utf8,
+		IN N_versao INT(11),
+		IN N_versao2 INT(11),
+		IN N_cUF INT(11),
+		IN N_cNF INT(11),
+		IN N_natOp VARCHAR(11) CHARSET utf8,
+		IN N_mod INT(11),
+		IN N_serie INT(11),
+		IN N_nNF INT(11),
+		IN N_dhEmi TIMESTAMP,
+		IN N_dhSaiEnt TIMESTAMP,
+		IN N_tpNf INT(11),
+		IN N_idDest INT(11),
+		IN N_cMunFG INT(11),
+		IN N_tpImp INT(11),
+		IN N_tpEmis INT(11),
+		IN N_cDV INT(11),
+		IN N_cEmi VARCHAR(17) CHARSET utf8,
+		IN N_cDest VARCHAR(17) CHARSET utf8,
+		IN N_tpAmb INT(11),
+		IN N_chNFe CHAR(44) CHARSET utf8,
+		IN N_dhRecbto DECIMAL(11, 2),
+		IN N_nProt VARCHAR(11) CHARSET utf8,
+		IN N_digVal VARCHAR(11) CHARSET utf8,
+		IN N_cStat SMALLINT(4),
+		IN N_xMotivo VARCHAR(11) CHARSET utf8,
+		IN N_vBC DECIMAL(10, 4),
+		IN N_vICMS DECIMAL(10, 4),
+		IN N_vICMSDeson DECIMAL(10, 4),
+		IN N_vFCP DECIMAL(10, 4),
+		IN N_vBCST DECIMAL(10, 4),
+		IN N_vST DECIMAL(10, 4),
+		IN N_vFCPST DECIMAL(10, 4),
+		IN N_vFCPSTRet DECIMAL(10, 4),
+		IN N_vProd DECIMAL(10, 4),
+		IN N_vFrete DECIMAL(10, 4),
+		IN N_vSeg DECIMAL(10, 4),
+		IN N_vDesc DECIMAL(10, 4),
+		IN N_vII DECIMAL(10, 4),
+		IN N_vIPI DECIMAL(10, 4),
+		IN N_vIPIDevol DECIMAL(10, 4),
+		IN N_vPIS DECIMAL(10, 4),
+		IN N_vCOFINS DECIMAL(10, 4),
+		IN N_vOutro DECIMAL(10, 4),
+		IN N_vNF DECIMAL(10, 4),
+		IN N_vTotTrib DECIMAL(10, 4),
+		IN N_modFrete INT(11),
+		IN N_cTransportadora VARCHAR(11) CHARSET utf8,
+		IN N_veicTranspPlaca VARCHAR(11) CHARSET utf8,
+		IN N_veicTranspUF VARCHAR(11) CHARSET utf8,
+		IN N_qVol DECIMAL(10, 3),
+		IN N_nVol VARCHAR(11) CHARSET utf8,
+		IN N_pesoL DECIMAL(10, 3),
+		IN N_pesoB DECIMAL(10, 3),
+		IN N_nFat VARCHAR(11) CHARSET utf8,
+		IN N_vOrig DECIMAL(10, 2),
+		IN N_vDescFat DECIMAL(10, 2),
+		IN N_vLiq DECIMAL(10, 2),
+		IN N_indPag INT(11),
+		IN N_tPag INT(2),
+		IN N_vPag DECIMAL(10, 2),
+		IN N_xml_file VARCHAR(11) CHARSET utf8
+	)
+	BEGIN
+
+		SET @nf=(SELECT COUNT(id) FROM tb_nfe WHERE chNFe = N_chNFe);
+
+		IF @nf = 0
+		THEN
+
+			INSERT INTO tb_nfe (`id`, `versao`, `versao2`, `cUF`, `cNF`, `natOp`, `mod`, `serie`, `nNF`, `dhEmi`, `dhSaiEnt`, `tpNf`, `idDest`, `cMunFG`, `tpImp`, `tpEmis`, `cDV`, `cEmi`, `cDest`, `tpAmb`, `chNFe`, `dhRecbto`, `nProt`, `digVal`, `cStat`, `xMotivo`, `vBC`, `vICMS`, `vICMSDeson`, `vFCP`, `vBCST`, `vST`, `vFCPST`, `vFCPSTRet`, `vProd`, `vFrete`, `vSeg`, `vDesc`, `vII`, `vIPI`, `vIPIDevol`, `vPIS`, `vCOFINS`, `vOutro`, `vNF`, `vTotTrib`, `modFrete`, `cTransportadora`, `veicTranspPlaca`, `veicTranspUF`, `qVol`, `nVol`, `pesoL`, `pesoB`, `nFat`, `vOrig`, `vDescFat`, `vLiq`, `indPag`, `tPag`, `vPag`, `xml_file`) VALUES (N_id, N_versao, N_versao2, N_cUF, N_cNF, N_natOp, N_mod, N_serie, N_nNF, N_dhEmi, N_dhSaiEnt, N_tpNf, N_idDest, N_cMunFG, N_tpImp, N_tpEmis, N_cDV, N_cEmi, N_cDest, N_tpAmb, N_chNFe, N_dhRecbto, N_nProt, N_digVal, N_cStat, N_xMotivo, N_vBC, N_vICMS, N_vICMSDeson, N_vFCP, N_vBCST, N_vST, N_vFCPST, N_vFCPSTRet, N_vProd, N_vFrete, N_vSeg, N_vDesc, N_vII, N_vIPI, N_vIPIDevol, N_vPIS, N_vCOFINS, N_vOutro, N_vNF, N_vTotTrib, N_modFrete, N_cTransportadora, N_veicTranspPlaca, N_veicTranspUF, N_qVol, N_nVol, N_pesoL, N_pesoB, N_nFat, N_vOrig, N_vDescFat, N_vLiq, N_indPag, N_tPag, N_vPag, N_xml_file);
+
+		END IF;
+
+	END $$
+	'
+
+}
+
 function Procedures() {
 
 	echo -e 'DELIMITER $$'
 
+	# Referente ao arquivo de Sped Fiscal
 	echo -e $(Procedure_CadastraSpedfiscal)
 	echo -e $(Procedure_CadastraFornecedor)
 	echo -e $(Procedure_CadastraParticipante)
@@ -560,6 +644,9 @@ function Procedures() {
 	echo -e $(Procedure_CadastraNFe)
 	echo -e $(Procedure_NFe_InformacaoComplementar)
 	echo -e $(Procedure_NFe_Itens)
+
+	# Referente ao arquivo de notas fiscais
+	echo -e $(Procedure_Cadastra_NotasFiscais)
 
 	echo -e $PROCEDURES
 	echo -e 'DELIMITER ;'

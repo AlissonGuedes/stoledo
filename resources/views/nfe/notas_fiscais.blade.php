@@ -26,12 +26,13 @@
                         <span> </span>
                     </label>
                 </th>
-				<th>Chave NFe</th>
-				<th>Numero/Série</th>
-				<th>V. Orig</th>
-				<th>V. Base de Cálculo</th>
-				<th>ICMS</th>
-				<th data-orderable="false"></th>
+                <th>Chave NFe</th>
+                <th>Numero/Série</th>
+                <th>Emitente</th>
+                <th>V. Orig</th>
+                <th>V. Base de Cálculo</th>
+                <th>ICMS</th>
+                <th data-orderable="false"></th>
             </tr>
         </thead>
     </table>

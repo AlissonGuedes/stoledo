@@ -19,7 +19,7 @@
 
                     <div class="card-content">
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col s12 l6">
                                 <div class="input-field">
                                     <label for="" class="grey-text">Tipo de Arquivo</label>
@@ -31,7 +31,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row">
                             <div class="col s12 l6">
@@ -114,7 +114,11 @@
             <div class="card">
                 <div class="card-content" style="padding: 15px;">
 
-                    <div class="card-title">Log de importação</div>
+                    <div class="card-title">Log de importação
+						<button id="log-rotate" class="btn btn-floating waves-effect transparent white-text btn-flat right pause">
+							<i class="material-icons grey-text text-darken-4">pause</i>
+						</button>
+					</div>
 
                 </div>
 
